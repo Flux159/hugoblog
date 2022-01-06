@@ -13,7 +13,7 @@ brew install hugo
 ### Development
 
 ```
-hugo server -D
+hugo server -D -b localhost:1313
 ```
 
 Then go to http://localhost:1313/
