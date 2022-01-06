@@ -35,7 +35,7 @@ params:
     favicon:
 
     footer:
-        since: 2020
+        since: 2019
         customText:
 
     dateFormat:
@@ -173,6 +173,7 @@ params:
 ### Custom menu
 ### See https://docs.stack.jimmycai.com/configuration/custom-menu.html
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+### The hugo documention on this is here: https://gohugo.io/variables/menus/
 menu:
     main:
         - identifier: home
