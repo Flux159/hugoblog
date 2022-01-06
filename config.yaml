@@ -1,4 +1,4 @@
-baseurl: https://flux159.github.io/hugoblog
+baseurl: https://flux159.github.io/hugoblog/
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
@@ -177,12 +177,30 @@ menu:
     main:
         - identifier: home
           name: Home
-          url: /
+          url: ./
           weight: -100
           params:
               ### For demonstration purpose, the home link will be open in a new tab
               newTab: false
               icon: home
+        - identifier: about
+          name: About
+          url: ./about
+          weight: -90
+          params:
+            icon: user
+        - identifier: archives
+          name: Archives
+          url: ./archives
+          weight: -70
+          params:
+            icon: archives
+        - identifier: search
+          name: Search
+          url: ./search
+          weight: -70
+          params:
+            icon: search
     
     social:
         - identifier: github

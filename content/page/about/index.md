@@ -6,20 +6,15 @@ description: "Suyogs Website"
 date: 2019-11-28
 aliases:
   - about
-menu:
-  main: 
-      weight: -90
-      params:
-          icon: user
 ---
 
 A humble beginning for my blog.
 
-[Work](/work)
+[Work](../work)
 
-[Projects](/projects)
+[Projects](../projects)
 
-[Experiments and Thoughts](/categories/experiments/)
+[Experiments and Thoughts](../categories/experiments/)
 
 <!-- TODO: Add paginated / searchable index page -->
 
