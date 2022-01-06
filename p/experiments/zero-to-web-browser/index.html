@@ -2,17 +2,17 @@
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro This is mainly a thought project I&amp;rsquo;ve had for a while now taking inspiration from Nand2Tetris, OS Development, Build your own react and various projects working on making an Operating Sytem from scratch.
 I want to take the next step from writing an OS (bootloader, kernel, processes &amp;amp; memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web."><title>Zero to Web Browser</title>
-<link rel=canonical href=https://flux159.github.io/hugoblog/p/experiments/zero-to-web-browser/>
-<link rel=stylesheet href=/hugoblog/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css><meta property="og:title" content="Zero to Web Browser">
+<link rel=canonical href=https://suyogs.com/p/experiments/zero-to-web-browser/>
+<link rel=stylesheet href=/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css><meta property="og:title" content="Zero to Web Browser">
 <meta property="og:description" content="Intro This is mainly a thought project I&amp;rsquo;ve had for a while now taking inspiration from Nand2Tetris, OS Development, Build your own react and various projects working on making an Operating Sytem from scratch.
 I want to take the next step from writing an OS (bootloader, kernel, processes &amp;amp; memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web.">
-<meta property="og:url" content="https://flux159.github.io/hugoblog/p/experiments/zero-to-web-browser/">
+<meta property="og:url" content="https://suyogs.com/p/experiments/zero-to-web-browser/">
 <meta property="og:site_name" content="Suyog's Blog">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="experiments"><meta property="article:published_time" content="2019-11-28T00:00:00+00:00"><meta property="article:modified_time" content="2019-11-28T00:00:00+00:00"><meta property="og:image" content="https://flux159.github.io/hugoblog/images/zero_to_web_browser/chrome.png">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="experiments"><meta property="article:published_time" content="2019-11-28T00:00:00+00:00"><meta property="article:modified_time" content="2019-11-28T00:00:00+00:00"><meta property="og:image" content="https://suyogs.com/images/zero_to_web_browser/chrome.png">
 <meta name=twitter:title content="Zero to Web Browser">
 <meta name=twitter:description content="Intro This is mainly a thought project I&amp;rsquo;ve had for a while now taking inspiration from Nand2Tetris, OS Development, Build your own react and various projects working on making an Operating Sytem from scratch.
 I want to take the next step from writing an OS (bootloader, kernel, processes &amp;amp; memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web."><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://flux159.github.io/hugoblog/images/zero_to_web_browser/chrome.png">
+<meta name=twitter:image content="https://suyogs.com/images/zero_to_web_browser/chrome.png">
 </head>
 <body class=article-page>
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
@@ -25,7 +25,7 @@ on-phone--column extended">
 </span>
 </button>
 <header class=site-info>
-<h1 class=site-name><a href=/hugoblog>Suyog's Blog</a></h1>
+<h1 class=site-name><a href=/>Suyog's Blog</a></h1>
 <h2 class=site-description>Chronotale. Ex-Meta, Ex-Oscar software engineer.</h2><ol class=social-menu>
 <li>
 <a href=https://github.com/flux159/hugoblog target=_blank title=GitHub><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
@@ -38,22 +38,22 @@ on-phone--column extended">
 </ol></header>
 <ol class=menu id=main-menu>
 <li>
-<a href=/hugoblog/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<a href=/./><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
 <span>Home</span>
 </a>
 </li>
 <li>
-<a href=/hugoblog/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
 <span>About</span>
 </a>
 </li>
 <li>
-<a href=/hugoblog/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
 <span>Archives</span>
 </a>
 </li>
 <li>
-<a href=/hugoblog/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
 <span>Search</span>
 </a>
 </li>
@@ -66,18 +66,18 @@ on-phone--column extended">
 <article class="has-image main-article">
 <header class=article-header>
 <div class=article-image>
-<a href=/hugoblog/p/experiments/zero-to-web-browser/>
-<img src=/hugoblog/images/zero_to_web_browser/chrome.png loading=lazy alt="Featured image of post Zero to Web Browser">
+<a href=/p/experiments/zero-to-web-browser/>
+<img src=/images/zero_to_web_browser/chrome.png loading=lazy alt="Featured image of post Zero to Web Browser">
 </a>
 </div>
 <div class=article-details>
 <header class=article-category>
-<a href=/hugoblog/categories/experiments/ style=background-color:#2a9d8f;color:#fff>
+<a href=/categories/experiments/ style=background-color:#2a9d8f;color:#fff>
 Experiments
 </a>
 </header>
 <h2 class=article-title>
-<a href=/hugoblog/p/experiments/zero-to-web-browser/>Zero to Web Browser</a>
+<a href=/p/experiments/zero-to-web-browser/>Zero to Web Browser</a>
 </h2>
 <footer class=article-time>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
@@ -118,7 +118,7 @@ Experiments
 </section>
 <footer class=article-footer>
 <section class=article-tags>
-<a href=/hugoblog/tags/experiments/>experiments</a>
+<a href=/tags/experiments/>experiments</a>
 </section>
 <section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
 <span>Licensed under CC BY-NC-SA 4.0</span>
@@ -130,9 +130,9 @@ Experiments
 <div class=related-contents>
 <div class="flex article-list--tile">
 <article class=has-image>
-<a href=/hugoblog/p/experiments/next-js-with-postgraphile/>
+<a href=/p/experiments/next-js-with-postgraphile/>
 <div class=article-image>
-<img src=/hugoblog/images/nextjs_postgraphile/postgraphile.png loading=lazy data-key=/experiments/next-js-with-postgraphile data-hash=/hugoblog/images/nextjs_postgraphile/postgraphile.png>
+<img src=/images/nextjs_postgraphile/postgraphile.png loading=lazy data-key=/experiments/next-js-with-postgraphile data-hash=/images/nextjs_postgraphile/postgraphile.png>
 </div>
 <div class=article-details>
 <h2 class=article-title>Next.js with Postgraphile</h2>
@@ -140,9 +140,9 @@ Experiments
 </a>
 </article>
 <article class=has-image>
-<a href=/hugoblog/p/experiments/windows-gaming-pc-on-aws/>
+<a href=/p/experiments/windows-gaming-pc-on-aws/>
 <div class=article-image>
-<img src=/hugoblog/images/windows_gaming_aws/steam.png loading=lazy data-key=/experiments/windows-gaming-pc-on-aws data-hash=/hugoblog/images/windows_gaming_aws/steam.png>
+<img src=/images/windows_gaming_aws/steam.png loading=lazy data-key=/experiments/windows-gaming-pc-on-aws data-hash=/images/windows_gaming_aws/steam.png>
 </div>
 <div class=article-details>
 <h2 class=article-title>Create your own Windows Gaming PC on AWS</h2>
@@ -150,9 +150,9 @@ Experiments
 </a>
 </article>
 <article class=has-image>
-<a href=/hugoblog/p/experiments/vscode-online-with-aws/>
+<a href=/p/experiments/vscode-online-with-aws/>
 <div class=article-image>
-<img src=/hugoblog/images/vscode_online/vscode.png loading=lazy data-key=/experiments/vscode-online-with-aws data-hash=/hugoblog/images/vscode_online/vscode.png>
+<img src=/images/vscode_online/vscode.png loading=lazy data-key=/experiments/vscode-online-with-aws data-hash=/images/vscode_online/vscode.png>
 </div>
 <div class=article-details>
 <h2 class=article-title>VSCode Online with AWS</h2>
@@ -160,9 +160,9 @@ Experiments
 </a>
 </article>
 <article class=has-image>
-<a href=/hugoblog/p/experiments/github-pages-for-static-sites/>
+<a href=/p/experiments/github-pages-for-static-sites/>
 <div class=article-image>
-<img src=/hugoblog/images/github_pages/github_pages_cropped.png loading=lazy data-key=/experiments/github-pages-for-static-sites data-hash=/hugoblog/images/github_pages/github_pages_cropped.png>
+<img src=/images/github_pages/github_pages_cropped.png loading=lazy data-key=/experiments/github-pages-for-static-sites data-hash=/images/github_pages/github_pages_cropped.png>
 </div>
 <div class=article-details>
 <h2 class=article-title>Github Pages for Static Sites</h2>
@@ -170,9 +170,9 @@ Experiments
 </a>
 </article>
 <article class=has-image>
-<a href=/hugoblog/p/experiments/qemu-and-tinycore/>
+<a href=/p/experiments/qemu-and-tinycore/>
 <div class=article-image>
-<img src=/hugoblog/images/qemu_and_tinycore_linux/qemu.png loading=lazy data-key=/experiments/qemu-and-tinycore data-hash=/hugoblog/images/qemu_and_tinycore_linux/qemu.png>
+<img src=/images/qemu_and_tinycore_linux/qemu.png loading=lazy data-key=/experiments/qemu-and-tinycore data-hash=/images/qemu_and_tinycore_linux/qemu.png>
 </div>
 <div class=article-details>
 <h2 class=article-title>QEMU and Tinycore Linux</h2>
@@ -231,7 +231,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
 </main>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/hugoblog/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>

@@ -1,22 +1,22 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Google Stadia recently came out and one of the interesting things about it is that it streams games from the cloud to your devices. I had previously built a gaming PC around 10 years ago with an Nvidia GTX 260 and an Intel Core i5-750 (eventually upgraded to Nvidia 750 Ti). I hadn’t used the PC in a while and my experiments with setting up VSCode on AWS got me thinking about setting up my own Gaming server on AWS too."><title>Create your own Windows Gaming PC on AWS</title>
-<link rel=canonical href=https://flux159.github.io/hugoblog/p/experiments/windows-gaming-pc-on-aws/>
-<link rel=stylesheet href=/hugoblog/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css><meta property="og:title" content="Create your own Windows Gaming PC on AWS">
+<link rel=canonical href=https://suyogs.com/p/experiments/windows-gaming-pc-on-aws/>
+<link rel=stylesheet href=/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css><meta property="og:title" content="Create your own Windows Gaming PC on AWS">
 <meta property="og:description" content="Google Stadia recently came out and one of the interesting things about it is that it streams games from the cloud to your devices. I had previously built a gaming PC around 10 years ago with an Nvidia GTX 260 and an Intel Core i5-750 (eventually upgraded to Nvidia 750 Ti). I hadn’t used the PC in a while and my experiments with setting up VSCode on AWS got me thinking about setting up my own Gaming server on AWS too.">
-<meta property="og:url" content="https://flux159.github.io/hugoblog/p/experiments/windows-gaming-pc-on-aws/">
+<meta property="og:url" content="https://suyogs.com/p/experiments/windows-gaming-pc-on-aws/">
 <meta property="og:site_name" content="Suyog's Blog">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="experiments"><meta property="article:published_time" content="2019-12-30T00:00:00+00:00"><meta property="article:modified_time" content="2019-12-30T00:00:00+00:00"><meta property="og:image" content="https://flux159.github.io/hugoblog/images/windows_gaming_aws/steam.png">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="experiments"><meta property="article:published_time" content="2019-12-30T00:00:00+00:00"><meta property="article:modified_time" content="2019-12-30T00:00:00+00:00"><meta property="og:image" content="https://suyogs.com/images/windows_gaming_aws/steam.png">
 <meta name=twitter:title content="Create your own Windows Gaming PC on AWS">
 <meta name=twitter:description content="Google Stadia recently came out and one of the interesting things about it is that it streams games from the cloud to your devices. I had previously built a gaming PC around 10 years ago with an Nvidia GTX 260 and an Intel Core i5-750 (eventually upgraded to Nvidia 750 Ti). I hadn’t used the PC in a while and my experiments with setting up VSCode on AWS got me thinking about setting up my own Gaming server on AWS too."><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://flux159.github.io/hugoblog/images/windows_gaming_aws/steam.png">
+<meta name=twitter:image content="https://suyogs.com/images/windows_gaming_aws/steam.png">
 </head>
 <body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
 <div class="container main-container flex
 extended">
 <div id=article-toolbar>
-<a href=/hugoblog class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
 <span>Back</span>
 </a>
 </div>
@@ -24,18 +24,18 @@ extended">
 <article class="has-image main-article">
 <header class=article-header>
 <div class=article-image>
-<a href=/hugoblog/p/experiments/windows-gaming-pc-on-aws/>
-<img src=/hugoblog/images/windows_gaming_aws/steam.png loading=lazy alt="Featured image of post Create your own Windows Gaming PC on AWS">
+<a href=/p/experiments/windows-gaming-pc-on-aws/>
+<img src=/images/windows_gaming_aws/steam.png loading=lazy alt="Featured image of post Create your own Windows Gaming PC on AWS">
 </a>
 </div>
 <div class=article-details>
 <header class=article-category>
-<a href=/hugoblog/categories/experiments/ style=background-color:#2a9d8f;color:#fff>
+<a href=/categories/experiments/ style=background-color:#2a9d8f;color:#fff>
 Experiments
 </a>
 </header>
 <h2 class=article-title>
-<a href=/hugoblog/p/experiments/windows-gaming-pc-on-aws/>Create your own Windows Gaming PC on AWS</a>
+<a href=/p/experiments/windows-gaming-pc-on-aws/>Create your own Windows Gaming PC on AWS</a>
 </h2>
 <footer class=article-time>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
@@ -64,204 +64,204 @@ Experiments
 <li>Login to your <a class=link href="https://console.aws.amazon.com/ec2/home?region=us-east-1#Instances:sort=instanceId" target=_blank rel=noopener>AWS Console</a> and start a new Windows Instance (On Demand) with a g4dn.xlarge VM. Add a 128GB EBS Drive to the machine as well.</li>
 </ul>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/launchinstance.png>
-<img src=/hugoblog/images/windows_gaming_aws/launchinstance.png loading=lazy alt=launchinstance>
+<a href=/images/windows_gaming_aws/launchinstance.png>
+<img src=/images/windows_gaming_aws/launchinstance.png loading=lazy alt=launchinstance>
 </a>
 <figcaption>launchinstance</figcaption>
 </figure></p>
 <p>Choose the Windows Server 2019 AMI with a g4dn vm.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/windowsserver2019ami.png>
-<img src=/hugoblog/images/windows_gaming_aws/windowsserver2019ami.png loading=lazy alt=windowsserver2019ami>
+<a href=/images/windows_gaming_aws/windowsserver2019ami.png>
+<img src=/images/windows_gaming_aws/windowsserver2019ami.png loading=lazy alt=windowsserver2019ami>
 </a>
 <figcaption>windowsserver2019ami</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/g4dnvm.png>
-<img src=/hugoblog/images/windows_gaming_aws/g4dnvm.png loading=lazy alt=g4dnvm>
+<a href=/images/windows_gaming_aws/g4dnvm.png>
+<img src=/images/windows_gaming_aws/g4dnvm.png loading=lazy alt=g4dnvm>
 </a>
 <figcaption>g4dnvm</figcaption>
 </figure></p>
 <p>Add a 128GB volume (or more) as your root volume. Feel free to resize to whatever size you need for your games. Note that since the vm is on AWS, steam downloads will generally be extremely fast (50MB/s +), so you could even get a smaller drive and just delete items as needed.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/addvolume.png>
-<img src=/hugoblog/images/windows_gaming_aws/addvolume.png loading=lazy alt=addvolume>
+<a href=/images/windows_gaming_aws/addvolume.png>
+<img src=/images/windows_gaming_aws/addvolume.png loading=lazy alt=addvolume>
 </a>
 <figcaption>addvolume</figcaption>
 </figure></p>
 <p>When adding a security group, make sure to make the following ports open along with TCP 22 for SSH:</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/ports1.png>
-<img src=/hugoblog/images/windows_gaming_aws/ports1.png loading=lazy alt=ports1>
+<a href=/images/windows_gaming_aws/ports1.png>
+<img src=/images/windows_gaming_aws/ports1.png loading=lazy alt=ports1>
 </a>
 <figcaption>ports1</figcaption>
 </figure>
 <figure>
-<a href=/hugoblog/images/windows_gaming_aws/ports2.png>
-<img src=/hugoblog/images/windows_gaming_aws/ports2.png loading=lazy alt=ports2>
+<a href=/images/windows_gaming_aws/ports2.png>
+<img src=/images/windows_gaming_aws/ports2.png loading=lazy alt=ports2>
 </a>
 <figcaption>ports2</figcaption>
 </figure>
 <figure>
-<a href=/hugoblog/images/windows_gaming_aws/ports3.png>
-<img src=/hugoblog/images/windows_gaming_aws/ports3.png loading=lazy alt=ports3>
+<a href=/images/windows_gaming_aws/ports3.png>
+<img src=/images/windows_gaming_aws/ports3.png loading=lazy alt=ports3>
 </a>
 <figcaption>ports3</figcaption>
 </figure></p>
 <p>When you launch the instance, you want to click on it in the AWS UI and use the &ldquo;Connect&rdquo; button to get Remote Desktop connection and password information.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/connectbuttonaws.png>
-<img src=/hugoblog/images/windows_gaming_aws/connectbuttonaws.png loading=lazy alt=connect>
+<a href=/images/windows_gaming_aws/connectbuttonaws.png>
+<img src=/images/windows_gaming_aws/connectbuttonaws.png loading=lazy alt=connect>
 </a>
 <figcaption>connect</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/downloadremotefile.png>
-<img src=/hugoblog/images/windows_gaming_aws/downloadremotefile.png loading=lazy alt=downloadremotedesktop>
+<a href=/images/windows_gaming_aws/downloadremotefile.png>
+<img src=/images/windows_gaming_aws/downloadremotefile.png loading=lazy alt=downloadremotedesktop>
 </a>
 <figcaption>downloadremotedesktop</figcaption>
 </figure></p>
 <p>Connect using your remote desktop client and get the password from the AWS connect modal.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/remotedesktop.png>
-<img src=/hugoblog/images/windows_gaming_aws/remotedesktop.png loading=lazy alt=remotedesktop>
+<a href=/images/windows_gaming_aws/remotedesktop.png>
+<img src=/images/windows_gaming_aws/remotedesktop.png loading=lazy alt=remotedesktop>
 </a>
 <figcaption>remotedesktop</figcaption>
 </figure></p>
 <p>Note that if you see this error message when retrieving your password, you usually just need to wait a few minutes while the VM is initializing.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/windowspasswordnotavailableaws.png>
-<img src=/hugoblog/images/windows_gaming_aws/windowspasswordnotavailableaws.png loading=lazy alt=passwordnotavailable>
+<a href=/images/windows_gaming_aws/windowspasswordnotavailableaws.png>
+<img src=/images/windows_gaming_aws/windowspasswordnotavailableaws.png loading=lazy alt=passwordnotavailable>
 </a>
 <figcaption>passwordnotavailable</figcaption>
 </figure></p>
 <p>Once you&rsquo;ve connected via Remote desktop to your Windows Machine, you should see a virtual desktop</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/ec2windowsdesktop.png>
-<img src=/hugoblog/images/windows_gaming_aws/ec2windowsdesktop.png loading=lazy alt=ec2windowsdesktop>
+<a href=/images/windows_gaming_aws/ec2windowsdesktop.png>
+<img src=/images/windows_gaming_aws/ec2windowsdesktop.png loading=lazy alt=ec2windowsdesktop>
 </a>
 <figcaption>ec2windowsdesktop</figcaption>
 </figure></p>
 <h2 id=disable-ie-restrictions-and-get-chrome>Disable IE Restrictions and get Chrome</h2>
 <p>IE on Windows Server has some insane restrictions on website content and downloads. Open IE the first time and make sure to disable &ldquo;Internet Explorer Enhanced Security Configuration&rdquo; in Server Manager settings in order to download Chrome and set it up as your default browser.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/ieawful.png>
-<img src=/hugoblog/images/windows_gaming_aws/ieawful.png loading=lazy alt=ieawful>
+<a href=/images/windows_gaming_aws/ieawful.png>
+<img src=/images/windows_gaming_aws/ieawful.png loading=lazy alt=ieawful>
 </a>
 <figcaption>ieawful</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/servermanageriesettings0.png>
-<img src=/hugoblog/images/windows_gaming_aws/servermanageriesettings0.png loading=lazy alt=servermanageriesettings0>
+<a href=/images/windows_gaming_aws/servermanageriesettings0.png>
+<img src=/images/windows_gaming_aws/servermanageriesettings0.png loading=lazy alt=servermanageriesettings0>
 </a>
 <figcaption>servermanageriesettings0</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/servermanageriesettings.png>
-<img src=/hugoblog/images/windows_gaming_aws/servermanageriesettings.png loading=lazy alt=servermanageriesettings>
+<a href=/images/windows_gaming_aws/servermanageriesettings.png>
+<img src=/images/windows_gaming_aws/servermanageriesettings.png loading=lazy alt=servermanageriesettings>
 </a>
 <figcaption>servermanageriesettings</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/makechromedefault.png>
-<img src=/hugoblog/images/windows_gaming_aws/makechromedefault.png loading=lazy alt=makechromedefault>
+<a href=/images/windows_gaming_aws/makechromedefault.png>
+<img src=/images/windows_gaming_aws/makechromedefault.png loading=lazy alt=makechromedefault>
 </a>
 <figcaption>makechromedefault</figcaption>
 </figure></p>
 <h2 id=install-nvidia-graphics-drivers-grid-drivers>Install Nvidia Graphics Drivers, GRID drivers</h2>
 <p>Following the <a class=link href=https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html target=_blank rel=noopener>AWS Guide</a>, download the <a class=link href=https://www.nvidia.com/Download/Find.aspx target=_blank rel=noopener>Nvidia graphics drivers</a> and <a class=link href=https://s3.amazonaws.com/nvidia-gaming/GRID-436.30-vGaming-Windows-Guest-Drivers.zip target=_blank rel=noopener>GRID drivers</a> for your G4 machine. (The Nvidia Drivers are for T4 GPUs).</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/nvidiadriverst4.png>
-<img src=/hugoblog/images/windows_gaming_aws/nvidiadriverst4.png loading=lazy alt=nvidiadriverst4>
+<a href=/images/windows_gaming_aws/nvidiadriverst4.png>
+<img src=/images/windows_gaming_aws/nvidiadriverst4.png loading=lazy alt=nvidiadriverst4>
 </a>
 <figcaption>nvidiadriverst4</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/nvidiadriversinstalled.png>
-<img src=/hugoblog/images/windows_gaming_aws/nvidiadriversinstalled.png loading=lazy alt=nvidiadriversinstalled>
+<a href=/images/windows_gaming_aws/nvidiadriversinstalled.png>
+<img src=/images/windows_gaming_aws/nvidiadriversinstalled.png loading=lazy alt=nvidiadriversinstalled>
 </a>
 <figcaption>nvidiadriversinstalled</figcaption>
 </figure></p>
 <p>Make sure to also configure the GRID drivers appropriately according the the <a class=link href=https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html target=_blank rel=noopener>AWS Guide</a></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/extractgrid.png>
-<img src=/hugoblog/images/windows_gaming_aws/extractgrid.png loading=lazy alt=extractgrid>
+<a href=/images/windows_gaming_aws/extractgrid.png>
+<img src=/images/windows_gaming_aws/extractgrid.png loading=lazy alt=extractgrid>
 </a>
 <figcaption>extractgrid</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/gridinstalled.png>
-<img src=/hugoblog/images/windows_gaming_aws/gridinstalled.png loading=lazy alt=gridinstalled>
+<a href=/images/windows_gaming_aws/gridinstalled.png>
+<img src=/images/windows_gaming_aws/gridinstalled.png loading=lazy alt=gridinstalled>
 </a>
 <figcaption>gridinstalled</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/awsguidegridcomplete.png>
-<img src=/hugoblog/images/windows_gaming_aws/awsguidegridcomplete.png loading=lazy alt=awsguidegridcomplete>
+<a href=/images/windows_gaming_aws/awsguidegridcomplete.png>
+<img src=/images/windows_gaming_aws/awsguidegridcomplete.png loading=lazy alt=awsguidegridcomplete>
 </a>
 <figcaption>awsguidegridcomplete</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/registryeditor.png>
-<img src=/hugoblog/images/windows_gaming_aws/registryeditor.png loading=lazy alt=registryeditor>
+<a href=/images/windows_gaming_aws/registryeditor.png>
+<img src=/images/windows_gaming_aws/registryeditor.png loading=lazy alt=registryeditor>
 </a>
 <figcaption>registryeditor</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/nvidianewdword.png>
-<img src=/hugoblog/images/windows_gaming_aws/nvidianewdword.png loading=lazy alt=nvidianewdword>
+<a href=/images/windows_gaming_aws/nvidianewdword.png>
+<img src=/images/windows_gaming_aws/nvidianewdword.png loading=lazy alt=nvidianewdword>
 </a>
 <figcaption>nvidianewdword</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/nvidiaeditdword.png>
-<img src=/hugoblog/images/windows_gaming_aws/nvidiaeditdword.png loading=lazy alt=nvidiaeditdword>
+<a href=/images/windows_gaming_aws/nvidiaeditdword.png>
+<img src=/images/windows_gaming_aws/nvidiaeditdword.png loading=lazy alt=nvidiaeditdword>
 </a>
 <figcaption>nvidiaeditdword</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/gridswcertpublic.png>
-<img src=/hugoblog/images/windows_gaming_aws/gridswcertpublic.png loading=lazy alt=gridswcertpublic>
+<a href=/images/windows_gaming_aws/gridswcertpublic.png>
+<img src=/images/windows_gaming_aws/gridswcertpublic.png loading=lazy alt=gridswcertpublic>
 </a>
 <figcaption>gridswcertpublic</figcaption>
 </figure></p>
 <h2 id=disable-windows-basic-display-driver-and-install-windows-features>Disable Windows Basic Display Driver and install Windows Features</h2>
 <p>Before restarting the VM, configure and install some windows settings and features. First, disable the windows basic display driver via device manager.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/controlpanel.png>
-<img src=/hugoblog/images/windows_gaming_aws/controlpanel.png loading=lazy alt=controlpanel>
+<a href=/images/windows_gaming_aws/controlpanel.png>
+<img src=/images/windows_gaming_aws/controlpanel.png loading=lazy alt=controlpanel>
 </a>
 <figcaption>controlpanel</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/devicemanager.png>
-<img src=/hugoblog/images/windows_gaming_aws/devicemanager.png loading=lazy alt=devicemanager>
+<a href=/images/windows_gaming_aws/devicemanager.png>
+<img src=/images/windows_gaming_aws/devicemanager.png loading=lazy alt=devicemanager>
 </a>
 <figcaption>devicemanager</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/disablebasicdisplay.png>
-<img src=/hugoblog/images/windows_gaming_aws/disablebasicdisplay.png loading=lazy alt=disablebasicdisplay>
+<a href=/images/windows_gaming_aws/disablebasicdisplay.png>
+<img src=/images/windows_gaming_aws/disablebasicdisplay.png loading=lazy alt=disablebasicdisplay>
 </a>
 <figcaption>disablebasicdisplay</figcaption>
 </figure></p>
 <p>Then install some required Windows Features from Server Manager. Specifically after opening Server Manager, you want to use &ldquo;Local Server&rdquo;, and scroll all the way to the bottom to get to the &ldquo;Roles and Features&rdquo; section. In &ldquo;Tasks&rdquo;, you&rsquo;ll get a button to &ldquo;Add Roles and Features&rdquo;.</p>
 <p>You want to add at least Media Foundation, QWAVE (Quality Windows Audio Video Experience), and .NET 3.5.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/servermanager.png>
-<img src=/hugoblog/images/windows_gaming_aws/servermanager.png loading=lazy alt=servermanager>
+<a href=/images/windows_gaming_aws/servermanager.png>
+<img src=/images/windows_gaming_aws/servermanager.png loading=lazy alt=servermanager>
 </a>
 <figcaption>servermanager</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/localserveraddfeature.png>
-<img src=/hugoblog/images/windows_gaming_aws/localserveraddfeature.png loading=lazy alt=localserveraddfeature>
+<a href=/images/windows_gaming_aws/localserveraddfeature.png>
+<img src=/images/windows_gaming_aws/localserveraddfeature.png loading=lazy alt=localserveraddfeature>
 </a>
 <figcaption>localserveraddfeature</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/mediafoundationqwave.png>
-<img src=/hugoblog/images/windows_gaming_aws/mediafoundationqwave.png loading=lazy alt=mediafoundationqwave>
+<a href=/images/windows_gaming_aws/mediafoundationqwave.png>
+<img src=/images/windows_gaming_aws/mediafoundationqwave.png loading=lazy alt=mediafoundationqwave>
 </a>
 <figcaption>mediafoundationqwave</figcaption>
 </figure></p>
@@ -271,20 +271,20 @@ Experiments
 <p>Download and Install <a class=link href=https://store.steampowered.com/about/ target=_blank rel=noopener>Steam</a>, <a class=link href=https://www.vpn.net target=_blank rel=noopener>Hamachi</a>, <a class=link href=https://www.blender.org/ target=_blank rel=noopener>Blender</a>, and <a class=link href=https://www.razer.com/7.1-surround-sound target=_blank rel=noopener>Razer Sound 7.1</a>. Note that you only need to install Razer Sound, you don&rsquo;t need to log in (this is to provide audio drivers).</p>
 <p>Login to the same Steam account on your VM and on your client. Also for Hamachi, make sure that your VM and Client are connected to the same VPN group.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/steam.png>
-<img src=/hugoblog/images/windows_gaming_aws/steam.png loading=lazy alt=steam>
+<a href=/images/windows_gaming_aws/steam.png>
+<img src=/images/windows_gaming_aws/steam.png loading=lazy alt=steam>
 </a>
 <figcaption>steam</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/hamachi.png>
-<img src=/hugoblog/images/windows_gaming_aws/hamachi.png loading=lazy alt=hamachi>
+<a href=/images/windows_gaming_aws/hamachi.png>
+<img src=/images/windows_gaming_aws/hamachi.png loading=lazy alt=hamachi>
 </a>
 <figcaption>hamachi</figcaption>
 </figure></p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/blender.png>
-<img src=/hugoblog/images/windows_gaming_aws/blender.png loading=lazy alt=blender>
+<a href=/images/windows_gaming_aws/blender.png>
+<img src=/images/windows_gaming_aws/blender.png loading=lazy alt=blender>
 </a>
 <figcaption>blender</figcaption>
 </figure></p>
@@ -292,8 +292,8 @@ Experiments
 <p>When logged into Steam on the remote VM, go to Steam Settings -> Remote Play -> Advanced Host Options.</p>
 <p><a class=link href=https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/ target=_blank rel=noopener>Disable</a> &ldquo;Dynamically adjust screen capture&rdquo; and &ldquo;Use NVFBC capture on NVIDIA GPU&rdquo; if you have issues with games crashing on startup.</p>
 <p><figure>
-<a href=/hugoblog/images/windows_gaming_aws/steamoptions.png>
-<img src=/hugoblog/images/windows_gaming_aws/steamoptions.png loading=lazy alt=steamoptions>
+<a href=/images/windows_gaming_aws/steamoptions.png>
+<img src=/images/windows_gaming_aws/steamoptions.png loading=lazy alt=steamoptions>
 </a>
 <figcaption>steamoptions</figcaption>
 </figure></p>
@@ -327,7 +327,7 @@ Rundll32.exe User32.dll,LockWorkStation
 </section>
 <footer class=article-footer>
 <section class=article-tags>
-<a href=/hugoblog/tags/experiments/>experiments</a>
+<a href=/tags/experiments/>experiments</a>
 </section>
 <section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
 <span>Licensed under CC BY-NC-SA 4.0</span>
@@ -339,9 +339,9 @@ Rundll32.exe User32.dll,LockWorkStation
 <div class=related-contents>
 <div class="flex article-list--tile">
 <article class=has-image>
-<a href=/hugoblog/p/experiments/next-js-with-postgraphile/>
+<a href=/p/experiments/next-js-with-postgraphile/>
 <div class=article-image>
-<img src=/hugoblog/images/nextjs_postgraphile/postgraphile.png loading=lazy data-key=/experiments/next-js-with-postgraphile data-hash=/hugoblog/images/nextjs_postgraphile/postgraphile.png>
+<img src=/images/nextjs_postgraphile/postgraphile.png loading=lazy data-key=/experiments/next-js-with-postgraphile data-hash=/images/nextjs_postgraphile/postgraphile.png>
 </div>
 <div class=article-details>
 <h2 class=article-title>Next.js with Postgraphile</h2>
@@ -349,9 +349,9 @@ Rundll32.exe User32.dll,LockWorkStation
 </a>
 </article>
 <article class=has-image>
-<a href=/hugoblog/p/experiments/vscode-online-with-aws/>
+<a href=/p/experiments/vscode-online-with-aws/>
 <div class=article-image>
-<img src=/hugoblog/images/vscode_online/vscode.png loading=lazy data-key=/experiments/vscode-online-with-aws data-hash=/hugoblog/images/vscode_online/vscode.png>
+<img src=/images/vscode_online/vscode.png loading=lazy data-key=/experiments/vscode-online-with-aws data-hash=/images/vscode_online/vscode.png>
 </div>
 <div class=article-details>
 <h2 class=article-title>VSCode Online with AWS</h2>
@@ -359,9 +359,9 @@ Rundll32.exe User32.dll,LockWorkStation
 </a>
 </article>
 <article class=has-image>
-<a href=/hugoblog/p/experiments/github-pages-for-static-sites/>
+<a href=/p/experiments/github-pages-for-static-sites/>
 <div class=article-image>
-<img src=/hugoblog/images/github_pages/github_pages_cropped.png loading=lazy data-key=/experiments/github-pages-for-static-sites data-hash=/hugoblog/images/github_pages/github_pages_cropped.png>
+<img src=/images/github_pages/github_pages_cropped.png loading=lazy data-key=/experiments/github-pages-for-static-sites data-hash=/images/github_pages/github_pages_cropped.png>
 </div>
 <div class=article-details>
 <h2 class=article-title>Github Pages for Static Sites</h2>
@@ -369,9 +369,9 @@ Rundll32.exe User32.dll,LockWorkStation
 </a>
 </article>
 <article class=has-image>
-<a href=/hugoblog/p/experiments/qemu-and-tinycore/>
+<a href=/p/experiments/qemu-and-tinycore/>
 <div class=article-image>
-<img src=/hugoblog/images/qemu_and_tinycore_linux/qemu.png loading=lazy data-key=/experiments/qemu-and-tinycore data-hash=/hugoblog/images/qemu_and_tinycore_linux/qemu.png>
+<img src=/images/qemu_and_tinycore_linux/qemu.png loading=lazy data-key=/experiments/qemu-and-tinycore data-hash=/images/qemu_and_tinycore_linux/qemu.png>
 </div>
 <div class=article-details>
 <h2 class=article-title>QEMU and Tinycore Linux</h2>
@@ -379,9 +379,9 @@ Rundll32.exe User32.dll,LockWorkStation
 </a>
 </article>
 <article class=has-image>
-<a href=/hugoblog/p/experiments/titanic-dataset/>
+<a href=/p/experiments/titanic-dataset/>
 <div class=article-image>
-<img src=/hugoblog/images/titanic_dataset/titanic.jpeg loading=lazy data-key=/experiments/titanic-dataset data-hash=/hugoblog/images/titanic_dataset/titanic.jpeg>
+<img src=/images/titanic_dataset/titanic.jpeg loading=lazy data-key=/experiments/titanic-dataset data-hash=/images/titanic_dataset/titanic.jpeg>
 </div>
 <div class=article-details>
 <h2 class=article-title>Titanic Dataset</h2>
@@ -467,7 +467,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </section>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/hugoblog/ts/main.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </body>
 </html>
