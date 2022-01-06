@@ -1,0 +1,237 @@
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro This is mainly a thought project I&amp;rsquo;ve had for a while now taking inspiration from Nand2Tetris, OS Development, Build your own react and various projects working on making an Operating Sytem from scratch.
+I want to take the next step from writing an OS (bootloader, kernel, processes &amp;amp; memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web."><title>Zero to Web Browser</title>
+<link rel=canonical href=https://suyogs.com/p/experiments/zero-to-web-browser/>
+<link rel=stylesheet href=/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css><meta property="og:title" content="Zero to Web Browser">
+<meta property="og:description" content="Intro This is mainly a thought project I&amp;rsquo;ve had for a while now taking inspiration from Nand2Tetris, OS Development, Build your own react and various projects working on making an Operating Sytem from scratch.
+I want to take the next step from writing an OS (bootloader, kernel, processes &amp;amp; memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web.">
+<meta property="og:url" content="https://suyogs.com/p/experiments/zero-to-web-browser/">
+<meta property="og:site_name" content="Suyog's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="experiments"><meta property="article:published_time" content="2019-11-28T00:00:00+00:00"><meta property="article:modified_time" content="2019-11-28T00:00:00+00:00"><meta property="og:image" content="https://suyogs.com/images/zero_to_web_browser/chrome.png">
+<meta name=twitter:title content="Zero to Web Browser">
+<meta name=twitter:description content="Intro This is mainly a thought project I&amp;rsquo;ve had for a while now taking inspiration from Nand2Tetris, OS Development, Build your own react and various projects working on making an Operating Sytem from scratch.
+I want to take the next step from writing an OS (bootloader, kernel, processes &amp;amp; memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web."><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://suyogs.com/images/zero_to_web_browser/chrome.png">
+</head>
+<body class=article-page>
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+on-phone--column extended">
+<aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header class=site-info>
+<h1 class=site-name><a href=/>Suyog's Blog</a></h1>
+<h2 class=site-description>Chronotale. Ex-Meta, Ex-Oscar software engineer.</h2><ol class=social-menu>
+<li>
+<a href=https://github.com/flux159/hugoblog target=_blank title=GitHub><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/flux159 target=_blank title=Twitter><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84.0 00.497-3.753C20.18 7.773 21.692 5.25 22 4.009z"/></svg>
+</a>
+</li>
+</ol></header>
+<ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li>
+<li>
+<a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li>
+<li>
+<a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span>
+</a>
+</li>
+<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span>
+</li>
+</ol>
+</aside>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/p/experiments/zero-to-web-browser/>
+<img src=/images/zero_to_web_browser/chrome.png loading=lazy alt="Featured image of post Zero to Web Browser">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/experiments/ style=background-color:#2a9d8f;color:#fff>
+Experiments
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/experiments/zero-to-web-browser/>Zero to Web Browser</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Nov 28, 2019</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+3 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=intro>Intro</h1>
+<p>This is mainly a thought project I&rsquo;ve had for a while now taking inspiration from <a class=link href=https://www.nand2tetris.org/ target=_blank rel=noopener>Nand2Tetris</a>, <a class=link href=https://wiki.osdev.org/Expanded_Main_Page target=_blank rel=noopener>OS Development</a>, <a class=link href=https://pomb.us/build-your-own-react/ target=_blank rel=noopener>Build your own react</a> and various projects working on making an Operating Sytem from scratch.</p>
+<p>I want to take the next step from writing an OS (bootloader, kernel, processes & memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web. Ideally this would be taught as a course in college to inform students of the wide variety of different topics in Computer Science and Computer Engineering.</p>
+<h1 id=steps>Steps</h1>
+<p>(Modern) Computers from the ground up to a Web Browser to Machine Learning (along the way need to mention Math, Physics/Mechanics/Chemistry, optimization / businesses that allow people in the next layer to focus on making that better):</p>
+<ul>
+<li>Physics + Electrical circuits (voltage, amps, op amps / transistor circuits, nand gates / boolean logic)</li>
+<li>Hardware circuits - ALU, memory, CPU, assembly instructions for arbitrary computation</li>
+<li>Operating system / Kernel & User space / Process & memory management / Drivers / (Persistent Disk) / Networking (possibly w/ Telephony/Wireless) - C</li>
+<li>Terminal / Shell, font rendering, windowing system, shell utilities built in</li>
+<li>Operating System(s) revisited (apps / spreadsheets (data flow) / docs / presentations - “Office”), Photoshop, Aside: Intro to databases (Filemaker, Access, SQLite, MySQL, Postgres, etc.)</li>
+<li>Windowing system + HTTP / HTML / CSS + Javascript, Images / image utilities, videos & video compression</li>
+<li>Games and Graphics - v1 (could have been before windowing system, but more relevant here - still talk about nethack, ascii games, etc.) - for terminal a “large” project could be getting Tetris (custom code) / Nethack (compile existing code) working in environment</li>
+<li>Search google, view images on FB, browse the web, post data into forms, etc. (communicate)</li>
+<li>“Create” on the web - google docs, web based editors, etc.</li>
+<li>Create a search engine using the networking tools, parse data into structured formats, use databases, indices (writing a search engine) - beginning of “data science”</li>
+<li>Modern apps (desktop, mobile, web); services (Netflix, Youtube, Facebook); ad based revenue models, privacy</li>
+<li>Machine learning - the tools & how to think about it from a high level perspective - simple algorithms to neural networks and systematization of data science tools to support ML</li>
+<li>Optimizations in specific fields helping in other fields</li>
+<li>iOS, Android, KaiOS, mobile computing and the future of computation (trucks vs cars analogy kinda works but only goes so far)</li>
+</ul>
+<h1 id=aside>Aside</h1>
+<p>This is mainly just a thought experiment at the moment, but if I have sufficient time, I&rsquo;d want to work/collaborate on a project like this.</p>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/experiments/>experiments</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article class=has-image>
+<a href=/p/experiments/next-js-with-postgraphile/>
+<div class=article-image>
+<img src=/images/nextjs_postgraphile/postgraphile.png loading=lazy data-key=/experiments/next-js-with-postgraphile data-hash=/images/nextjs_postgraphile/postgraphile.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>Next.js with Postgraphile</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/experiments/windows-gaming-pc-on-aws/>
+<div class=article-image>
+<img src=/images/windows_gaming_aws/steam.png loading=lazy data-key=/experiments/windows-gaming-pc-on-aws data-hash=/images/windows_gaming_aws/steam.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>Create your own Windows Gaming PC on AWS</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/experiments/vscode-online-with-aws/>
+<div class=article-image>
+<img src=/images/vscode_online/vscode.png loading=lazy data-key=/experiments/vscode-online-with-aws data-hash=/images/vscode_online/vscode.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>VSCode Online with AWS</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/experiments/github-pages-for-static-sites/>
+<div class=article-image>
+<img src=/images/github_pages/github_pages_cropped.png loading=lazy data-key=/experiments/github-pages-for-static-sites data-hash=/images/github_pages/github_pages_cropped.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>Github Pages for Static Sites</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/experiments/qemu-and-tinycore/>
+<div class=article-image>
+<img src=/images/qemu_and_tinycore_linux/qemu.png loading=lazy data-key=/experiments/qemu-and-tinycore data-hash=/images/qemu_and_tinycore_linux/qemu.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>QEMU and Tinycore Linux</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2022 Suyog's Blog
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.6.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>
