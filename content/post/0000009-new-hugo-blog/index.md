@@ -5,6 +5,7 @@ categories:
   - Experiments
 tags:
   - experiments
+image: hugoblog.png
 ---
 
 # Updating blog from gatsby to hugo
