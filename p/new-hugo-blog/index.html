@@ -1,17 +1,20 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Updating blog from gatsby to hugo Writing a quick draft post about updating this blog from gatsby to hugo.
-Wrote this using GitHub&amp;rsquo;s editor &amp;amp; GitHub actions are setup to rebuild &amp;amp; deploy the site."><title>New Hugo Blog</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Updating blog from gatsby to hugo When I previously wrote about hosting a static site on github pages, I used Gatsby as the content generation system.
+After a painful few days updating gatsby at the end of 2021, I decided to move off of Gatsby and over to Hugo.
+The primary reason was because updating Gatsby through NPM caused a signficant number of breaking changes in the github action that published the site."><title>New Hugo Blog</title>
 <link rel=canonical href=https://suyogs.com/p/new-hugo-blog/>
 <link rel=stylesheet href=/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css><meta property="og:title" content="New Hugo Blog">
-<meta property="og:description" content="Updating blog from gatsby to hugo Writing a quick draft post about updating this blog from gatsby to hugo.
-Wrote this using GitHub&amp;rsquo;s editor &amp;amp; GitHub actions are setup to rebuild &amp;amp; deploy the site.">
+<meta property="og:description" content="Updating blog from gatsby to hugo When I previously wrote about hosting a static site on github pages, I used Gatsby as the content generation system.
+After a painful few days updating gatsby at the end of 2021, I decided to move off of Gatsby and over to Hugo.
+The primary reason was because updating Gatsby through NPM caused a signficant number of breaking changes in the github action that published the site.">
 <meta property="og:url" content="https://suyogs.com/p/new-hugo-blog/">
 <meta property="og:site_name" content="Suyog's Blog">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="experiments"><meta property="article:published_time" content="2022-01-06T00:00:00+00:00"><meta property="article:modified_time" content="2022-01-06T00:00:00+00:00">
 <meta name=twitter:title content="New Hugo Blog">
-<meta name=twitter:description content="Updating blog from gatsby to hugo Writing a quick draft post about updating this blog from gatsby to hugo.
-Wrote this using GitHub&amp;rsquo;s editor &amp;amp; GitHub actions are setup to rebuild &amp;amp; deploy the site.">
+<meta name=twitter:description content="Updating blog from gatsby to hugo When I previously wrote about hosting a static site on github pages, I used Gatsby as the content generation system.
+After a painful few days updating gatsby at the end of 2021, I decided to move off of Gatsby and over to Hugo.
+The primary reason was because updating Gatsby through NPM caused a signficant number of breaking changes in the github action that published the site.">
 </head>
 <body class=article-page>
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
@@ -79,7 +82,7 @@ Experiments
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-1 minute read
+2 minute read
 </time>
 </div>
 </footer>
@@ -87,8 +90,13 @@ Experiments
 </header>
 <section class=article-content>
 <h1 id=updating-blog-from-gatsby-to-hugo>Updating blog from gatsby to hugo</h1>
-<p>Writing a quick draft post about updating this blog from gatsby to hugo.</p>
-<p>Wrote this using GitHub&rsquo;s editor & GitHub actions are setup to rebuild & deploy the site.</p>
+<p>When I previously wrote about hosting a <a class=link href=https://suyogs.com/p/experiments/github-pages-for-static-sites/ target=_blank rel=noopener>static site on github pages</a>, I used <a class=link href=https://www.gatsbyjs.com/ target=_blank rel=noopener>Gatsby</a> as the content generation system.</p>
+<p>After a painful few days updating gatsby at the end of 2021, I decided to move off of Gatsby and over to Hugo.</p>
+<p>The primary reason was because updating Gatsby through NPM caused a signficant number of breaking changes in the github action that published the site. This was unacceptable since the amount of time spent debugging the build process with upgrades could have been spent on more productive things.</p>
+<p>I quickly looked for alternatives and found <a class=link href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a>, a Go-based static site generator that doesn&rsquo;t use NPM for updates (Hugo is delivered as a static binary and doesn&rsquo;t rely on the NPM / JS ecosystem).</p>
+<p>Migrating to Hugo took about 3 hours and in the process I got a new blog theme that supports dark mode, migrated the share buttons (only viewable on desktop at the moment), and deployed the site using github actions again. All in all a relatively painless experience.</p>
+<p>A large benefit was that hugo generation is super fast - milliseconds in development mode on my laptop & the total github action build time (from checking out to building to deploying) is around 30s to 1 minute.</p>
+<p>A con is that writing <a class=link href=https://gohugo.io/hugo-pipes/js/ target=_blank rel=noopener>React/JS based code in hugo</a> seems a little bit more difficult than in Gatsby (it uses esbuild which I&rsquo;m a bit unfamiliar with compared with webpack), but at least it&rsquo;s still available as an option.</p>
 </section>
 <footer class=article-footer>
 <section class=article-tags>
