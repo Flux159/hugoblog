@@ -10,9 +10,9 @@ aliases:
 
 A humble beginning for my blog.
 
-[Work](../work)
+[Work](../work/)
 
-[Projects](../projects)
+[Projects](../projects/)
 
 [Experiments and Thoughts](../categories/experiments/)
 
