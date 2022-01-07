@@ -10,10 +10,17 @@ Install hugo on mac:
 brew install hugo
 ```
 
+### Cloning
+
+This repo uses submodules, so you should clone like this:
+```
+git clone --recurse-submodules https://github.com/Flux159/hugoblog.git
+```
+
 ### Development
 
 ```
-hugo server -D -b localhost:1313
+hugo server -D
 ```
 
 Then go to http://localhost:1313/
@@ -33,5 +40,4 @@ python3 -m http.server 1313
 
 ### Automated builds on github to github pages
 
-TODO: Update regular blog to publish properly to suyogs.com (couple of changes needed & new github actions)
-
+There's a build & deploy script in the `.github/workflows/deploy.yml` file that automatically deploys to gh-pages & makes the site available at https://suyogs.com
