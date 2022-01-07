@@ -1,6 +1,7 @@
 baseurl: https://suyogs.com
 languageCode: en-us
-theme: hugo-theme-stack
+theme: 
+    - hugo-theme-stack
 paginate: 5
 title: Suyog's Blog
 
