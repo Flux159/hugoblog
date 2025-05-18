@@ -1,0 +1,9 @@
+{
+    "name": "suyogsblog",
+    "private": true,
+    "version": "1.0.0",
+    "scripts": {
+        "postinstall": "brew install hugo",
+        "dev": "hugo server -D"
+    }
+}
