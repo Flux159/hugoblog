@@ -6,7 +6,12 @@ date: 2019-11-27
 slug: "/work"
 ---
 
-[LinkedIn](https://linkedin.com/in/suyogsonwalkar)
+<div style="display: flex; justify-content: space-between;">
+    <a href="/about/" style="margin-right: 8px">About</a>
+    <a href="/work/">Work</a>
+    <a href="/opensource/">Open Source</a>
+    <a href="/projects/">Projects</a>
+</div>
 
 # Work
 
@@ -14,7 +19,7 @@ slug: "/work"
 
 **[South Park Commons](https://www.southparkcommons.com/):** Member. San Francisco, CA *(Nov 2024-May 2025)*
 
-**Lastmile AI:** Cofounder & CTO. New York, NY *(2023-2024)*
+**[Lastmile AI](https://techcrunch.com/2023/09/14/lastmile-ai-closes-10m-seed-round-to-operationalize-ai-models/):** Cofounder & CTO. New York, NY *(2023-2024)*
 
 **[Facebook](https://www.facebook.com/careers/) / [Meta](https://about.facebook.com/meta):** Staff Software Engineer. New York, NY *(2018-2021)*
 - [Bento](https://developers.facebook.com/blog/post/2021/09/20/eli5-bento-interactive-notebook-empowers-development-collaboration-best-practices/) - "Jupyter Notebooks at Facebook", also 3d web work at Reality Labs (FRL). Javascript, React, and Python.
@@ -31,3 +36,5 @@ Masters of Science in Electrical and Computer Engineering; **[Carnegie Mellon Un
 
 Bachelors of Science in Electrical and Computer Engineering; **[Carnegie Mellon University](https://www.ece.cmu.edu/)** Pittsburgh, PA *(2007-2011)*  
 - Additional Major in [Biomedical Engineering](https://www.cmu.edu/bme/)
+
+Connect on [LinkedIn](https://linkedin.com/in/suyogsonwalkar).
