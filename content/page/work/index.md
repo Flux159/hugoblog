@@ -14,7 +14,7 @@ slug: "/work"
     <a href="/projects/">Projects</a>
 </div>
 
-# Work
+### Work
 
 **[Chronotale](https://chronotale.com):** Founder. New York, NY *(2021-2023)*, *(2024-present)*
 
@@ -31,7 +31,7 @@ slug: "/work"
 **[Capital One](https://www.capitalonecareers.com/):** Web Application Developer. Washington DC *(2012-2013)*
 - Capital One Online Banking Website. Java Spring Framework with Javascript.
 
-# Education
+### Education
 
 Masters of Science in Electrical and Computer Engineering; **[Carnegie Mellon University](https://www.ece.cmu.edu/)**  Pittsburgh, PA *(May 2011- Dec 2011)*
 
