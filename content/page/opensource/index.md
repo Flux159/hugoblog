@@ -7,7 +7,8 @@ slug: "/opensource"
 ---
 
 <div style="display: flex; justify-content: space-between;">
-    <a href="/about/" style="margin-right: 8px">About</a>
+    <a href="/">Posts</a>
+    <a href="/about/">About</a>
     <a href="/work/">Work</a>
     <a href="/opensource/">Open Source</a>
     <a href="/projects/">Projects</a>
