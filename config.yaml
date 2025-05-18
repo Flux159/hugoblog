@@ -1,8 +1,10 @@
 baseurl: https://suyogs.com
 languageCode: en-us
 theme: 
-    - hugo-theme-stack
-paginate: 5
+    - hugo-simple
+# paginate: 5
+pagination:
+    pagerSize: 50
 title: Suyog's Blog
 
 # Doing this makes some stuff work better if testing out with file:// urls
@@ -11,7 +13,7 @@ title: Suyog's Blog
 # relativeURLs: true
 
 # Change it to your Disqus shortname before using
-disqusShortname: hugo-theme-stack
+disqusShortname: suyogs-blog
 
 # GA Tracking ID
 googleAnalytics:
@@ -39,9 +41,9 @@ params:
         since: 2019
         customText:
 
-    dateFormat:
-        published: Jan 02, 2006
-        lastUpdated: Jan 02, 2006 15:04 MST
+    dateFormat: Jan 02, 2006
+        # published: Jan 02, 2006
+        # lastUpdated: Jan 02, 2006 15:04 MST
 
     sidebar:
         emoji: 
