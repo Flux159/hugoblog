@@ -6,6 +6,13 @@ date: 2019-11-27
 slug: "/projects"
 ---
 
+<div style="display: flex; justify-content: space-between;">
+    <a href="/about/" style="margin-right: 8px">About</a>
+    <a href="/work/">Work</a>
+    <a href="/opensource/">Open Source</a>
+    <a href="/projects/">Projects</a>
+</div>
+
 # Tigerbot
 [Tigerbot](https://github.com/Flux159/Tigerbot/wiki) was a project in [college](https://www.cmu.edu/) for CMU's [Build18](http://www.build18.org/) event. It was a 2 wheeled robot made in 2011 that could be controlled via an iPhone. One PCB was custom developed, the low level microcontroller code was coded by Kevin Li, and the iPhone connected to the bot via a Beagleboard with USB Wifi.
 
