@@ -1,309 +1,86 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Experiment working with QEMU and Tinycore linux on a Mac.
-Setup On a Mac, get QEMU by using Homebrew
-brew install qemu Download Core-current.iso and TinyCore-current.iso from Tinycore&amp;rsquo;s website. For the experiment below, they are located in my Downloads folder ~/Downloads/.
-Experiment mkdir qemutests cd qemutests qemu-img create tinycore.img 512M qemu-system-x86_64 -hda tinycore.img -m 512 -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd=tcp:127.0.0.1:8008-:80 Note that you must have that second -net command to download things properly."><title>QEMU and Tinycore Linux</title>
-<link rel=canonical href=https://suyogs.com/p/experiments/qemu-and-tinycore/>
-<link rel=stylesheet href=/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css><meta property="og:title" content="QEMU and Tinycore Linux">
-<meta property="og:description" content="Experiment working with QEMU and Tinycore linux on a Mac.
-Setup On a Mac, get QEMU by using Homebrew
-brew install qemu Download Core-current.iso and TinyCore-current.iso from Tinycore&amp;rsquo;s website. For the experiment below, they are located in my Downloads folder ~/Downloads/.
-Experiment mkdir qemutests cd qemutests qemu-img create tinycore.img 512M qemu-system-x86_64 -hda tinycore.img -m 512 -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd=tcp:127.0.0.1:8008-:80 Note that you must have that second -net command to download things properly.">
-<meta property="og:url" content="https://suyogs.com/p/experiments/qemu-and-tinycore/">
-<meta property="og:site_name" content="Suyog's Blog">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="experiments"><meta property="article:published_time" content="2019-11-28T00:00:00+00:00"><meta property="article:modified_time" content="2019-11-28T00:00:00+00:00"><meta property="og:image" content="https://suyogs.com/images/qemu_and_tinycore_linux/qemu.png">
-<meta name=twitter:title content="QEMU and Tinycore Linux">
-<meta name=twitter:description content="Experiment working with QEMU and Tinycore linux on a Mac.
-Setup On a Mac, get QEMU by using Homebrew
-brew install qemu Download Core-current.iso and TinyCore-current.iso from Tinycore&amp;rsquo;s website. For the experiment below, they are located in my Downloads folder ~/Downloads/.
-Experiment mkdir qemutests cd qemutests qemu-img create tinycore.img 512M qemu-system-x86_64 -hda tinycore.img -m 512 -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd=tcp:127.0.0.1:8008-:80 Note that you must have that second -net command to download things properly."><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://suyogs.com/images/qemu_and_tinycore_linux/qemu.png">
-</head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<main class="main full-width">
-<article class="has-image main-article">
-<header class=article-header>
-<div class=article-image>
-<a href=/p/experiments/qemu-and-tinycore/>
-<img src=/images/qemu_and_tinycore_linux/qemu.png loading=lazy alt="Featured image of post QEMU and Tinycore Linux">
-</a>
-</div>
-<div class=article-details>
-<header class=article-category>
-<a href=/categories/experiments/ style=background-color:#2a9d8f;color:#fff>
-Experiments
-</a>
-</header>
-<h2 class=article-title>
-<a href=/p/experiments/qemu-and-tinycore/>QEMU and Tinycore Linux</a>
-</h2>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Nov 28, 2019</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-3 minute read
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
-<p>Experiment working with QEMU and Tinycore linux on a Mac.</p>
-<h1 id=setup>Setup</h1>
-<p>On a Mac, get <a class=link href=https://www.qemu.org/ target=_blank rel=noopener>QEMU</a> by using <a class=link href=https://brew.sh/ target=_blank rel=noopener>Homebrew</a></p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>brew install qemu
-</code></pre></div><p>Download Core-current.iso and TinyCore-current.iso from Tinycore&rsquo;s <a class=link href=http://tinycorelinux.net/downloads.html target=_blank rel=noopener>website</a>. For the experiment below, they are located in my Downloads folder <code>~/Downloads/</code>.</p>
-<h1 id=experiment>Experiment</h1>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>mkdir qemutests
-<span class=nb>cd</span> qemutests 
+<!doctype html><html lang=en-us><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>QEMU and Tinycore Linux&nbsp;|&nbsp;Suyog's Blog</title>
+<meta name=title content="QEMU and Tinycore Linux"><meta name=description content="Experiment working with QEMU and Tinycore linux on a Mac.
+Setup
+On a Mac, get QEMU by using Homebrew
+
+
+
+
+
+
+brew install qemu
+Download Core-current.iso and TinyCore-current.iso from Tinycore&rsquo;s website. For the experiment below, they are located in my Downloads folder ~/Downloads/.
+Experiment
+
+
+
+
+
+
+mkdir qemutests
+cd qemutests 
 qemu-img create tinycore.img 512M
-qemu-system-x86_64 -hda tinycore.img -m <span class=m>512</span> -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd<span class=o>=</span>tcp:127.0.0.1:8008-:80
-</code></pre></div><p>Note that you <strong>must</strong> have that second -net command to download things properly.</p>
-<p>Qemu will open up a window and booting from the iso should only take 10 seconds.</p>
-<p>If you logout, there’s a user with the name “tc” that you can login as again.</p>
-<p>If you sudo reboot right now before following the &ldquo;install&rdquo; instructions below, you will lose all data in the VM since the entire OS is running in memory and is not persisted to the qemu-img disk you created earlier.</p>
-<h2 id=extensions>Extensions</h2>
-<p>To download extensions (like packages in Ubuntu or CentOS), you can use <a class=link href=http://wiki.tinycorelinux.net/wiki:tce-load target=_blank rel=noopener>tce-load</a>.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>tce-load -iw vim
-tce-load -iw python3.6-dev
-</code></pre></div><p>Note that I was having multiple issues around md5sum mismatches when installing extensions using tce-load. This happened for both the shell based Core and GUI based TinyCore.</p>
-<p>You can partially get around the md5 check by using tce-fetch, but this is not recommended for most non-experimental purposes.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>tce-fetch.sh gvim.gcz
-tce-load -i gvim.gcz
-</code></pre></div><p>In my few hours of experimenting, I wasn&rsquo;t able to find out a good fix for the md5sum issues. Feel free to leave an <a class=link href=https://github.com/Flux159/blog/issues target=_blank rel=noopener>issue</a> on my blog&rsquo;s github if you&rsquo;re able to find a fix.</p>
-<h2 id=installing-to-disk>Installing to Disk</h2>
-<p>This is mainly following TinyCore&rsquo;s <a class=link href=http://tinycorelinux.net/install_manual.html target=_blank rel=noopener>install manual</a> for making a bootable hard drive w/ tiny core rather than just the iso booting in QEMU.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>tce-load -wi cfdisk
-tce-load -wi grub-0.97-splash
-sudo su
-fdisk -l <span class=o>(</span>should show /dev/sda - which will be used <span class=k>for</span> following commands<span class=o>)</span>
-cfdisk /dev/sda
-
-<span class=c1># The following is in the cfdisk terminal interface</span>
-<span class=o>[</span>New<span class=o>]</span> <span class=o>[</span>Primary<span class=o>]</span> <span class=o>[</span>Enter <span class=k>for</span> default<span class=o>]</span> <span class=o>[</span>Beginning<span class=o>]</span> <span class=o>[</span>Bootable - <span class=k>select</span> this<span class=o>]</span>
-<span class=o>[</span>Write<span class=o>]</span>
-yes
-<span class=o>[</span>Quit<span class=o>]</span>
-
-mkfs.ext3 /dev/sda1
-rebuildfstab
-
-mount /mnt/sda1
-mkdir -p /mnt/sda1/boot/grub
-
-<span class=c1># Mount the original boot media (the disk) - it was at /dev/sr0 (just did cat /etc/fstab to check):</span>
-mount /mnt/sr0
-cp -p /mnt/sr0/boot/* /mnt/sda1/boot/
-mkdir -p /mnt/sda1/tce
-touch /mnt/sda1/tce/mydata.tgz
-
-cp -p /usr/lib/grub/i386-pc/* /mnt/hda1/boot/grub/
-vi /mnt/hda1/boot/grub/menu.lst
-
-<span class=c1># Type “i”, insert the following (note that the install_manual is out of date - follow this: http://forum.tinycorelinux.net/index.php?topic=15713.0):</span>
-
-default <span class=m>0</span>
-timeout <span class=m>10</span>
-title tinycore
-kernel /boot/vmlinuz quiet
-initrd /boot/core.gz
-
-<span class=c1># Use Esc + :wq to save the file and quit</span>
-
-grub
-root <span class=o>(</span>hd0,0<span class=o>)</span>
-setup <span class=o>(</span>hd0<span class=o>)</span>
-quit
-
-umount /mnt/hdc
-eject /dev/hdc
-
-reboot
-</code></pre></div><p>Note that cfdisk, etc. have been deleted because they were installed on the temporary iso, but now that you’ve installed to disk, the next time you run qemu, you can just boot from disk:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>qemu-system-x86_64 -hda tinycore.img -m <span class=m>512</span> -boot d -net nic -net user,hostfwd<span class=o>=</span>tcp:127.0.0.1:8009-:80 
-</code></pre></div><h1 id=references>References</h1>
-<ul>
-<li><a class=link href=http://tinycorelinux.net/faq.html target=_blank rel=noopener>http://tinycorelinux.net/faq.html</a> - Tinycore&rsquo;s FAQ</li>
-<li><a class=link href=http://tinycorelinux.net/install_manual.html target=_blank rel=noopener>http://tinycorelinux.net/install_manual.html</a> - Tinycore&rsquo;s Install Manual</li>
-<li><a class=link href="http://forum.tinycorelinux.net/index.php?topic=15713.0" target=_blank rel=noopener>http://forum.tinycorelinux.net/index.php?topic=15713.0</a> - Forum post about changes to grub configuration</li>
-<li><a class=link href=https://jon.sprig.gs/blog/post/53 target=_blank rel=noopener>https://jon.sprig.gs/blog/post/53</a> - useful to start experimenting with Qemu arguments</li>
-</ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/experiments/>experiments</a>
-</section>
-<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span>Licensed under CC BY-NC-SA 4.0</span>
-</section>
-</footer>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>Related contents</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article class=has-image>
-<a href=/p/new-hugo-blog/>
-<div class=article-image>
-<img src=/p/new-hugo-blog/hugoblog.3d58b9ac981e19a174c00660fe2b3f93_hu762191763670d76317483cc2e1c12c16_159252_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post New Hugo Blog" data-hash="md5-PVi5rJgeGaF0wAZg/is/kw==">
-</div>
-<div class=article-details>
-<h2 class=article-title>New Hugo Blog</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/p/experiments/next-js-with-postgraphile/>
-<div class=article-image>
-<img src=/images/nextjs_postgraphile/postgraphile.png loading=lazy data-key=/experiments/next-js-with-postgraphile data-hash=/images/nextjs_postgraphile/postgraphile.png>
-</div>
-<div class=article-details>
-<h2 class=article-title>Next.js with Postgraphile</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/p/experiments/windows-gaming-pc-on-aws/>
-<div class=article-image>
-<img src=/images/windows_gaming_aws/steam.png loading=lazy data-key=/experiments/windows-gaming-pc-on-aws data-hash=/images/windows_gaming_aws/steam.png>
-</div>
-<div class=article-details>
-<h2 class=article-title>Create your own Windows Gaming PC on AWS</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/p/experiments/vscode-online-with-aws/>
-<div class=article-image>
-<img src=/images/vscode_online/vscode.png loading=lazy data-key=/experiments/vscode-online-with-aws data-hash=/images/vscode_online/vscode.png>
-</div>
-<div class=article-details>
-<h2 class=article-title>VSCode Online with AWS</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/p/experiments/github-pages-for-static-sites/>
-<div class=article-image>
-<img src=/images/github_pages/github_pages_cropped.png loading=lazy data-key=/experiments/github-pages-for-static-sites data-hash=/images/github_pages/github_pages_cropped.png>
-</div>
-<div class=article-details>
-<h2 class=article-title>Github Pages for Static Sites</h2>
-</div>
-</a>
-</article>
-</div>
-</div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
-2019 -
-2022 Suyog's Blog
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.6.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
-</div>
-<h2 class="widget-title section-title">Table of contents</h2>
-<div class=widget--toc>
-<nav id=TableOfContents>
-<ol>
-<li><a href=#extensions>Extensions</a></li>
-<li><a href=#installing-to-disk>Installing to Disk</a></li>
-</ol>
-</nav>
-</div>
-<div>
-<style>.resp-sharing-button__link,.resp-sharing-button__icon{display:inline-block}.resp-sharing-button__link{text-decoration:none;color:#fff;margin:.5em}.resp-sharing-button{border-radius:5px;transition:25ms ease-out;padding:.5em .75em;font-family:Helvetica Neue,Helvetica,Arial,sans-serif}.resp-sharing-button__icon svg{width:1em;height:1em;margin-right:.4em;vertical-align:top}.resp-sharing-button--small svg{margin:0;vertical-align:middle}.resp-sharing-button__icon{stroke:#fff;fill:none}.resp-sharing-button__icon--solid,.resp-sharing-button__icon--solidcircle{fill:#fff;stroke:none}.resp-sharing-button--twitter{background-color:#55acee}.resp-sharing-button--twitter:hover{background-color:#2795e9}.resp-sharing-button--pinterest{background-color:#bd081c}.resp-sharing-button--pinterest:hover{background-color:#8c0615}.resp-sharing-button--facebook{background-color:#3b5998}.resp-sharing-button--facebook:hover{background-color:#2d4373}.resp-sharing-button--tumblr{background-color:#35465c}.resp-sharing-button--tumblr:hover{background-color:#222d3c}.resp-sharing-button--reddit{background-color:#5f99cf}.resp-sharing-button--reddit:hover{background-color:#3a80c1}.resp-sharing-button--google{background-color:#dd4b39}.resp-sharing-button--google:hover{background-color:#c23321}.resp-sharing-button--linkedin{background-color:#0077b5}.resp-sharing-button--linkedin:hover{background-color:#046293}.resp-sharing-button--email{background-color:#777}.resp-sharing-button--email:hover{background-color:#5e5e5e}.resp-sharing-button--xing{background-color:#1a7576}.resp-sharing-button--xing:hover{background-color:#114c4c}.resp-sharing-button--whatsapp{background-color:#25d366}.resp-sharing-button--whatsapp:hover{background-color:#1da851}.resp-sharing-button--hackernews{background-color:#f60}.resp-sharing-button--hackernews:hover,.resp-sharing-button--hackernews:focus{background-color:#fb6200}.resp-sharing-button--vk{background-color:#507299}.resp-sharing-button--vk:hover{background-color:#43648c}.resp-sharing-button--facebook{background-color:#3b5998;border-color:#3b5998}.resp-sharing-button--facebook:hover,.resp-sharing-button--facebook:active{background-color:#2d4373;border-color:#2d4373}.resp-sharing-button--twitter{background-color:#55acee;border-color:#55acee}.resp-sharing-button--twitter:hover,.resp-sharing-button--twitter:active{background-color:#2795e9;border-color:#2795e9}.resp-sharing-button--email{background-color:#777;border-color:#777}.resp-sharing-button--email:hover,.resp-sharing-button--email:active{background-color:#5e5e5e;border-color:#5e5e5e}.resp-sharing-button--linkedin{background-color:#0077b5;border-color:#0077b5}.resp-sharing-button--linkedin:hover,.resp-sharing-button--linkedin:active{background-color:#046293;border-color:#046293}.resp-sharing-button--reddit{background-color:#5f99cf;border-color:#5f99cf}.resp-sharing-button--reddit:hover,.resp-sharing-button--reddit:active{background-color:#3a80c1;border-color:#3a80c1}.resp-sharing-button--hackernews{background-color:#f60;border-color:#f60}.resp-sharing-button--hackernews:hover .resp-sharing-button--hackernews:active{background-color:#fb6200;border-color:#fb6200}</style>
-<a class=resp-sharing-button__link href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsuyogs.com%2fp%2fexperiments%2fqemu-and-tinycore%2f" target=_blank rel=noopener aria-label>
-<div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden=true class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
-</div>
-</div>
-</a>
-<a class=resp-sharing-button__link href="https://twitter.com/intent/tweet/?text=QEMU%20and%20Tinycore%20Linux&url=https%3a%2f%2fsuyogs.com%2fp%2fexperiments%2fqemu-and-tinycore%2f" target=_blank rel=noopener aria-label>
-<div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden=true class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5.0-4.55 2.04-4.55 4.54.0.36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3.0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35.0 12.92-6.92 12.92-12.93.0-.2.0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
-</div>
-</div>
-</a>
-<a class=resp-sharing-button__link href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsuyogs.com%2fp%2fexperiments%2fqemu-and-tinycore%2f&title=QEMU%20and%20Tinycore%20Linux" target=_blank rel=noopener aria-label>
-<div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden=true class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6.0 2.5 1 2.6 2.5.0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
-</div>
-</div>
-</a>
-<a class=resp-sharing-button__link href="https://reddit.com/submit/?url=https%3a%2f%2fsuyogs.com%2fp%2fexperiments%2fqemu-and-tinycore%2f&resubmit=true&title=QEMU%20and%20Tinycore%20Linux" target=_blank rel=noopener aria-label>
-<div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden=true class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96.0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65.0 3-1.35 3-3s-1.35-3-3-3c-1.38.0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65.0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66.0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64.0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4.0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6.0.23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1.0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1.0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
-</div>
-</div>
-</a>
-<a class=resp-sharing-button__link href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsuyogs.com%2fp%2fexperiments%2fqemu-and-tinycore%2f&t=QEMU%20and%20Tinycore%20Linux" target=_blank rel=noopener aria-label>
-<div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden=true class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path fill-rule="evenodd" d="M60.94 82.314 17 0h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258s2.552-5.27 3.877-8.052L103.49.0h18.69L77.84 83.308v53.087h-16.9v-54.08z"/></svg>
-</div>
-</div>
-</a>
-<a class=resp-sharing-button__link href="mailto:?subject=QEMU%20and%20Tinycore%20Linux&body=https%3a%2f%2fsuyogs.com%2fp%2fexperiments%2fqemu-and-tinycore%2f" target=_self rel=noopener aria-label>
-<div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden=true class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 4H2C.9 4 0 4.9.0 6v12c0 1.1.9 2 2 2h20c1.1.0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.25 14.43l-3.5 2c-.08.05-.17.07-.25.07-.17.0-.34-.1-.43-.25-.14-.24-.06-.55.18-.68l3.5-2c.24-.14.55-.06.68.18.14.24.06.55-.18.68zm4.75.07c-.1.0-.2-.03-.27-.08l-8.5-5.5c-.23-.15-.3-.46-.15-.7.15-.22.46-.3.7-.14L12 13.4l8.23-5.32c.23-.15.54-.08.7.15.14.23.07.54-.16.7l-8.5 5.5c-.08.04-.17.07-.27.07zm8.93 1.75c-.1.16-.26.25-.43.25-.08.0-.17-.02-.25-.07l-3.5-2c-.24-.13-.32-.44-.18-.68s.44-.32.68-.18l3.5 2c.24.13.32.44.18.68z"/></svg>
-</div>
-</div>
-</a>
-</div>
-</section>
-</aside>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+qemu-system-x86_64 -hda tinycore.img -m 512 -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd=tcp:127.0.0.1:8008-:80
+Note that you must have that second -net command to download things properly."><meta name=keywords content="experiments,"><meta property="og:url" content="https://suyogs.com/p/experiments/qemu-and-tinycore/"><meta property="og:site_name" content="Suyog's Blog"><meta property="og:title" content="QEMU and Tinycore Linux"><meta property="og:description" content="Experiment working with QEMU and Tinycore linux on a Mac.
+Setup On a Mac, get QEMU by using Homebrew
+brew install qemu Download Core-current.iso and TinyCore-current.iso from Tinycore’s website. For the experiment below, they are located in my Downloads folder ~/Downloads/.
+Experiment mkdir qemutests cd qemutests qemu-img create tinycore.img 512M qemu-system-x86_64 -hda tinycore.img -m 512 -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd=tcp:127.0.0.1:8008-:80 Note that you must have that second -net command to download things properly."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-11-28T00:00:00+00:00"><meta property="article:modified_time" content="2019-11-28T00:00:00+00:00"><meta property="article:tag" content="Experiments"><meta name=twitter:card content="summary"><meta name=twitter:title content="QEMU and Tinycore Linux"><meta name=twitter:description content="Experiment working with QEMU and Tinycore linux on a Mac.
+Setup On a Mac, get QEMU by using Homebrew
+brew install qemu Download Core-current.iso and TinyCore-current.iso from Tinycore’s website. For the experiment below, they are located in my Downloads folder ~/Downloads/.
+Experiment mkdir qemutests cd qemutests qemu-img create tinycore.img 512M qemu-system-x86_64 -hda tinycore.img -m 512 -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd=tcp:127.0.0.1:8008-:80 Note that you must have that second -net command to download things properly."><meta itemprop=name content="QEMU and Tinycore Linux"><meta itemprop=description content="Experiment working with QEMU and Tinycore linux on a Mac.
+Setup On a Mac, get QEMU by using Homebrew
+brew install qemu Download Core-current.iso and TinyCore-current.iso from Tinycore’s website. For the experiment below, they are located in my Downloads folder ~/Downloads/.
+Experiment mkdir qemutests cd qemutests qemu-img create tinycore.img 512M qemu-system-x86_64 -hda tinycore.img -m 512 -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd=tcp:127.0.0.1:8008-:80 Note that you must have that second -net command to download things properly."><meta itemprop=datePublished content="2019-11-28T00:00:00+00:00"><meta itemprop=dateModified content="2019-11-28T00:00:00+00:00"><meta itemprop=wordCount content="495"><meta itemprop=keywords content="Experiments"><meta name=referrer content="no-referrer-when-downgrade"><link href=/bundle.min.css rel=stylesheet></head><body><header><nav><a href=/>Home</a>
+<a href=/about/>About</a>
+<a href=/index.xml><svg class="icon" viewBox="0 0 448 512"><path d="M0 64C0 46.3 14.3 32 32 32c229.8.0 416 186.2 416 416 0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96 14.3 96 0 81.7.0 64zM0 416a64 64 0 11128 0A64 64 0 110 416zM32 160c159.1.0 288 128.9 288 288 0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224-17.7.0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+RSS</a></nav><h1>QEMU and Tinycore Linux</h1></header><main><p><i><time style=color:var(--text-light) datetime=2019-11-28 pubdate>Nov 28, 2019</time></i></p><content><p>Experiment working with QEMU and Tinycore linux on a Mac.</p><h1 id=setup>Setup</h1><p>On a Mac, get <a href=https://www.qemu.org/>QEMU</a> by using <a href=https://brew.sh/>Homebrew</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>brew install qemu</span></span></code></pre></div><p>Download Core-current.iso and TinyCore-current.iso from Tinycore&rsquo;s <a href=http://tinycorelinux.net/downloads.html>website</a>. For the experiment below, they are located in my Downloads folder <code>~/Downloads/</code>.</p><h1 id=experiment>Experiment</h1><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>mkdir qemutests
+</span></span><span class=line><span class=cl><span class=nb>cd</span> qemutests 
+</span></span><span class=line><span class=cl>qemu-img create tinycore.img 512M
+</span></span><span class=line><span class=cl>qemu-system-x86_64 -hda tinycore.img -m <span class=m>512</span> -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd<span class=o>=</span>tcp:127.0.0.1:8008-:80</span></span></code></pre></div><p>Note that you <strong>must</strong> have that second -net command to download things properly.</p><p>Qemu will open up a window and booting from the iso should only take 10 seconds.</p><p>If you logout, there’s a user with the name “tc” that you can login as again.</p><p>If you sudo reboot right now before following the &ldquo;install&rdquo; instructions below, you will lose all data in the VM since the entire OS is running in memory and is not persisted to the qemu-img disk you created earlier.</p><h2 id=extensions>Extensions</h2><p>To download extensions (like packages in Ubuntu or CentOS), you can use <a href=http://wiki.tinycorelinux.net/wiki:tce-load>tce-load</a>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>tce-load -iw vim
+</span></span><span class=line><span class=cl>tce-load -iw python3.6-dev</span></span></code></pre></div><p>Note that I was having multiple issues around md5sum mismatches when installing extensions using tce-load. This happened for both the shell based Core and GUI based TinyCore.</p><p>You can partially get around the md5 check by using tce-fetch, but this is not recommended for most non-experimental purposes.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>tce-fetch.sh gvim.gcz
+</span></span><span class=line><span class=cl>tce-load -i gvim.gcz</span></span></code></pre></div><p>In my few hours of experimenting, I wasn&rsquo;t able to find out a good fix for the md5sum issues. Feel free to leave an <a href=https://github.com/Flux159/blog/issues>issue</a> on my blog&rsquo;s github if you&rsquo;re able to find a fix.</p><h2 id=installing-to-disk>Installing to Disk</h2><p>This is mainly following TinyCore&rsquo;s <a href=http://tinycorelinux.net/install_manual.html>install manual</a> for making a bootable hard drive w/ tiny core rather than just the iso booting in QEMU.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>tce-load -wi cfdisk
+</span></span><span class=line><span class=cl>tce-load -wi grub-0.97-splash
+</span></span><span class=line><span class=cl>sudo su
+</span></span><span class=line><span class=cl>fdisk -l <span class=o>(</span>should show /dev/sda - which will be used <span class=k>for</span> following commands<span class=o>)</span>
+</span></span><span class=line><span class=cl>cfdisk /dev/sda
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># The following is in the cfdisk terminal interface</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>New<span class=o>]</span> <span class=o>[</span>Primary<span class=o>]</span> <span class=o>[</span>Enter <span class=k>for</span> default<span class=o>]</span> <span class=o>[</span>Beginning<span class=o>]</span> <span class=o>[</span>Bootable - <span class=k>select</span> this<span class=o>]</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>Write<span class=o>]</span>
+</span></span><span class=line><span class=cl>yes
+</span></span><span class=line><span class=cl><span class=o>[</span>Quit<span class=o>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>mkfs.ext3 /dev/sda1
+</span></span><span class=line><span class=cl>rebuildfstab
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>mount /mnt/sda1
+</span></span><span class=line><span class=cl>mkdir -p /mnt/sda1/boot/grub
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Mount the original boot media (the disk) - it was at /dev/sr0 (just did cat /etc/fstab to check):</span>
+</span></span><span class=line><span class=cl>mount /mnt/sr0
+</span></span><span class=line><span class=cl>cp -p /mnt/sr0/boot/* /mnt/sda1/boot/
+</span></span><span class=line><span class=cl>mkdir -p /mnt/sda1/tce
+</span></span><span class=line><span class=cl>touch /mnt/sda1/tce/mydata.tgz
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cp -p /usr/lib/grub/i386-pc/* /mnt/hda1/boot/grub/
+</span></span><span class=line><span class=cl>vi /mnt/hda1/boot/grub/menu.lst
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Type “i”, insert the following (note that the install_manual is out of date - follow this: http://forum.tinycorelinux.net/index.php?topic=15713.0):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>default <span class=m>0</span>
+</span></span><span class=line><span class=cl>timeout <span class=m>10</span>
+</span></span><span class=line><span class=cl>title tinycore
+</span></span><span class=line><span class=cl>kernel /boot/vmlinuz quiet
+</span></span><span class=line><span class=cl>initrd /boot/core.gz
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Use Esc + :wq to save the file and quit</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>grub
+</span></span><span class=line><span class=cl>root <span class=o>(</span>hd0,0<span class=o>)</span>
+</span></span><span class=line><span class=cl>setup <span class=o>(</span>hd0<span class=o>)</span>
+</span></span><span class=line><span class=cl>quit
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>umount /mnt/hdc
+</span></span><span class=line><span class=cl>eject /dev/hdc
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>reboot</span></span></code></pre></div><p>Note that cfdisk, etc. have been deleted because they were installed on the temporary iso, but now that you’ve installed to disk, the next time you run qemu, you can just boot from disk:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>qemu-system-x86_64 -hda tinycore.img -m <span class=m>512</span> -boot d -net nic -net user,hostfwd<span class=o>=</span>tcp:127.0.0.1:8009-:80 </span></span></code></pre></div><h1 id=references>References</h1><ul><li><a href=http://tinycorelinux.net/faq.html>http://tinycorelinux.net/faq.html</a> - Tinycore&rsquo;s FAQ</li><li><a href=http://tinycorelinux.net/install_manual.html>http://tinycorelinux.net/install_manual.html</a> - Tinycore&rsquo;s Install Manual</li><li><a href="http://forum.tinycorelinux.net/index.php?topic=15713.0">http://forum.tinycorelinux.net/index.php?topic=15713.0</a> - Forum post about changes to grub configuration</li><li><a href=https://jon.sprig.gs/blog/post/53>https://jon.sprig.gs/blog/post/53</a> - useful to start experimenting with Qemu arguments</li></ul></content><p><a href=/tags/experiments/>#Experiments</a>&nbsp;&nbsp;</p></main><footer><span>© 2019-2025 Suyog Sonwalkar</span></footer></body></html>

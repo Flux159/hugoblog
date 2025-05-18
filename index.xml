@@ -1,901 +1,831 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Suyog's Blog</title><link>https://suyogs.com/</link><description>Recent content on Suyog's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 06 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://suyogs.com/index.xml" rel="self" type="application/rss+xml"/><item><title>New Hugo Blog</title><link>https://suyogs.com/p/new-hugo-blog/</link><pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/new-hugo-blog/</guid><description>&lt;img src="https://suyogs.com/p/new-hugo-blog/hugoblog.png" alt="Featured image of post New Hugo Blog" />&lt;h1 id="updating-blog-from-gatsby-to-hugo">Updating blog from gatsby to hugo&lt;/h1>
-&lt;p>When I previously wrote about hosting a &lt;a class="link" href="https://suyogs.com/p/experiments/github-pages-for-static-sites/" target="_blank" rel="noopener"
->static site on github pages&lt;/a>, I used &lt;a class="link" href="https://www.gatsbyjs.com/" target="_blank" rel="noopener"
->Gatsby&lt;/a> as the content generation system.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Suyog's Blog</title><link>https://suyogs.com/</link><description>Recent content on Suyog's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2019-2025 Suyog Sonwalkar</copyright><lastBuildDate>Fri, 16 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://suyogs.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo Simple Styling</title><link>https://suyogs.com/p/hugo-simple-styling/</link><pubDate>Fri, 16 May 2025 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/hugo-simple-styling/</guid><description>&lt;p>Migrated blog over to &lt;a href="https://github.com/maolonglong/hugo-simple">Hugo Simple&lt;/a> to simplify and focus on content.&lt;/p></description><content:encoded>&lt;p>Migrated blog over to &lt;a href="https://github.com/maolonglong/hugo-simple">Hugo Simple&lt;/a> to simplify and focus on content.&lt;/p>
+</content:encoded></item><item><title>New Hugo Blog</title><link>https://suyogs.com/p/new-hugo-blog/</link><pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/new-hugo-blog/</guid><description>&lt;h1 id="updating-blog-from-gatsby-to-hugo">Updating blog from gatsby to hugo&lt;/h1>
+&lt;p>When I previously wrote about hosting a &lt;a href="https://suyogs.com/p/experiments/github-pages-for-static-sites/">static site on github pages&lt;/a>, I used &lt;a href="https://www.gatsbyjs.com/">Gatsby&lt;/a> as the content generation system.&lt;/p>
 &lt;p>After a painful few days updating gatsby at the end of 2021, I decided to move off of Gatsby and over to Hugo.&lt;/p>
-&lt;p>The primary reason was because updating Gatsby through NPM caused a signficant number of breaking changes in the github action that published the site. This was unacceptable since the amount of time spent debugging the build process with upgrades could have been spent on more productive things.&lt;/p>
-&lt;p>I quickly looked for alternatives and found &lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
->Hugo&lt;/a>, a Go-based static site generator that doesn&amp;rsquo;t use NPM for updates (Hugo is delivered as a static binary and doesn&amp;rsquo;t rely on the NPM / JS ecosystem).&lt;/p>
-&lt;p>Migrating to Hugo took about 3 hours and in the process I got a new blog theme that supports dark mode, migrated the share buttons (only viewable on desktop at the moment), and deployed the site using github actions again. All in all a relatively painless experience.&lt;/p>
-&lt;p>A large benefit was that hugo generation is super fast - milliseconds in development mode on my laptop &amp;amp; the total github action build time (from checking out to building to deploying) is around 30s to 1 minute.&lt;/p>
-&lt;p>A con is that writing &lt;a class="link" href="https://gohugo.io/hugo-pipes/js/" target="_blank" rel="noopener"
->React/JS based code in hugo&lt;/a> seems a little bit more difficult than in Gatsby (it uses esbuild which I&amp;rsquo;m a bit unfamiliar with compared with webpack), but at least it&amp;rsquo;s still available as an option.&lt;/p></description></item><item><title>Next.js with Postgraphile</title><link>https://suyogs.com/p/experiments/next-js-with-postgraphile/</link><pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/next-js-with-postgraphile/</guid><description>&lt;img src="https://suyogs.com/images/nextjs_postgraphile/postgraphile.png" alt="Featured image of post Next.js with Postgraphile" />&lt;h1 id="introducing-next-postgraphile">Introducing next-postgraphile&lt;/h1>
+&lt;p>The primary reason was because updating Gatsby through NPM caused a signficant number of breaking changes in the github action that published the site. This was unacceptable since the amount of time spent debugging the build process with upgrades could have been spent on more productive things.&lt;/p></description><content:encoded><![CDATA[<h1 id="updating-blog-from-gatsby-to-hugo">Updating blog from gatsby to hugo</h1>
+<p>When I previously wrote about hosting a <a href="https://suyogs.com/p/experiments/github-pages-for-static-sites/">static site on github pages</a>, I used <a href="https://www.gatsbyjs.com/">Gatsby</a> as the content generation system.</p>
+<p>After a painful few days updating gatsby at the end of 2021, I decided to move off of Gatsby and over to Hugo.</p>
+<p>The primary reason was because updating Gatsby through NPM caused a signficant number of breaking changes in the github action that published the site. This was unacceptable since the amount of time spent debugging the build process with upgrades could have been spent on more productive things.</p>
+<p>I quickly looked for alternatives and found <a href="https://gohugo.io/">Hugo</a>, a Go-based static site generator that doesn&rsquo;t use NPM for updates (Hugo is delivered as a static binary and doesn&rsquo;t rely on the NPM / JS ecosystem).</p>
+<p>Migrating to Hugo took about 3 hours and in the process I got a new blog theme that supports dark mode, migrated the share buttons (only viewable on desktop at the moment), and deployed the site using github actions again. All in all a relatively painless experience.</p>
+<p>A large benefit was that hugo generation is super fast - milliseconds in development mode on my laptop &amp; the total github action build time (from checking out to building to deploying) is around 30s to 1 minute.</p>
+<p>A con is that writing <a href="https://gohugo.io/hugo-pipes/js/">React/JS based code in hugo</a> seems a little bit more difficult than in Gatsby (it uses esbuild which I&rsquo;m a bit unfamiliar with compared with webpack), but at least it&rsquo;s still available as an option.</p>
+]]></content:encoded></item><item><title>Next.js with Postgraphile</title><link>https://suyogs.com/p/experiments/next-js-with-postgraphile/</link><pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/next-js-with-postgraphile/</guid><description>&lt;h1 id="introducing-next-postgraphile">Introducing next-postgraphile&lt;/h1>
 &lt;h2 id="motivation">Motivation&lt;/h2>
 &lt;p>TODO: Finish up&lt;/p>
 &lt;h2 id="nextjs">Next.js&lt;/h2>
-&lt;p>&lt;a class="link" href="https://nextjs.org/" target="_blank" rel="noopener"
->Next.js&lt;/a> is an elegant web app starter platform that combines an opinionated webpack configuration with React and more recently a
-lightweight &lt;a class="link" href="https://nextjs.org/docs/api-routes/introduction" target="_blank" rel="noopener"
->API layer&lt;/a>.&lt;/p>
-&lt;p>Using next.js with &lt;a class="link" href="https://www.typescriptlang.org/" target="_blank" rel="noopener"
->Typescript&lt;/a> provides an elegant way to develop webapps applications quickly while utilizing the
+&lt;p>&lt;a href="https://nextjs.org/">Next.js&lt;/a> is an elegant web app starter platform that combines an opinionated webpack configuration with React and more recently a
+lightweight &lt;a href="https://nextjs.org/docs/api-routes/introduction">API layer&lt;/a>.&lt;/p>
+&lt;p>Using next.js with &lt;a href="https://www.typescriptlang.org/">Typescript&lt;/a> provides an elegant way to develop webapps applications quickly while utilizing the
 react ecosystem for prebuilt components. Due to how simple next.js makes development and deployment, it&amp;rsquo;s become my go to development platform for
 javascript webapps.&lt;/p>
 &lt;h2 id="graphql">Graphql&lt;/h2>
-&lt;p>&lt;a class="link" href="https://graphql.org/" target="_blank" rel="noopener"
->Graphql&lt;/a> was developed as a query language for large API surfaces as an alternative to
-&lt;a class="link" href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="noopener"
->REST&lt;/a>. Graphql allows web and mobile developers to define
+&lt;p>&lt;a href="https://graphql.org/">Graphql&lt;/a> was developed as a query language for large API surfaces as an alternative to
+&lt;a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST&lt;/a>. Graphql allows web and mobile developers to define
 what data they need from a backend declaratively with a single query while also providing valuable introspection capabilities
-during development.&lt;/p>
-&lt;p>Graphql has allowed developers to rapidly update client frontends with new data as the API layer is updated. It has also enabled
-the recent rise of rapid application development platforms like &lt;a class="link" href="https://www.prisma.io/" target="_blank" rel="noopener"
->Prisma&lt;/a>, &lt;a class="link" href="https://www.apollographql.com/" target="_blank" rel="noopener"
->Apollo&lt;/a>, and
-&lt;a class="link" href="https://www.graphile.org/postgraphile/" target="_blank" rel="noopener"
->Postgraphile&lt;/a>.&lt;/p>
-&lt;h2 id="rapid-application-development-platforms">Rapid application development platforms&lt;/h2>
-&lt;p>Rapid development platforms are not new - infact, you could argue that they predate the Web entirely with
-&lt;a class="link" href="https://en.wikipedia.org/wiki/FileMaker" target="_blank" rel="noopener"
->Filemaker&lt;/a> coming out in 1985 on the Macintosh.&lt;/p>
-&lt;p>What RAD platforms do is allow developers to quickly iterate &amp;amp; release products to users while still finding product-market fit.&lt;/p>
-&lt;p>TODO: Finish up&lt;/p>
-&lt;h2 id="github">Github&lt;/h2>
-&lt;p>Checkout next-postgraphile on github here &lt;a class="link" href="https://github.com/Flux159/next-postgraphile" target="_blank" rel="noopener"
->https://github.com/Flux159/next-postgraphile&lt;/a>.&lt;/p></description></item><item><title>Create your own Windows Gaming PC on AWS</title><link>https://suyogs.com/p/experiments/windows-gaming-pc-on-aws/</link><pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/windows-gaming-pc-on-aws/</guid><description>&lt;img src="https://suyogs.com/images/windows_gaming_aws/steam.png" alt="Featured image of post Create your own Windows Gaming PC on AWS" />&lt;p>&lt;a class="link" href="https://en.wikipedia.org/wiki/Google_Stadia" target="_blank" rel="noopener"
->Google Stadia&lt;/a> recently came out and one of the interesting things about it is that it streams games from the cloud to your devices. I had previously built a gaming PC around 10 years ago with an Nvidia GTX 260 and an Intel Core i5-750 (eventually upgraded to Nvidia 750 Ti). I hadn’t used the PC in a while and my &lt;a class="link" href="https://suyogs.com/experiments/000005-vscode-online" target="_blank" rel="noopener"
->experiments&lt;/a> with setting up VSCode on AWS got me thinking about setting up my own Gaming server on AWS too. Since this was an ideal use case for the cloud (an on demand machine that I use infrequently and will be consistently upgraded with the most recent GPUs), I wanted to see how I could setup a Windows PC on the AWS to play my Steam games.&lt;/p>
-&lt;h2 id="why-would-you-want-this">Why would you want this?&lt;/h2>
-&lt;p>I don’t usually use a PC for work or personal use (have a MacBook Pro for both) and I didn’t want to deal with purchasing expensive new GPUs or building a brand new PC. One of my overall visions for the future of computing is using thin(er) clients to connect to personalized workspaces in the cloud for all kinds of computing needs (Development work, Gaming, a different operating system when you need it). Amazon came out with &lt;a class="link" href="https://aws.amazon.com/workspaces/" target="_blank" rel="noopener"
->Amazon Workspaces&lt;/a> for this reason (and for enterprise management of data and apps in those workspaces), but their pricing for individuals is &lt;a class="link" href="https://aws.amazon.com/workspaces/pricing/" target="_blank" rel="noopener"
->insane&lt;/a> (as of this writing $735 per month or $22 + $1.75/hr for their minimal 8 vCPU, 15GB memory, 4GB GPU Memory machines). I thought that I could do better by using AWS directly with VMs. With this setup, I can get continuous hardware updates as AWS upgrades their machines, and I can stream my already purchased Steam games to my Mac, iPad, or iPhone.&lt;/p>
-&lt;h2 id="what-gpu-machines-are-available-on-aws-and-pricing">What GPU machines are available on AWS and Pricing&lt;/h2>
-&lt;p>AWS is always upgrading their machines, so as of January 1st, 2020 - their cheapest &lt;strong>current&lt;/strong> instance with a GPU is a &lt;a class="link" href="https://aws.amazon.com/ec2/instance-types/g4/" target="_blank" rel="noopener"
->g4dn.xlarge&lt;/a> - a VM with 4 vCPUs, 16GB memory, and an hourly price of $0.526/hr on demand. Spot prices are currently only $0.19/hr (not including bandwidth or EBS Disk space).&lt;/p>
-&lt;p>These machines actually use &lt;a class="link" href="https://www.nvidia.com/en-us/data-center/tesla-t4/" target="_blank" rel="noopener"
->Nvidia T4&lt;/a> GPUs, which are current generation GPUs built primarily for Cloud Providers. They’re about 1/2 as powerful as the current top of the line 2080 Ti in &lt;a class="link" href="https://www.anandtech.com/show/14663/the-nvidia-geforce-rtx-2080-super-review" target="_blank" rel="noopener"
->compute&lt;/a>, but have more graphics memory since they’re mainly used for professional scientific computing (specifically Machine Learning use cases).&lt;/p>
-&lt;h2 id="operating-system-and-specs">Operating System and Specs&lt;/h2>
-&lt;p>For this guide, we’ll be setting up a g4dn.xlarge with Windows Server 2019. After using Remote Desktop to authenticate to the server, we’ll download Nvidia drivers, setup some common applications we need and get Steam Link working.&lt;/p>
-&lt;h2 id="guide">Guide&lt;/h2>
-&lt;h2 id="get-an-aws-windows-vm">Get an AWS Windows VM&lt;/h2>
-&lt;ul>
-&lt;li>Login to your &lt;a class="link" href="https://console.aws.amazon.com/ec2/home?region=us-east-1#Instances:sort=instanceId" target="_blank" rel="noopener"
->AWS Console&lt;/a> and start a new Windows Instance (On Demand) with a g4dn.xlarge VM. Add a 128GB EBS Drive to the machine as well.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/launchinstance.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/launchinstance.png"
-loading="lazy"
-alt="launchinstance">
-&lt;/a>
-&lt;figcaption>launchinstance&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>Choose the Windows Server 2019 AMI with a g4dn vm.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/windowsserver2019ami.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/windowsserver2019ami.png"
-loading="lazy"
-alt="windowsserver2019ami">
-&lt;/a>
-&lt;figcaption>windowsserver2019ami&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/g4dnvm.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/g4dnvm.png"
-loading="lazy"
-alt="g4dnvm">
-&lt;/a>
-&lt;figcaption>g4dnvm&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>Add a 128GB volume (or more) as your root volume. Feel free to resize to whatever size you need for your games. Note that since the vm is on AWS, steam downloads will generally be extremely fast (50MB/s +), so you could even get a smaller drive and just delete items as needed.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/addvolume.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/addvolume.png"
-loading="lazy"
-alt="addvolume">
-&lt;/a>
-&lt;figcaption>addvolume&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>When adding a security group, make sure to make the following ports open along with TCP 22 for SSH:&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/ports1.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/ports1.png"
-loading="lazy"
-alt="ports1">
-&lt;/a>
-&lt;figcaption>ports1&lt;/figcaption>
-&lt;/figure>
-&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/ports2.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/ports2.png"
-loading="lazy"
-alt="ports2">
-&lt;/a>
-&lt;figcaption>ports2&lt;/figcaption>
-&lt;/figure>
-&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/ports3.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/ports3.png"
-loading="lazy"
-alt="ports3">
-&lt;/a>
-&lt;figcaption>ports3&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>When you launch the instance, you want to click on it in the AWS UI and use the &amp;ldquo;Connect&amp;rdquo; button to get Remote Desktop connection and password information.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/connectbuttonaws.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/connectbuttonaws.png"
-loading="lazy"
-alt="connect">
-&lt;/a>
-&lt;figcaption>connect&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/downloadremotefile.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/downloadremotefile.png"
-loading="lazy"
-alt="downloadremotedesktop">
-&lt;/a>
-&lt;figcaption>downloadremotedesktop&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>Connect using your remote desktop client and get the password from the AWS connect modal.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/remotedesktop.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/remotedesktop.png"
-loading="lazy"
-alt="remotedesktop">
-&lt;/a>
-&lt;figcaption>remotedesktop&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>Note that if you see this error message when retrieving your password, you usually just need to wait a few minutes while the VM is initializing.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/windowspasswordnotavailableaws.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/windowspasswordnotavailableaws.png"
-loading="lazy"
-alt="passwordnotavailable">
-&lt;/a>
-&lt;figcaption>passwordnotavailable&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>Once you&amp;rsquo;ve connected via Remote desktop to your Windows Machine, you should see a virtual desktop&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/ec2windowsdesktop.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/ec2windowsdesktop.png"
-loading="lazy"
-alt="ec2windowsdesktop">
-&lt;/a>
-&lt;figcaption>ec2windowsdesktop&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;h2 id="disable-ie-restrictions-and-get-chrome">Disable IE Restrictions and get Chrome&lt;/h2>
-&lt;p>IE on Windows Server has some insane restrictions on website content and downloads. Open IE the first time and make sure to disable &amp;ldquo;Internet Explorer Enhanced Security Configuration&amp;rdquo; in Server Manager settings in order to download Chrome and set it up as your default browser.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/ieawful.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/ieawful.png"
-loading="lazy"
-alt="ieawful">
-&lt;/a>
-&lt;figcaption>ieawful&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/servermanageriesettings0.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/servermanageriesettings0.png"
-loading="lazy"
-alt="servermanageriesettings0">
-&lt;/a>
-&lt;figcaption>servermanageriesettings0&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/servermanageriesettings.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/servermanageriesettings.png"
-loading="lazy"
-alt="servermanageriesettings">
-&lt;/a>
-&lt;figcaption>servermanageriesettings&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/makechromedefault.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/makechromedefault.png"
-loading="lazy"
-alt="makechromedefault">
-&lt;/a>
-&lt;figcaption>makechromedefault&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;h2 id="install-nvidia-graphics-drivers-grid-drivers">Install Nvidia Graphics Drivers, GRID drivers&lt;/h2>
-&lt;p>Following the &lt;a class="link" href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html" target="_blank" rel="noopener"
->AWS Guide&lt;/a>, download the &lt;a class="link" href="https://www.nvidia.com/Download/Find.aspx" target="_blank" rel="noopener"
->Nvidia graphics drivers&lt;/a> and &lt;a class="link" href="https://s3.amazonaws.com/nvidia-gaming/GRID-436.30-vGaming-Windows-Guest-Drivers.zip" target="_blank" rel="noopener"
->GRID drivers&lt;/a> for your G4 machine. (The Nvidia Drivers are for T4 GPUs).&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/nvidiadriverst4.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/nvidiadriverst4.png"
-loading="lazy"
-alt="nvidiadriverst4">
-&lt;/a>
-&lt;figcaption>nvidiadriverst4&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/nvidiadriversinstalled.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/nvidiadriversinstalled.png"
-loading="lazy"
-alt="nvidiadriversinstalled">
-&lt;/a>
-&lt;figcaption>nvidiadriversinstalled&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>Make sure to also configure the GRID drivers appropriately according the the &lt;a class="link" href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html" target="_blank" rel="noopener"
->AWS Guide&lt;/a>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/extractgrid.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/extractgrid.png"
-loading="lazy"
-alt="extractgrid">
-&lt;/a>
-&lt;figcaption>extractgrid&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/gridinstalled.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/gridinstalled.png"
-loading="lazy"
-alt="gridinstalled">
-&lt;/a>
-&lt;figcaption>gridinstalled&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/awsguidegridcomplete.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/awsguidegridcomplete.png"
-loading="lazy"
-alt="awsguidegridcomplete">
-&lt;/a>
-&lt;figcaption>awsguidegridcomplete&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/registryeditor.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/registryeditor.png"
-loading="lazy"
-alt="registryeditor">
-&lt;/a>
-&lt;figcaption>registryeditor&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/nvidianewdword.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/nvidianewdword.png"
-loading="lazy"
-alt="nvidianewdword">
-&lt;/a>
-&lt;figcaption>nvidianewdword&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/nvidiaeditdword.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/nvidiaeditdword.png"
-loading="lazy"
-alt="nvidiaeditdword">
-&lt;/a>
-&lt;figcaption>nvidiaeditdword&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/gridswcertpublic.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/gridswcertpublic.png"
-loading="lazy"
-alt="gridswcertpublic">
-&lt;/a>
-&lt;figcaption>gridswcertpublic&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;h2 id="disable-windows-basic-display-driver-and-install-windows-features">Disable Windows Basic Display Driver and install Windows Features&lt;/h2>
-&lt;p>Before restarting the VM, configure and install some windows settings and features. First, disable the windows basic display driver via device manager.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/controlpanel.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/controlpanel.png"
-loading="lazy"
-alt="controlpanel">
-&lt;/a>
-&lt;figcaption>controlpanel&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/devicemanager.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/devicemanager.png"
-loading="lazy"
-alt="devicemanager">
-&lt;/a>
-&lt;figcaption>devicemanager&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/disablebasicdisplay.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/disablebasicdisplay.png"
-loading="lazy"
-alt="disablebasicdisplay">
-&lt;/a>
-&lt;figcaption>disablebasicdisplay&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>Then install some required Windows Features from Server Manager. Specifically after opening Server Manager, you want to use &amp;ldquo;Local Server&amp;rdquo;, and scroll all the way to the bottom to get to the &amp;ldquo;Roles and Features&amp;rdquo; section. In &amp;ldquo;Tasks&amp;rdquo;, you&amp;rsquo;ll get a button to &amp;ldquo;Add Roles and Features&amp;rdquo;.&lt;/p>
-&lt;p>You want to add at least Media Foundation, QWAVE (Quality Windows Audio Video Experience), and .NET 3.5.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/servermanager.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/servermanager.png"
-loading="lazy"
-alt="servermanager">
-&lt;/a>
-&lt;figcaption>servermanager&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/localserveraddfeature.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/localserveraddfeature.png"
-loading="lazy"
-alt="localserveraddfeature">
-&lt;/a>
-&lt;figcaption>localserveraddfeature&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/mediafoundationqwave.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/mediafoundationqwave.png"
-loading="lazy"
-alt="mediafoundationqwave">
-&lt;/a>
-&lt;figcaption>mediafoundationqwave&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>While you&amp;rsquo;re installing these features, make sure to also &lt;a class="link" href="https://support.microsoft.com/en-us/help/4028544/windows-10-turn-windows-defender-firewall-on-or-off" target="_blank" rel="noopener"
->disable Windows Firewall&lt;/a> so that you can accept incoming connections on the ports we&amp;rsquo;ve opened for Steam.&lt;/p>
-&lt;p>Once you&amp;rsquo;ve installed all the required drivers and Windows Features, restart the VM before proceeding to the next section.&lt;/p>
-&lt;h2 id="download-steam-hamachi-blender-razer-sound-71">Download Steam, Hamachi, Blender, Razer Sound 7.1&lt;/h2>
-&lt;p>Download and Install &lt;a class="link" href="https://store.steampowered.com/about/" target="_blank" rel="noopener"
->Steam&lt;/a>, &lt;a class="link" href="https://www.vpn.net" target="_blank" rel="noopener"
->Hamachi&lt;/a>, &lt;a class="link" href="https://www.blender.org/" target="_blank" rel="noopener"
->Blender&lt;/a>, and &lt;a class="link" href="https://www.razer.com/7.1-surround-sound" target="_blank" rel="noopener"
->Razer Sound 7.1&lt;/a>. Note that you only need to install Razer Sound, you don&amp;rsquo;t need to log in (this is to provide audio drivers).&lt;/p>
-&lt;p>Login to the same Steam account on your VM and on your client. Also for Hamachi, make sure that your VM and Client are connected to the same VPN group.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/steam.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/steam.png"
-loading="lazy"
-alt="steam">
-&lt;/a>
-&lt;figcaption>steam&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/hamachi.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/hamachi.png"
-loading="lazy"
-alt="hamachi">
-&lt;/a>
-&lt;figcaption>hamachi&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/blender.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/blender.png"
-loading="lazy"
-alt="blender">
-&lt;/a>
-&lt;figcaption>blender&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;h2 id="steam-settings-for-remote-play-on-host">Steam settings for Remote play on host&lt;/h2>
-&lt;p>When logged into Steam on the remote VM, go to Steam Settings -&amp;gt; Remote Play -&amp;gt; Advanced Host Options.&lt;/p>
-&lt;p>&lt;a class="link" href="https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/" target="_blank" rel="noopener"
->Disable&lt;/a> &amp;ldquo;Dynamically adjust screen capture&amp;rdquo; and &amp;ldquo;Use NVFBC capture on NVIDIA GPU&amp;rdquo; if you have issues with games crashing on startup.&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://suyogs.com/images/windows_gaming_aws/steamoptions.png" >
-&lt;img src="https://suyogs.com/images/windows_gaming_aws/steamoptions.png"
-loading="lazy"
-alt="steamoptions">
-&lt;/a>
-&lt;figcaption>steamoptions&lt;/figcaption>
-&lt;/figure>&lt;/p>
-&lt;h2 id="install-steam-games-you-want-to-play">Install Steam Games you want to play&lt;/h2>
-&lt;p>Install the steam games you want to play on the Remote VM. Once they&amp;rsquo;re installed and you have Hamachi setup, you should be able to see on your client(s) the Steam &amp;ldquo;Play&amp;rdquo;/&amp;ldquo;Install&amp;rdquo; button become a &amp;ldquo;Stream&amp;rdquo; button. Before clicking &amp;ldquo;Stream&amp;rdquo;, you&amp;rsquo;ll need to create a logout.bat file below and disconnect from Remote Desktop (RDP).&lt;/p>
-&lt;h2 id="create-logoutbat">Create logout.bat&lt;/h2>
-&lt;p>Create logout.bat that will log out of remote desktop, but keep Hamachi running (needed since Steam Link crashes while still connected to RDP).&lt;/p>
-&lt;p>The logout.bat batch script should have the following code:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bat" data-lang="bat"># This script locks the server, disconnects you from the servers RDP session
-# sending the session back to console so hamachi does not get disconnected
-tscon 0 /dest:console
-tscon 1 /dest:console
-tscon 2 /dest:console
-Rundll32.exe User32.dll,LockWorkStation
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then connect via Steam Streaming when RDP isn&amp;rsquo;t connected. Apparently Steam uses the same connection or something and errors out. Note that you need to ensure that you have a good connection to the server.&lt;/p>
-&lt;p>Now you can stream games with steam and profit!&lt;/p>
-&lt;h2 id="remote-workspace">Remote Workspace&lt;/h2>
-&lt;p>Optional:&lt;/p>
-&lt;ul>
-&lt;li>Since this is a full fledged remote workspace, you can download and use other GPU based tools (Blender, Maya, Photoshop) via RDP - although lag may be more noticeable through RDP and it might be better to do local development and use the remote server for rendering or when you need more compute.&lt;/li>
-&lt;li>This is also a fully useable Windows Environment if you need to test windows specific features or use Windows only tools.&lt;/li>
-&lt;/ul>
-&lt;h2 id="references">References&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a class="link" href="https://lg.io/2015/07/05/revised-and-much-faster-run-your-own-highend-cloud-gaming-service-on-ec2.html" target="_blank" rel="noopener"
->https://lg.io/2015/07/05/revised-and-much-faster-run-your-own-highend-cloud-gaming-service-on-ec2.html&lt;/a> - Primarily used this and adapted for Windows Server 2019 and newer Nvidia drivers&lt;/li>
-&lt;li>&lt;a class="link" href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html#nvidia-grid-g4" target="_blank" rel="noopener"
->https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html#nvidia-grid-g4&lt;/a> - Main AWS Documentation Page for installing windows drivers&lt;/li>
-&lt;li>&lt;a class="link" href="https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/" target="_blank" rel="noopener"
->https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/&lt;/a> - Fixing some steam link settings&lt;/li>
-&lt;li>Apparently Parsec was following a similar guide (just automated): &lt;a class="link" href="https://github.com/jamesstringerparsec/Parsec-Cloud-Preparation-Tool/blob/master/PostInstall/PostInstall.ps1" target="_blank" rel="noopener"
->https://github.com/jamesstringerparsec/Parsec-Cloud-Preparation-Tool/blob/master/PostInstall/PostInstall.ps1&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>VSCode Online with AWS</title><link>https://suyogs.com/p/experiments/vscode-online-with-aws/</link><pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/vscode-online-with-aws/</guid><description>&lt;img src="https://suyogs.com/images/vscode_online/vscode.png" alt="Featured image of post VSCode Online with AWS" />&lt;p>NOTE: This post is deprecated as VSCode Online added the ability to start a vscode server without a UI after rebranding to Visual Studio Codespaces.
-&lt;a class="link" href="https://github.com/features/codespaces/" target="_blank" rel="noopener"
->Github Codespaces&lt;/a> would probably use something similar and would be a better overall experience than manually setting
+during development.&lt;/p></description><content:encoded><![CDATA[<h1 id="introducing-next-postgraphile">Introducing next-postgraphile</h1>
+<h2 id="motivation">Motivation</h2>
+<p>TODO: Finish up</p>
+<h2 id="nextjs">Next.js</h2>
+<p><a href="https://nextjs.org/">Next.js</a> is an elegant web app starter platform that combines an opinionated webpack configuration with React and more recently a
+lightweight <a href="https://nextjs.org/docs/api-routes/introduction">API layer</a>.</p>
+<p>Using next.js with <a href="https://www.typescriptlang.org/">Typescript</a> provides an elegant way to develop webapps applications quickly while utilizing the
+react ecosystem for prebuilt components. Due to how simple next.js makes development and deployment, it&rsquo;s become my go to development platform for
+javascript webapps.</p>
+<h2 id="graphql">Graphql</h2>
+<p><a href="https://graphql.org/">Graphql</a> was developed as a query language for large API surfaces as an alternative to
+<a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>. Graphql allows web and mobile developers to define
+what data they need from a backend declaratively with a single query while also providing valuable introspection capabilities
+during development.</p>
+<p>Graphql has allowed developers to rapidly update client frontends with new data as the API layer is updated. It has also enabled
+the recent rise of rapid application development platforms like <a href="https://www.prisma.io/">Prisma</a>, <a href="https://www.apollographql.com/">Apollo</a>, and
+<a href="https://www.graphile.org/postgraphile/">Postgraphile</a>.</p>
+<h2 id="rapid-application-development-platforms">Rapid application development platforms</h2>
+<p>Rapid development platforms are not new - infact, you could argue that they predate the Web entirely with
+<a href="https://en.wikipedia.org/wiki/FileMaker">Filemaker</a> coming out in 1985 on the Macintosh.</p>
+<p>What RAD platforms do is allow developers to quickly iterate &amp; release products to users while still finding product-market fit.</p>
+<p>TODO: Finish up</p>
+<h2 id="github">Github</h2>
+<p>Checkout next-postgraphile on github here <a href="https://github.com/Flux159/next-postgraphile">https://github.com/Flux159/next-postgraphile</a>.</p>
+]]></content:encoded></item><item><title>Create your own Windows Gaming PC on AWS</title><link>https://suyogs.com/p/experiments/windows-gaming-pc-on-aws/</link><pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/windows-gaming-pc-on-aws/</guid><description>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Google_Stadia">Google Stadia&lt;/a> recently came out and one of the interesting things about it is that it streams games from the cloud to your devices. I had previously built a gaming PC around 10 years ago with an Nvidia GTX 260 and an Intel Core i5-750 (eventually upgraded to Nvidia 750 Ti). I hadn’t used the PC in a while and my &lt;a href="https://suyogs.com/experiments/000005-vscode-online">experiments&lt;/a> with setting up VSCode on AWS got me thinking about setting up my own Gaming server on AWS too. Since this was an ideal use case for the cloud (an on demand machine that I use infrequently and will be consistently upgraded with the most recent GPUs), I wanted to see how I could setup a Windows PC on the AWS to play my Steam games.&lt;/p></description><content:encoded><![CDATA[<p><a href="https://en.wikipedia.org/wiki/Google_Stadia">Google Stadia</a> recently came out and one of the interesting things about it is that it streams games from the cloud to your devices. I had previously built a gaming PC around 10 years ago with an Nvidia GTX 260 and an Intel Core i5-750 (eventually upgraded to Nvidia 750 Ti). I hadn’t used the PC in a while and my <a href="https://suyogs.com/experiments/000005-vscode-online">experiments</a> with setting up VSCode on AWS got me thinking about setting up my own Gaming server on AWS too. Since this was an ideal use case for the cloud (an on demand machine that I use infrequently and will be consistently upgraded with the most recent GPUs), I wanted to see how I could setup a Windows PC on the AWS to play my Steam games.</p>
+<h2 id="why-would-you-want-this">Why would you want this?</h2>
+<p>I don’t usually use a PC for work or personal use (have a MacBook Pro for both) and I didn’t want to deal with purchasing expensive new GPUs or building a brand new PC. One of my overall visions for the future of computing is using thin(er) clients to connect to personalized workspaces in the cloud for all kinds of computing needs (Development work, Gaming, a different operating system when you need it). Amazon came out with <a href="https://aws.amazon.com/workspaces/">Amazon Workspaces</a> for this reason (and for enterprise management of data and apps in those workspaces), but their pricing for individuals is <a href="https://aws.amazon.com/workspaces/pricing/">insane</a> (as of this writing $735 per month or $22 + $1.75/hr for their minimal 8 vCPU, 15GB memory, 4GB GPU Memory machines). I thought that I could do better by using AWS directly with VMs. With this setup, I can get continuous hardware updates as AWS upgrades their machines, and I can stream my already purchased Steam games to my Mac, iPad, or iPhone.</p>
+<h2 id="what-gpu-machines-are-available-on-aws-and-pricing">What GPU machines are available on AWS and Pricing</h2>
+<p>AWS is always upgrading their machines, so as of January 1st, 2020 - their cheapest <strong>current</strong> instance with a GPU is a <a href="https://aws.amazon.com/ec2/instance-types/g4/">g4dn.xlarge</a> - a VM with 4 vCPUs, 16GB memory, and an hourly price of $0.526/hr on demand. Spot prices are currently only $0.19/hr (not including bandwidth or EBS Disk space).</p>
+<p>These machines actually use <a href="https://www.nvidia.com/en-us/data-center/tesla-t4/">Nvidia T4</a> GPUs, which are current generation GPUs built primarily for Cloud Providers. They’re about 1/2 as powerful as the current top of the line 2080 Ti in <a href="https://www.anandtech.com/show/14663/the-nvidia-geforce-rtx-2080-super-review">compute</a>, but have more graphics memory since they’re mainly used for professional scientific computing (specifically Machine Learning use cases).</p>
+<h2 id="operating-system-and-specs">Operating System and Specs</h2>
+<p>For this guide, we’ll be setting up a g4dn.xlarge with Windows Server 2019. After using Remote Desktop to authenticate to the server, we’ll download Nvidia drivers, setup some common applications we need and get Steam Link working.</p>
+<h2 id="guide">Guide</h2>
+<h2 id="get-an-aws-windows-vm">Get an AWS Windows VM</h2>
+<ul>
+<li>Login to your <a href="https://console.aws.amazon.com/ec2/home?region=us-east-1#Instances:sort=instanceId">AWS Console</a> and start a new Windows Instance (On Demand) with a g4dn.xlarge VM. Add a 128GB EBS Drive to the machine as well.</li>
+</ul>
+<p><img src="/images/windows_gaming_aws/launchinstance.png" alt="launchinstance"></p>
+<p>Choose the Windows Server 2019 AMI with a g4dn vm.</p>
+<p><img src="/images/windows_gaming_aws/windowsserver2019ami.png" alt="windowsserver2019ami"></p>
+<p><img src="/images/windows_gaming_aws/g4dnvm.png" alt="g4dnvm"></p>
+<p>Add a 128GB volume (or more) as your root volume. Feel free to resize to whatever size you need for your games. Note that since the vm is on AWS, steam downloads will generally be extremely fast (50MB/s +), so you could even get a smaller drive and just delete items as needed.</p>
+<p><img src="/images/windows_gaming_aws/addvolume.png" alt="addvolume"></p>
+<p>When adding a security group, make sure to make the following ports open along with TCP 22 for SSH:</p>
+<p><img src="/images/windows_gaming_aws/ports1.png" alt="ports1">
+<img src="/images/windows_gaming_aws/ports2.png" alt="ports2">
+<img src="/images/windows_gaming_aws/ports3.png" alt="ports3"></p>
+<p>When you launch the instance, you want to click on it in the AWS UI and use the &ldquo;Connect&rdquo; button to get Remote Desktop connection and password information.</p>
+<p><img src="/images/windows_gaming_aws/connectbuttonaws.png" alt="connect"></p>
+<p><img src="/images/windows_gaming_aws/downloadremotefile.png" alt="downloadremotedesktop"></p>
+<p>Connect using your remote desktop client and get the password from the AWS connect modal.</p>
+<p><img src="/images/windows_gaming_aws/remotedesktop.png" alt="remotedesktop"></p>
+<p>Note that if you see this error message when retrieving your password, you usually just need to wait a few minutes while the VM is initializing.</p>
+<p><img src="/images/windows_gaming_aws/windowspasswordnotavailableaws.png" alt="passwordnotavailable"></p>
+<p>Once you&rsquo;ve connected via Remote desktop to your Windows Machine, you should see a virtual desktop</p>
+<p><img src="/images/windows_gaming_aws/ec2windowsdesktop.png" alt="ec2windowsdesktop"></p>
+<h2 id="disable-ie-restrictions-and-get-chrome">Disable IE Restrictions and get Chrome</h2>
+<p>IE on Windows Server has some insane restrictions on website content and downloads. Open IE the first time and make sure to disable &ldquo;Internet Explorer Enhanced Security Configuration&rdquo; in Server Manager settings in order to download Chrome and set it up as your default browser.</p>
+<p><img src="/images/windows_gaming_aws/ieawful.png" alt="ieawful"></p>
+<p><img src="/images/windows_gaming_aws/servermanageriesettings0.png" alt="servermanageriesettings0"></p>
+<p><img src="/images/windows_gaming_aws/servermanageriesettings.png" alt="servermanageriesettings"></p>
+<p><img src="/images/windows_gaming_aws/makechromedefault.png" alt="makechromedefault"></p>
+<h2 id="install-nvidia-graphics-drivers-grid-drivers">Install Nvidia Graphics Drivers, GRID drivers</h2>
+<p>Following the <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html">AWS Guide</a>, download the <a href="https://www.nvidia.com/Download/Find.aspx">Nvidia graphics drivers</a> and <a href="https://s3.amazonaws.com/nvidia-gaming/GRID-436.30-vGaming-Windows-Guest-Drivers.zip">GRID drivers</a> for your G4 machine. (The Nvidia Drivers are for T4 GPUs).</p>
+<p><img src="/images/windows_gaming_aws/nvidiadriverst4.png" alt="nvidiadriverst4"></p>
+<p><img src="/images/windows_gaming_aws/nvidiadriversinstalled.png" alt="nvidiadriversinstalled"></p>
+<p>Make sure to also configure the GRID drivers appropriately according the the <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html">AWS Guide</a></p>
+<p><img src="/images/windows_gaming_aws/extractgrid.png" alt="extractgrid"></p>
+<p><img src="/images/windows_gaming_aws/gridinstalled.png" alt="gridinstalled"></p>
+<p><img src="/images/windows_gaming_aws/awsguidegridcomplete.png" alt="awsguidegridcomplete"></p>
+<p><img src="/images/windows_gaming_aws/registryeditor.png" alt="registryeditor"></p>
+<p><img src="/images/windows_gaming_aws/nvidianewdword.png" alt="nvidianewdword"></p>
+<p><img src="/images/windows_gaming_aws/nvidiaeditdword.png" alt="nvidiaeditdword"></p>
+<p><img src="/images/windows_gaming_aws/gridswcertpublic.png" alt="gridswcertpublic"></p>
+<h2 id="disable-windows-basic-display-driver-and-install-windows-features">Disable Windows Basic Display Driver and install Windows Features</h2>
+<p>Before restarting the VM, configure and install some windows settings and features. First, disable the windows basic display driver via device manager.</p>
+<p><img src="/images/windows_gaming_aws/controlpanel.png" alt="controlpanel"></p>
+<p><img src="/images/windows_gaming_aws/devicemanager.png" alt="devicemanager"></p>
+<p><img src="/images/windows_gaming_aws/disablebasicdisplay.png" alt="disablebasicdisplay"></p>
+<p>Then install some required Windows Features from Server Manager. Specifically after opening Server Manager, you want to use &ldquo;Local Server&rdquo;, and scroll all the way to the bottom to get to the &ldquo;Roles and Features&rdquo; section. In &ldquo;Tasks&rdquo;, you&rsquo;ll get a button to &ldquo;Add Roles and Features&rdquo;.</p>
+<p>You want to add at least Media Foundation, QWAVE (Quality Windows Audio Video Experience), and .NET 3.5.</p>
+<p><img src="/images/windows_gaming_aws/servermanager.png" alt="servermanager"></p>
+<p><img src="/images/windows_gaming_aws/localserveraddfeature.png" alt="localserveraddfeature"></p>
+<p><img src="/images/windows_gaming_aws/mediafoundationqwave.png" alt="mediafoundationqwave"></p>
+<p>While you&rsquo;re installing these features, make sure to also <a href="https://support.microsoft.com/en-us/help/4028544/windows-10-turn-windows-defender-firewall-on-or-off">disable Windows Firewall</a> so that you can accept incoming connections on the ports we&rsquo;ve opened for Steam.</p>
+<p>Once you&rsquo;ve installed all the required drivers and Windows Features, restart the VM before proceeding to the next section.</p>
+<h2 id="download-steam-hamachi-blender-razer-sound-71">Download Steam, Hamachi, Blender, Razer Sound 7.1</h2>
+<p>Download and Install <a href="https://store.steampowered.com/about/">Steam</a>, <a href="https://www.vpn.net">Hamachi</a>, <a href="https://www.blender.org/">Blender</a>, and <a href="https://www.razer.com/7.1-surround-sound">Razer Sound 7.1</a>. Note that you only need to install Razer Sound, you don&rsquo;t need to log in (this is to provide audio drivers).</p>
+<p>Login to the same Steam account on your VM and on your client. Also for Hamachi, make sure that your VM and Client are connected to the same VPN group.</p>
+<p><img src="/images/windows_gaming_aws/steam.png" alt="steam"></p>
+<p><img src="/images/windows_gaming_aws/hamachi.png" alt="hamachi"></p>
+<p><img src="/images/windows_gaming_aws/blender.png" alt="blender"></p>
+<h2 id="steam-settings-for-remote-play-on-host">Steam settings for Remote play on host</h2>
+<p>When logged into Steam on the remote VM, go to Steam Settings -&gt; Remote Play -&gt; Advanced Host Options.</p>
+<p><a href="https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/">Disable</a> &ldquo;Dynamically adjust screen capture&rdquo; and &ldquo;Use NVFBC capture on NVIDIA GPU&rdquo; if you have issues with games crashing on startup.</p>
+<p><img src="/images/windows_gaming_aws/steamoptions.png" alt="steamoptions"></p>
+<h2 id="install-steam-games-you-want-to-play">Install Steam Games you want to play</h2>
+<p>Install the steam games you want to play on the Remote VM. Once they&rsquo;re installed and you have Hamachi setup, you should be able to see on your client(s) the Steam &ldquo;Play&rdquo;/&ldquo;Install&rdquo; button become a &ldquo;Stream&rdquo; button. Before clicking &ldquo;Stream&rdquo;, you&rsquo;ll need to create a logout.bat file below and disconnect from Remote Desktop (RDP).</p>
+<h2 id="create-logoutbat">Create logout.bat</h2>
+<p>Create logout.bat that will log out of remote desktop, but keep Hamachi running (needed since Steam Link crashes while still connected to RDP).</p>
+<p>The logout.bat batch script should have the following code:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl"># This script locks the server, disconnects you from the servers RDP session
+</span></span><span class="line"><span class="cl"># sending the session back to console so hamachi does not get disconnected
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tscon 0 /dest:console
+</span></span><span class="line"><span class="cl">tscon 1 /dest:console
+</span></span><span class="line"><span class="cl">tscon 2 /dest:console
+</span></span><span class="line"><span class="cl">Rundll32.exe User32.dll,LockWorkStation</span></span></code></pre></div>
+<p>Then connect via Steam Streaming when RDP isn&rsquo;t connected. Apparently Steam uses the same connection or something and errors out. Note that you need to ensure that you have a good connection to the server.</p>
+<p>Now you can stream games with steam and profit!</p>
+<h2 id="remote-workspace">Remote Workspace</h2>
+<p>Optional:</p>
+<ul>
+<li>Since this is a full fledged remote workspace, you can download and use other GPU based tools (Blender, Maya, Photoshop) via RDP - although lag may be more noticeable through RDP and it might be better to do local development and use the remote server for rendering or when you need more compute.</li>
+<li>This is also a fully useable Windows Environment if you need to test windows specific features or use Windows only tools.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://lg.io/2015/07/05/revised-and-much-faster-run-your-own-highend-cloud-gaming-service-on-ec2.html">https://lg.io/2015/07/05/revised-and-much-faster-run-your-own-highend-cloud-gaming-service-on-ec2.html</a> - Primarily used this and adapted for Windows Server 2019 and newer Nvidia drivers</li>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html#nvidia-grid-g4">https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html#nvidia-grid-g4</a> - Main AWS Documentation Page for installing windows drivers</li>
+<li><a href="https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/">https://steamcommunity.com/groups/homestream/discussions/0/1318835718943402340/</a> - Fixing some steam link settings</li>
+<li>Apparently Parsec was following a similar guide (just automated): <a href="https://github.com/jamesstringerparsec/Parsec-Cloud-Preparation-Tool/blob/master/PostInstall/PostInstall.ps1">https://github.com/jamesstringerparsec/Parsec-Cloud-Preparation-Tool/blob/master/PostInstall/PostInstall.ps1</a></li>
+</ul>
+]]></content:encoded></item><item><title>VSCode Online with AWS</title><link>https://suyogs.com/p/experiments/vscode-online-with-aws/</link><pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/vscode-online-with-aws/</guid><description>&lt;p>NOTE: This post is deprecated as VSCode Online added the ability to start a vscode server without a UI after rebranding to Visual Studio Codespaces.
+&lt;a href="https://github.com/features/codespaces/">Github Codespaces&lt;/a> would probably use something similar and would be a better overall experience than manually setting
 up an instance on AWS.&lt;/p>
-&lt;p>I&amp;rsquo;m writing this blog post using &lt;a class="link" href="https://visualstudio.microsoft.com/services/visual-studio-online/" target="_blank" rel="noopener"
->VSCode Online&lt;/a> using a hosted environment on AWS.&lt;/p>
-&lt;p>This is pretty awesome as it lets me use VSCode from a webbrowser to connect to a VM running on my AWS account.&lt;/p>
-&lt;p>This post goes over how I set it up, what works, and how I believe that remote development like this is not just the future, but also a critial part of what Github (now owned by Microsoft) will offer in the future.&lt;/p>
-&lt;h1 id="why-remote-development">Why Remote Development&lt;/h1>
-&lt;ul>
-&lt;li>Can access from anywhere&lt;/li>
-&lt;li>A single browser for all your apps (VSCode, Terminal, Google, etc.)&lt;/li>
-&lt;li>Save on costs &amp;amp; pay for what you use - if you need a larger machine, just shutdown the instance, get a bigger one for a few hours. Works extremely well with the On Demand / Spot instance model of pricing (if backups &amp;amp; temporary non-committed state handled seamlessly)&lt;/li>
-&lt;li>Should definitely be automated so that a disconnect from the environment can run a command to shutdown the instance. Should also be able to run a lambda or Azure function in order to &amp;ldquo;boot up&amp;rdquo; a self-hosted instance too (saves on costs significantly)&lt;/li>
-&lt;li>Can be automated so that load from a setup image, does a git pull (if necessary), has environment already configured&lt;/li>
-&lt;li>Not local &amp;amp; on a virtual machine, so any issues with client computer (hard drive breaks, etc.) won&amp;rsquo;t happen. Also if VM gets corrupted / in a bad state, just make a new VM from a backed up image&lt;/li>
-&lt;li>&lt;strong>Potentially&lt;/strong> Access from phone in the &lt;em>near&lt;/em> future.&lt;/li>
-&lt;li>&lt;strong>Potentially&lt;/strong> Github &amp;ldquo;edit in vscode&amp;rdquo; that will spawn an environment automatically and let me edit the repository with an IDE like experience.&lt;/li>
-&lt;/ul>
-&lt;h1 id="setup">Setup&lt;/h1>
-&lt;ul>
-&lt;li>Get an AWS account - this entire setup is much easier if you just use Azure, but this guide is specifically for people on a different cloud provider (using a VM in Google Cloud or Digital Ocean with VSCode Online will be very similar)&lt;/li>
-&lt;li>Start a new instance - I used a T2.Medium since it has 4GB RAM and 2 Virtual Cores&lt;/li>
-&lt;li>Start with a terminal based Ubuntu 18.04 instance&lt;/li>
-&lt;li>Follow instructions to setup machine with a GUI, Setup VNC server properly&lt;/li>
-&lt;li>In VNC server, get vscode (there was an error here around X11, fix that) - Mac can use Finder as client. Note that GUI is pretty barebones, you want to get Firefox to just download VSCode quickly.&lt;/li>
-&lt;li>Once VSCode is installed (via .deb), download the VSCode Online extension&lt;/li>
-&lt;li>Use the command palette and follow the instructions to setup a local environment&lt;/li>
-&lt;li>Note that you need to have a vscode online account AND an Azure account here&lt;/li>
-&lt;li>The azure account also needs to have a subscription &amp;ldquo;plan&amp;rdquo; for VSCode online even though you won&amp;rsquo;t be using their environments&lt;/li>
-&lt;li>Once environment is setup, you want to connect to the environment from &lt;a class="link" href="https://online.visualstudio.com" target="_blank" rel="noopener"
->https://online.visualstudio.com&lt;/a>&lt;/li>
-&lt;li>In the environment, you&amp;rsquo;ll automatically connect to the folder you specified as the workspace&lt;/li>
-&lt;li>Change the max file watchers so that VSCode doesn&amp;rsquo;t complain (and node/yarn don&amp;rsquo;t complain)&lt;/li>
-&lt;li>I wanted to work with a Nodejs app and also do Jupyter development, so I also set those up.&lt;/li>
-&lt;/ul>
-&lt;h1 id="step-by-step">Step by Step&lt;/h1>
-&lt;p>Systematic way of setting up an Ubuntu Environment with xfce4, Chrome, VSCode, Nodejs, and Jupyter for web based remote development from any device.&lt;/p>
-&lt;h1 id="getting-an-aws-instance-and-setting-up-the-right-security-group">Getting an AWS Instance and setting up the right security group&lt;/h1>
-&lt;p>Get an instance - I got a t3.medium with 2 VCPUs and 4GB RAM. I also attached a 32GB SSD Disk to the VM.&lt;/p>
-&lt;p>Make sure the Security Group is setup properly (inbound connections from these ports should be allowed):&lt;/p>
-&lt;pre tabindex="0">&lt;code>Ports 8000-8001, 9000 for web development purposes
+&lt;p>I&amp;rsquo;m writing this blog post using &lt;a href="https://visualstudio.microsoft.com/services/visual-studio-online/">VSCode Online&lt;/a> using a hosted environment on AWS.&lt;/p>
+&lt;p>This is pretty awesome as it lets me use VSCode from a webbrowser to connect to a VM running on my AWS account.&lt;/p></description><content:encoded><![CDATA[<p>NOTE: This post is deprecated as VSCode Online added the ability to start a vscode server without a UI after rebranding to Visual Studio Codespaces.
+<a href="https://github.com/features/codespaces/">Github Codespaces</a> would probably use something similar and would be a better overall experience than manually setting
+up an instance on AWS.</p>
+<p>I&rsquo;m writing this blog post using <a href="https://visualstudio.microsoft.com/services/visual-studio-online/">VSCode Online</a> using a hosted environment on AWS.</p>
+<p>This is pretty awesome as it lets me use VSCode from a webbrowser to connect to a VM running on my AWS account.</p>
+<p>This post goes over how I set it up, what works, and how I believe that remote development like this is not just the future, but also a critial part of what Github (now owned by Microsoft) will offer in the future.</p>
+<h1 id="why-remote-development">Why Remote Development</h1>
+<ul>
+<li>Can access from anywhere</li>
+<li>A single browser for all your apps (VSCode, Terminal, Google, etc.)</li>
+<li>Save on costs &amp; pay for what you use - if you need a larger machine, just shutdown the instance, get a bigger one for a few hours. Works extremely well with the On Demand / Spot instance model of pricing (if backups &amp; temporary non-committed state handled seamlessly)</li>
+<li>Should definitely be automated so that a disconnect from the environment can run a command to shutdown the instance. Should also be able to run a lambda or Azure function in order to &ldquo;boot up&rdquo; a self-hosted instance too (saves on costs significantly)</li>
+<li>Can be automated so that load from a setup image, does a git pull (if necessary), has environment already configured</li>
+<li>Not local &amp; on a virtual machine, so any issues with client computer (hard drive breaks, etc.) won&rsquo;t happen. Also if VM gets corrupted / in a bad state, just make a new VM from a backed up image</li>
+<li><strong>Potentially</strong> Access from phone in the <em>near</em> future.</li>
+<li><strong>Potentially</strong> Github &ldquo;edit in vscode&rdquo; that will spawn an environment automatically and let me edit the repository with an IDE like experience.</li>
+</ul>
+<h1 id="setup">Setup</h1>
+<ul>
+<li>Get an AWS account - this entire setup is much easier if you just use Azure, but this guide is specifically for people on a different cloud provider (using a VM in Google Cloud or Digital Ocean with VSCode Online will be very similar)</li>
+<li>Start a new instance - I used a T2.Medium since it has 4GB RAM and 2 Virtual Cores</li>
+<li>Start with a terminal based Ubuntu 18.04 instance</li>
+<li>Follow instructions to setup machine with a GUI, Setup VNC server properly</li>
+<li>In VNC server, get vscode (there was an error here around X11, fix that) - Mac can use Finder as client. Note that GUI is pretty barebones, you want to get Firefox to just download VSCode quickly.</li>
+<li>Once VSCode is installed (via .deb), download the VSCode Online extension</li>
+<li>Use the command palette and follow the instructions to setup a local environment</li>
+<li>Note that you need to have a vscode online account AND an Azure account here</li>
+<li>The azure account also needs to have a subscription &ldquo;plan&rdquo; for VSCode online even though you won&rsquo;t be using their environments</li>
+<li>Once environment is setup, you want to connect to the environment from <a href="https://online.visualstudio.com">https://online.visualstudio.com</a></li>
+<li>In the environment, you&rsquo;ll automatically connect to the folder you specified as the workspace</li>
+<li>Change the max file watchers so that VSCode doesn&rsquo;t complain (and node/yarn don&rsquo;t complain)</li>
+<li>I wanted to work with a Nodejs app and also do Jupyter development, so I also set those up.</li>
+</ul>
+<h1 id="step-by-step">Step by Step</h1>
+<p>Systematic way of setting up an Ubuntu Environment with xfce4, Chrome, VSCode, Nodejs, and Jupyter for web based remote development from any device.</p>
+<h1 id="getting-an-aws-instance-and-setting-up-the-right-security-group">Getting an AWS Instance and setting up the right security group</h1>
+<p>Get an instance - I got a t3.medium with 2 VCPUs and 4GB RAM. I also attached a 32GB SSD Disk to the VM.</p>
+<p>Make sure the Security Group is setup properly (inbound connections from these ports should be allowed):</p>
+
+
+
+
+
+
+<pre tabindex="0"><code>Ports 8000-8001, 9000 for web development purposes 
 Port 8888 for Jupyter
 Port 22 for SSH
-Port 5901 for VNC
-&lt;/code>&lt;/pre>&lt;p>Note that I usually limit the security group to only my IP since this is intended to be a development machine.&lt;/p>
-&lt;h1 id="getting-gnome-desktop-and-vnc-setup-on-ubuntu-1804-server">Getting gnome-desktop and VNC setup on Ubuntu 18.04 Server&lt;/h1>
-&lt;p>TODO: Update to use gnome-desktop rather than xfce4 which has odd bugs that cause it to crash frequently &amp;amp; the VNC connection needs to be re-established / VSCode environment needs to be refreshed.&lt;/p>
-&lt;p>Note: Replace &lt;code>USER=suyogs&lt;/code> with the username you want to setup. When you add your user, it will ask for a password that will be used for authentication.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="nv">USER&lt;/span>&lt;span class="o">=&lt;/span>suyogs
-sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt install -y ubuntu-desktop tightvncserver gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal build-essential
-sudo adduser &lt;span class="nv">$USER&lt;/span>
-sudo usermod -aG sudo &lt;span class="nv">$USER&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">su - &lt;span class="nv">$USER&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>As your &lt;code>$USER&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">vncserver
-vncserver -kill :1
-mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
-vim ~/.vnc/xstartup
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Make some common directories for your user:&lt;/p>
-&lt;pre tabindex="0">&lt;code>mkdir -p ~/Documents ~/Desktop ~/Downloads ~/Music ~/Pictures ~/Movies ~/Projects
-&lt;/code>&lt;/pre>&lt;p>In the &lt;code>~/.vnc/xstartup&lt;/code> file, add the following:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="cp">#!/bin/bash
-&lt;/span>&lt;span class="cp">&lt;/span>
-&lt;span class="nb">export&lt;/span> &lt;span class="nv">XKL_XMODMAP_DISABLE&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
-&lt;span class="nb">unset&lt;/span> SESSION_MANAGER
-&lt;span class="nb">unset&lt;/span> DBUS_SESSION_BUS_ADDRESS
-&lt;span class="o">[&lt;/span> -x /etc/vnc/xstartup &lt;span class="o">]&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">exec&lt;/span> /etc/vnc/xstartup
-&lt;span class="o">[&lt;/span> -r &lt;span class="nv">$HOME&lt;/span>/.Xresources &lt;span class="o">]&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> xrdb &lt;span class="nv">$HOME&lt;/span>/.Xresources
-xsetroot -solid grey
-vncconfig -iconic &lt;span class="p">&amp;amp;&lt;/span>
-gnome-session &lt;span class="p">&amp;amp;&lt;/span>
-gnome-panel &lt;span class="p">&amp;amp;&lt;/span>
-gnome-settings-daemon &lt;span class="p">&amp;amp;&lt;/span>
-metacity &lt;span class="p">&amp;amp;&lt;/span>
-nautilus &lt;span class="p">&amp;amp;&lt;/span>
-&lt;span class="c1"># gnome-terminal &amp;amp;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then run this in your &lt;code>$USER&lt;/code>&amp;rsquo;s shell:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">sudo chmod +x ~/.vnc/xstartup
-vncserver
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>At this point, you should be able to connect to VNC on your Ubuntu machine by using a VNC Client (see below for clients on Mac and iPhone) and connecting to &lt;code>vnc://YOUR_PUBLIC_IP:5901&lt;/code>. The next step will setup VNC to be a systemctl service that will spawn on boot.&lt;/p>
-&lt;p>To figure out your public ip from the terminal, you can just use the following command:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">curl ifconfig.co
-&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">sudo vim /etc/systemd/system/vncserver@.service
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>In the &lt;code>/etc/systemd/system/vncserver@.service&lt;/code> file, add the following (NOTE: Be sure to replace &lt;strong>YOUR_USER&lt;/strong> with the username from above manually):&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">[Unit]
-Description=Start TightVNC server at startup
-After=syslog.target network.target
-[Service]
-Type=forking
-User=YOUR_USER
-Group=YOUR_USER
-WorkingDirectory=/home/YOUR_USER
-PIDFile=/home/YOUR_USER/.vnc/%H:%i.pid
-ExecStartPre=-/usr/bin/vncserver -kill :%i &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
-ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x800 :%i
-ExecStop=/usr/bin/vncserver -kill :%i
-[Install]
-WantedBy=multi-user.target
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Run the following to restart vnc:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">vncserver -kill :1
-sudo systemctl daemon-reload
-sudo systemctl &lt;span class="nb">enable&lt;/span> vncserver@1.service
-sudo systemctl start vncserver@1
-sudo systemctl status vncserver@1
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>You should now be able to reboot your machine and VNC will be setup on boot.&lt;/p>
-&lt;h1 id="getting-chrome-and-vscode-installed">Getting Chrome and VSCode Installed&lt;/h1>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-rm google-chrome-stable_current_amd64.deb
-wget -O code.deb https://go.microsoft.com/fwlink/?LinkID&lt;span class="o">=&lt;/span>&lt;span class="m">760868&lt;/span>
-sudo dpkg -i code.deb
-rm code.deb
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Fix an issue around Code not booting in remote VNC/X sessions and install the VSOnline extension:&lt;/p>
-&lt;pre tabindex="0">&lt;code>cd /usr/lib/x86_64-linux-gnu/
+Port 5901 for VNC</code></pre>
+<p>Note that I usually limit the security group to only my IP since this is intended to be a development machine.</p>
+<h1 id="getting-gnome-desktop-and-vnc-setup-on-ubuntu-1804-server">Getting gnome-desktop and VNC setup on Ubuntu 18.04 Server</h1>
+<p>TODO: Update to use gnome-desktop rather than xfce4 which has odd bugs that cause it to crash frequently &amp; the VNC connection needs to be re-established / VSCode environment needs to be refreshed.</p>
+<p>Note: Replace <code>USER=suyogs</code> with the username you want to setup. When you add your user, it will ask for a password that will be used for authentication.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">USER</span><span class="o">=</span>suyogs
+</span></span><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y ubuntu-desktop tightvncserver gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal build-essential
+</span></span><span class="line"><span class="cl">sudo adduser <span class="nv">$USER</span>
+</span></span><span class="line"><span class="cl">sudo usermod -aG sudo <span class="nv">$USER</span></span></span></code></pre></div>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">su - <span class="nv">$USER</span></span></span></code></pre></div>
+<p>As your <code>$USER</code>:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vncserver 
+</span></span><span class="line"><span class="cl">vncserver -kill :1
+</span></span><span class="line"><span class="cl">mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+</span></span><span class="line"><span class="cl">vim ~/.vnc/xstartup</span></span></code></pre></div>
+<p>Make some common directories for your user:</p>
+
+
+
+
+
+
+<pre tabindex="0"><code>mkdir -p ~/Documents ~/Desktop ~/Downloads ~/Music ~/Pictures ~/Movies ~/Projects</code></pre>
+<p>In the <code>~/.vnc/xstartup</code> file, add the following:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">XKL_XMODMAP_DISABLE</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">unset</span> SESSION_MANAGER
+</span></span><span class="line"><span class="cl"><span class="nb">unset</span> DBUS_SESSION_BUS_ADDRESS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -x /etc/vnc/xstartup <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> /etc/vnc/xstartup
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -r <span class="nv">$HOME</span>/.Xresources <span class="o">]</span> <span class="o">&amp;&amp;</span> xrdb <span class="nv">$HOME</span>/.Xresources
+</span></span><span class="line"><span class="cl">xsetroot -solid grey
+</span></span><span class="line"><span class="cl">vncconfig -iconic <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gnome-session <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">gnome-panel <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">gnome-settings-daemon <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">metacity <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl">nautilus <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># gnome-terminal &amp;</span></span></span></code></pre></div>
+<p>Then run this in your <code>$USER</code>&rsquo;s shell:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo chmod +x ~/.vnc/xstartup
+</span></span><span class="line"><span class="cl">vncserver</span></span></code></pre></div>
+<p>At this point, you should be able to connect to VNC on your Ubuntu machine by using a VNC Client (see below for clients on Mac and iPhone) and connecting to <code>vnc://YOUR_PUBLIC_IP:5901</code>. The next step will setup VNC to be a systemctl service that will spawn on boot.</p>
+<p>To figure out your public ip from the terminal, you can just use the following command:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl ifconfig.co</span></span></code></pre></div>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo vim /etc/systemd/system/vncserver@.service</span></span></code></pre></div>
+<p>In the <code>/etc/systemd/system/vncserver@.service</code> file, add the following (NOTE: Be sure to replace <strong>YOUR_USER</strong> with the username from above manually):</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[Unit]
+</span></span><span class="line"><span class="cl">Description=Start TightVNC server at startup
+</span></span><span class="line"><span class="cl">After=syslog.target network.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Service]
+</span></span><span class="line"><span class="cl">Type=forking
+</span></span><span class="line"><span class="cl">User=YOUR_USER
+</span></span><span class="line"><span class="cl">Group=YOUR_USER
+</span></span><span class="line"><span class="cl">WorkingDirectory=/home/YOUR_USER
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PIDFile=/home/YOUR_USER/.vnc/%H:%i.pid
+</span></span><span class="line"><span class="cl">ExecStartPre=-/usr/bin/vncserver -kill :%i &gt; /dev/null 2&gt;&amp;1
+</span></span><span class="line"><span class="cl">ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x800 :%i
+</span></span><span class="line"><span class="cl">ExecStop=/usr/bin/vncserver -kill :%i
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Install]
+</span></span><span class="line"><span class="cl">WantedBy=multi-user.target</span></span></code></pre></div>
+<p>Run the following to restart vnc:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vncserver -kill :1
+</span></span><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> vncserver@1.service
+</span></span><span class="line"><span class="cl">sudo systemctl start vncserver@1
+</span></span><span class="line"><span class="cl">sudo systemctl status vncserver@1</span></span></code></pre></div>
+<p>You should now be able to reboot your machine and VNC will be setup on boot.</p>
+<h1 id="getting-chrome-and-vscode-installed">Getting Chrome and VSCode Installed</h1>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+</span></span><span class="line"><span class="cl">sudo dpkg -i google-chrome-stable_current_amd64.deb
+</span></span><span class="line"><span class="cl">rm google-chrome-stable_current_amd64.deb 
+</span></span><span class="line"><span class="cl">wget -O code.deb https://go.microsoft.com/fwlink/?LinkID<span class="o">=</span><span class="m">760868</span>
+</span></span><span class="line"><span class="cl">sudo dpkg -i code.deb 
+</span></span><span class="line"><span class="cl">rm code.deb </span></span></code></pre></div>
+<p>Fix an issue around Code not booting in remote VNC/X sessions and install the VSOnline extension:</p>
+
+
+
+
+
+
+<pre tabindex="0"><code>cd /usr/lib/x86_64-linux-gnu/
 cp libxcb.so.1 libxcb.so.1.bak
 sudo cp libxcb.so.1 libxcb.so.1.bak
-sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' libxcb.so.1
+sudo sed -i &#39;s/BIG-REQUESTS/_IG-REQUESTS/&#39; libxcb.so.1
 cd ~
-code --install-extension ms-vsonline.vsonline
-&lt;/code>&lt;/pre>&lt;p>At this point, you should be able to open up VNC, open VSCode and connect to your Azure account and VSOnline account. In addition, you want to &lt;a class="link" href="https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#self-hosted" target="_blank" rel="noopener"
->Register your local environment&lt;/a> so that it shows up at &lt;a class="link" href="https://online.visualstudio.com" target="_blank" rel="noopener"
->https://online.visualstudio.com&lt;/a>&lt;/p>
-&lt;h1 id="getting-nodejs-and-yarn">Getting NodeJS and Yarn&lt;/h1>
-&lt;p>This will get NodeJS and Yarn and update /etc/sysctl.conf so you don&amp;rsquo;t run into file watcher errors from yarn or VSCode.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">curl -sL https://deb.nodesource.com/setup_12.x &lt;span class="p">|&lt;/span> sudo -E bash -
-sudo apt-get install -y nodejs
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg &lt;span class="p">|&lt;/span> sudo apt-key add -
-&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb https://dl.yarnpkg.com/debian/ stable main&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt install yarn
-npm config &lt;span class="nb">set&lt;/span> python python2.7
-sudo vim /etc/sysctl.conf
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Do the following change to sysctl to fix a common file watcher issue in yarn / vscode:&lt;/p>
-&lt;p>In the &lt;code>/etc/sysctl.conf&lt;/code> File, add the following to the end of the file:&lt;/p>
-&lt;pre tabindex="0">&lt;code>fs.inotify.max_user_watches=524288
-&lt;/code>&lt;/pre>&lt;p>Finally, run the following command:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">sudo sysctl -p
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="getting-jupyter">Getting Jupyter&lt;/h1>
-&lt;p>As your $USER, do the following:&lt;/p>
-&lt;pre tabindex="0">&lt;code>cd Downloads/
+code --install-extension ms-vsonline.vsonline</code></pre>
+<p>At this point, you should be able to open up VNC, open VSCode and connect to your Azure account and VSOnline account. In addition, you want to <a href="https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#self-hosted">Register your local environment</a> so that it shows up at <a href="https://online.visualstudio.com">https://online.visualstudio.com</a></p>
+<h1 id="getting-nodejs-and-yarn">Getting NodeJS and Yarn</h1>
+<p>This will get NodeJS and Yarn and update /etc/sysctl.conf so you don&rsquo;t run into file watcher errors from yarn or VSCode.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -sL https://deb.nodesource.com/setup_12.x <span class="p">|</span> sudo -E bash -
+</span></span><span class="line"><span class="cl">sudo apt-get install -y nodejs
+</span></span><span class="line"><span class="cl">curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg <span class="p">|</span> sudo apt-key add -
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;deb https://dl.yarnpkg.com/debian/ stable main&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/yarn.list
+</span></span><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt install yarn
+</span></span><span class="line"><span class="cl">npm config <span class="nb">set</span> python python2.7
+</span></span><span class="line"><span class="cl">sudo vim /etc/sysctl.conf</span></span></code></pre></div>
+<p>Do the following change to sysctl to fix a common file watcher issue in yarn / vscode:</p>
+<p>In the <code>/etc/sysctl.conf</code> File, add the following to the end of the file:</p>
+
+
+
+
+
+
+<pre tabindex="0"><code>fs.inotify.max_user_watches=524288</code></pre>
+<p>Finally, run the following command:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo sysctl -p</span></span></code></pre></div>
+<h1 id="getting-jupyter">Getting Jupyter</h1>
+<p>As your $USER, do the following:</p>
+
+
+
+
+
+
+<pre tabindex="0"><code>cd Downloads/
 wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh
-bash ./Anaconda3-2019.07-Linux-x86_64.sh
-&lt;/code>&lt;/pre>&lt;p>You&amp;rsquo;ll have to hit [Enter][Space], type &lt;code>yes&lt;/code> to accept Anacondas license terms, [Enter] to confirm &lt;code>/home/$USER/anaconda3&lt;/code> is the right location to install to, &lt;code>yes&lt;/code> again to run conda init &amp;amp; update your PATH, then relogin to your user&amp;rsquo;s shell session. If you run &lt;code>python --version&lt;/code>, you should see Python 3.7+ now.&lt;/p>
-&lt;p>Now just run the following:&lt;/p>
-&lt;pre tabindex="0">&lt;code>conda update --all --yes
-jupyter notebook --ip=0.0.0.0
-&lt;/code>&lt;/pre>&lt;p>Jupyter will give a &lt;code>?token=TOKEN&lt;/code> url in the logs, you should be able to access your Jupyter instance at &lt;code>http://YOUR_PUBLIC_IP:8888?token=TOKEN&lt;/code> and work with notebooks there.&lt;/p>
-&lt;h1 id="getting-postgres">Getting Postgres&lt;/h1>
-&lt;p>Getting postgres setup for local database connections&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">sudo apt-get install -y postgresql
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>You should then be able to access a database locally using:&lt;/p>
-&lt;pre tabindex="0">&lt;code>sudo -u postgres psql
-&lt;/code>&lt;/pre>&lt;h1 id="vnc">VNC&lt;/h1>
-&lt;p>On a Mac, you can use Screen Sharing which is built into Finder (Command+K in Finder) and connect with a &lt;code>vnc://YOUR_IP:5901&lt;/code> url.&lt;/p>
-&lt;p>On iPhone, use &lt;a class="link" href="https://apps.apple.com/us/app/vnc-viewer-remote-desktop/id352019548" target="_blank" rel="noopener"
->VNC Viewer&lt;/a>, just remove the &amp;ldquo;vnc://&amp;rdquo; from the connection, so &lt;code>YOUR_IP:5901&lt;/code> should work.&lt;/p>
-&lt;h1 id="troubleshooting">Troubleshooting&lt;/h1>
-&lt;ul>
-&lt;li>Fallback to SSH via a terminal. Make sure to keep your AWS ssh key. Note that if you set sshd config to allow password auth, that might not work and you will need to login as your created user.&lt;/li>
-&lt;li>Use VNC / Check if GUI is working properly via VNC. A follow up here is to setup vncserver to start on starup for the user you created. VNC will need to have VSCode running on the environment (unfortunately this looks like a limitation of the public beta right now)&lt;/li>
-&lt;/ul>
-&lt;h2 id="debugging--troubleshooting-vnc">Debugging / Troubleshooting VNC&lt;/h2>
-&lt;p>I had the VNC server crash sometimes - to debug, I first checked if SSH was still working - it might be that the VNC server crashed (which is necessary for VSCode to connect to the remote environment). If SSH isn&amp;rsquo;t working, it might be that your VM crashed, check AWS&amp;rsquo;s console to see if there&amp;rsquo;s an issue / maybe reboot.&lt;/p>
-&lt;p>From an ssh session as your $USER, try the following:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">sudo systemctl status vncserver@1.service
-sudo systemctl restart vncserver@1.service
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>If there’s an error, try these to debug / figure out what the issue is:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">vncserver -kill :1
-sudo journalctl -xe
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="what-needs-a-bit-more-work">What needs a bit more work&lt;/h1>
-&lt;p>The VSCode online client seems to get stuck in a &amp;ldquo;Reconnecting&amp;rdquo; state, where its easier to just refresh the page / go back to the environments page and click on your environment again.&lt;/p>
-&lt;p>Right now there&amp;rsquo;s some usability issues that could be resolved:&lt;/p>
-&lt;ul>
-&lt;li>I (manually) shutdown the instance to save on costs when I&amp;rsquo;m not using it. As soon as connection is lost, the instance should shutdown after 2 hours.&lt;/li>
-&lt;li>I would love if I didn&amp;rsquo;t have to use VNC at all (might be difficult since VSCode needs Electron which is based on Chrome, which needs a GUI environment to run).&lt;/li>
-&lt;li>AWS instances and Public IPs: The public IP of the instance changed, so I needed to ssh/vnc to a different host - need a script to automatically find the public ip based on the instance id (aws ec2 cli can give this, but it would be nicer to have a dynamic dns name that I could just hit from AWS). AWS has tutorials on how to do this w/ other services, but honestly Route 53 should just allow me to use an instance-id as an A Alias rather than a public IP (or have to go through some configuration setup on boot).&lt;/li>
-&lt;li>After booting, I still need to manually VNC into the machine, open up VSCode, login TWICE using the same Microsoft credentials (login to Azure, then login to VSOnline&amp;rsquo;s environments), then &amp;ldquo;Restore&amp;rdquo; the environment before I can access via webbrowser. All of this should be possible automatically - first, why isn&amp;rsquo;t VSCode &lt;a class="link" href="https://code.visualstudio.com/api/extension-capabilities/common-capabilities#data-storage" target="_blank" rel="noopener"
->storing&lt;/a>/caching my credentials so that I&amp;rsquo;m automatically re-authenticated to Azure and VSOnline? Second, there should be some configuration where &amp;ldquo;Restoring&amp;rdquo; an environment can be automated/done via command-line and I should be able to start vscode via command line too (ie on boot).&lt;/li>
-&lt;li>This manual process takes around 5 minutes, but its no where near as simple as &amp;ldquo;go to this webpage, you&amp;rsquo;re already authenticated because its storing your auth in a cookie, here&amp;rsquo;s your environment, get started immediately&amp;rdquo;.&lt;/li>
-&lt;/ul>
-&lt;h1 id="the-future">The future&lt;/h1>
-&lt;ul>
-&lt;li>Instant Github integration like Github Actions - &amp;ldquo;edit this repo&amp;rdquo; button built into Github that will automatically provision an environment, clone the repo, and start a build/prebuild command based on a repo&amp;rsquo;s .workspace or .vsonline directory (similar to .github right now)&lt;/li>
-&lt;li>Future: Coding from my phone (iPhone) - not necesarily on my phone&amp;rsquo;s touchscreen, but with my phone connected via USB-C to a 4k monitor, bluetooth connection to keyboard &amp;amp; trackpad. Samsung already kinda has something like this with DeX, but this isn&amp;rsquo;t trying to shoehorn another OS onto your phone - this should just be iOS (or Android), I should be able to go to &lt;a class="link" href="https://online.visualstudio.com" target="_blank" rel="noopener"
->https://online.visualstudio.com&lt;/a> and connect to my devserver. Essentially I wouldn&amp;rsquo;t need a laptop because I could carry my computing device in my pocket and connect to a higher resolution, larger screen whenever/where-ever I need to.&lt;/li>
-&lt;li>Visual Studio online doesnt officially support Safari mobile yet&lt;/li>
-&lt;/ul>
-&lt;h1 id="references">References&lt;/h1>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank" rel="noopener"
->https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/&lt;/a> - Sign up for AWS&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://aws.amazon.com/ec2/getting-started/" target="_blank" rel="noopener"
->https://aws.amazon.com/ec2/getting-started/&lt;/a> - Connecting to an instance (note that AWS has an online console now too, but I generally just use ssh with the downloaded keypair example: &lt;code>ssh -i ~/.ssh/MY_KEYPAIR.pem ubuntu@MY_IP&lt;/code>).&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.digitalocean.com/community/questions/ubuntu-16-04-creating-new-user-and-adding-ssh-keys" target="_blank" rel="noopener"
->https://www.digitalocean.com/community/questions/ubuntu-16-04-creating-new-user-and-adding-ssh-keys&lt;/a> - adding a new user in Ubuntu 18.04&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04" target="_blank" rel="noopener"
->https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04&lt;/a> - getting xfce4 and vnc installed on ubuntu server. Also setting it up to start on reboot.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://visualstudio.microsoft.com/services/visual-studio-online/#signup" target="_blank" rel="noopener"
->https://visualstudio.microsoft.com/services/visual-studio-online/#signup&lt;/a> - Sign up for VSCode Online&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://code.visualstudio.com/docs/remote/vsonline#_selfhosted-environments" target="_blank" rel="noopener"
->https://code.visualstudio.com/docs/remote/vsonline#_selfhosted-environments&lt;/a> - Self hosted environments with VSCode Online&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#self-hosted" target="_blank" rel="noopener"
->https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#self-hosted&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc" target="_blank" rel="noopener"
->https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc&lt;/a> - Fixing file watchers issues&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://github.com/nodesource/distributions/blob/master/README.md" target="_blank" rel="noopener"
->https://github.com/nodesource/distributions/blob/master/README.md&lt;/a> - installing Nodejs on Ubuntu&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://yarnpkg.com/lang/en/docs/install/#debian-stable" target="_blank" rel="noopener"
->https://yarnpkg.com/lang/en/docs/install/#debian-stable&lt;/a> - installing Yarn on Ubuntu&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://mas-dse.github.io/startup/anaconda-ubuntu-install/" target="_blank" rel="noopener"
->https://mas-dse.github.io/startup/anaconda-ubuntu-install/&lt;/a> - Getting Jupyter&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html" target="_blank" rel="noopener"
->https://jupyter-notebook.readthedocs.io/en/stable/public_server.html&lt;/a> - Starting Jupyter notebook on ip=0.0.0.0&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://stackoverflow.com/questions/48210972/xlib-extension-xinputextension-missing-on-display-1-atom-ubuntu" target="_blank" rel="noopener"
->https://stackoverflow.com/questions/48210972/xlib-extension-xinputextension-missing-on-display-1-atom-ubuntu&lt;/a> - Fixing Xlib issue over VNC&lt;/p>
-&lt;/li>
-&lt;/ul></description></item><item><title>Central Park</title><link>https://suyogs.com/p/central-park/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/central-park/</guid><description>&lt;img src="https://suyogs.com/p/central-park/centralpark.jpg" alt="Featured image of post Central Park" />&lt;h1 id="central-park">Central Park&lt;/h1>
-&lt;p>&lt;figure
-class="gallery-image"
-style="
-flex-grow: 133;
-flex-basis: 320px"
->
-&lt;a href="https://suyogs.com/p/central-park/centralpark.jpg" data-size="900x673">
-&lt;img src="https://suyogs.com/p/central-park/centralpark.jpg"
-width="900"
-height="673"
-srcset="https://suyogs.com/p/central-park/centralpark_hu7fba9da1679ce4a56c592454604cb9c1_289485_480x0_resize_q75_box.jpg 480w, https://suyogs.com/p/central-park/centralpark_hu7fba9da1679ce4a56c592454604cb9c1_289485_1024x0_resize_q75_box.jpg 1024w"
-loading="lazy"
-alt="Central Park">
-&lt;/a>
-&lt;figcaption>Central Park&lt;/figcaption>
-&lt;/figure>&lt;/p></description></item><item><title>Github Pages for Static Sites</title><link>https://suyogs.com/p/experiments/github-pages-for-static-sites/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/github-pages-for-static-sites/</guid><description>&lt;img src="https://suyogs.com/images/github_pages/github_pages_cropped.png" alt="Featured image of post Github Pages for Static Sites" />&lt;h1 id="intro">Intro&lt;/h1>
+bash ./Anaconda3-2019.07-Linux-x86_64.sh</code></pre>
+<p>You&rsquo;ll have to hit [Enter][Space], type <code>yes</code> to accept Anacondas license terms, [Enter] to confirm <code>/home/$USER/anaconda3</code> is the right location to install to, <code>yes</code> again to run conda init &amp; update your PATH, then relogin to your user&rsquo;s shell session. If you run <code>python --version</code>, you should see Python 3.7+ now.</p>
+<p>Now just run the following:</p>
+
+
+
+
+
+
+<pre tabindex="0"><code>conda update --all --yes
+jupyter notebook --ip=0.0.0.0</code></pre>
+<p>Jupyter will give a <code>?token=TOKEN</code> url in the logs, you should be able to access your Jupyter instance at <code>http://YOUR_PUBLIC_IP:8888?token=TOKEN</code> and work with notebooks there.</p>
+<h1 id="getting-postgres">Getting Postgres</h1>
+<p>Getting postgres setup for local database connections</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get install -y postgresql</span></span></code></pre></div>
+<p>You should then be able to access a database locally using:</p>
+
+
+
+
+
+
+<pre tabindex="0"><code>sudo -u postgres psql</code></pre>
+<h1 id="vnc">VNC</h1>
+<p>On a Mac, you can use Screen Sharing which is built into Finder (Command+K in Finder) and connect with a <code>vnc://YOUR_IP:5901</code> url.</p>
+<p>On iPhone, use <a href="https://apps.apple.com/us/app/vnc-viewer-remote-desktop/id352019548">VNC Viewer</a>, just remove the &ldquo;vnc://&rdquo; from the connection, so <code>YOUR_IP:5901</code> should work.</p>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<ul>
+<li>Fallback to SSH via a terminal. Make sure to keep your AWS ssh key. Note that if you set sshd config to allow password auth, that might not work and you will need to login as your created user.</li>
+<li>Use VNC / Check if GUI is working properly via VNC. A follow up here is to setup vncserver to start on starup for the user you created. VNC will need to have VSCode running on the environment (unfortunately this looks like a limitation of the public beta right now)</li>
+</ul>
+<h2 id="debugging--troubleshooting-vnc">Debugging / Troubleshooting VNC</h2>
+<p>I had the VNC server crash sometimes - to debug, I first checked if SSH was still working - it might be that the VNC server crashed (which is necessary for VSCode to connect to the remote environment). If SSH isn&rsquo;t working, it might be that your VM crashed, check AWS&rsquo;s console to see if there&rsquo;s an issue / maybe reboot.</p>
+<p>From an ssh session as your $USER, try the following:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo systemctl status vncserver@1.service
+</span></span><span class="line"><span class="cl">sudo systemctl restart vncserver@1.service</span></span></code></pre></div>
+<p>If there’s an error, try these to debug / figure out what the issue is:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vncserver -kill :1
+</span></span><span class="line"><span class="cl">sudo journalctl -xe</span></span></code></pre></div>
+<h1 id="what-needs-a-bit-more-work">What needs a bit more work</h1>
+<p>The VSCode online client seems to get stuck in a &ldquo;Reconnecting&rdquo; state, where its easier to just refresh the page / go back to the environments page and click on your environment again.</p>
+<p>Right now there&rsquo;s some usability issues that could be resolved:</p>
+<ul>
+<li>I (manually) shutdown the instance to save on costs when I&rsquo;m not using it. As soon as connection is lost, the instance should shutdown after 2 hours.</li>
+<li>I would love if I didn&rsquo;t have to use VNC at all (might be difficult since VSCode needs Electron which is based on Chrome, which needs a GUI environment to run).</li>
+<li>AWS instances and Public IPs: The public IP of the instance changed, so I needed to ssh/vnc to a different host - need a script to automatically find the public ip based on the instance id (aws ec2 cli can give this, but it would be nicer to have a dynamic dns name that I could just hit from AWS). AWS has tutorials on how to do this w/ other services, but honestly Route 53 should just allow me to use an instance-id as an A Alias rather than a public IP (or have to go through some configuration setup on boot).</li>
+<li>After booting, I still need to manually VNC into the machine, open up VSCode, login TWICE using the same Microsoft credentials (login to Azure, then login to VSOnline&rsquo;s environments), then &ldquo;Restore&rdquo; the environment before I can access via webbrowser. All of this should be possible automatically - first, why isn&rsquo;t VSCode <a href="https://code.visualstudio.com/api/extension-capabilities/common-capabilities#data-storage">storing</a>/caching my credentials so that I&rsquo;m automatically re-authenticated to Azure and VSOnline? Second, there should be some configuration where &ldquo;Restoring&rdquo; an environment can be automated/done via command-line and I should be able to start vscode via command line too (ie on boot).</li>
+<li>This manual process takes around 5 minutes, but its no where near as simple as &ldquo;go to this webpage, you&rsquo;re already authenticated because its storing your auth in a cookie, here&rsquo;s your environment, get started immediately&rdquo;.</li>
+</ul>
+<h1 id="the-future">The future</h1>
+<ul>
+<li>Instant Github integration like Github Actions - &ldquo;edit this repo&rdquo; button built into Github that will automatically provision an environment, clone the repo, and start a build/prebuild command based on a repo&rsquo;s .workspace or .vsonline directory (similar to .github right now)</li>
+<li>Future: Coding from my phone (iPhone) - not necesarily on my phone&rsquo;s touchscreen, but with my phone connected via USB-C to a 4k monitor, bluetooth connection to keyboard &amp; trackpad. Samsung already kinda has something like this with DeX, but this isn&rsquo;t trying to shoehorn another OS onto your phone - this should just be iOS (or Android), I should be able to go to <a href="https://online.visualstudio.com">https://online.visualstudio.com</a> and connect to my devserver. Essentially I wouldn&rsquo;t need a laptop because I could carry my computing device in my pocket and connect to a higher resolution, larger screen whenever/where-ever I need to.</li>
+<li>Visual Studio online doesnt officially support Safari mobile yet</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li>
+<p><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/</a> - Sign up for AWS</p>
+</li>
+<li>
+<p><a href="https://aws.amazon.com/ec2/getting-started/">https://aws.amazon.com/ec2/getting-started/</a> - Connecting to an instance (note that AWS has an online console now too, but I generally just use ssh with the downloaded keypair example: <code>ssh -i ~/.ssh/MY_KEYPAIR.pem ubuntu@MY_IP</code>).</p>
+</li>
+<li>
+<p><a href="https://www.digitalocean.com/community/questions/ubuntu-16-04-creating-new-user-and-adding-ssh-keys">https://www.digitalocean.com/community/questions/ubuntu-16-04-creating-new-user-and-adding-ssh-keys</a> - adding a new user in Ubuntu 18.04</p>
+</li>
+<li>
+<p><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04">https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04</a> - getting xfce4 and vnc installed on ubuntu server. Also setting it up to start on reboot.</p>
+</li>
+<li>
+<p><a href="https://visualstudio.microsoft.com/services/visual-studio-online/#signup">https://visualstudio.microsoft.com/services/visual-studio-online/#signup</a> - Sign up for VSCode Online</p>
+</li>
+<li>
+<p><a href="https://code.visualstudio.com/docs/remote/vsonline#_selfhosted-environments">https://code.visualstudio.com/docs/remote/vsonline#_selfhosted-environments</a> - Self hosted environments with VSCode Online</p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#self-hosted">https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#self-hosted</a></p>
+</li>
+<li>
+<p><a href="https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc">https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc</a> - Fixing file watchers issues</p>
+</li>
+<li>
+<p><a href="https://github.com/nodesource/distributions/blob/master/README.md">https://github.com/nodesource/distributions/blob/master/README.md</a> - installing Nodejs on Ubuntu</p>
+</li>
+<li>
+<p><a href="https://yarnpkg.com/lang/en/docs/install/#debian-stable">https://yarnpkg.com/lang/en/docs/install/#debian-stable</a> - installing Yarn on Ubuntu</p>
+</li>
+<li>
+<p><a href="https://mas-dse.github.io/startup/anaconda-ubuntu-install/">https://mas-dse.github.io/startup/anaconda-ubuntu-install/</a> - Getting Jupyter</p>
+</li>
+<li>
+<p><a href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html">https://jupyter-notebook.readthedocs.io/en/stable/public_server.html</a> - Starting Jupyter notebook on ip=0.0.0.0</p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/48210972/xlib-extension-xinputextension-missing-on-display-1-atom-ubuntu">https://stackoverflow.com/questions/48210972/xlib-extension-xinputextension-missing-on-display-1-atom-ubuntu</a> - Fixing Xlib issue over VNC</p>
+</li>
+</ul>
+]]></content:encoded></item><item><title>Central Park</title><link>https://suyogs.com/images/central-park/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/images/central-park/</guid><description>&lt;h1 id="central-park">Central Park&lt;/h1>
+&lt;p>&lt;img src="https://suyogs.com/images/centralpark.jpg" alt="Central Park">&lt;/p></description><content:encoded><![CDATA[<h1 id="central-park">Central Park</h1>
+<p><img src="/images/centralpark.jpg" alt="Central Park"></p>
+]]></content:encoded></item><item><title>Github Pages for Static Sites</title><link>https://suyogs.com/p/experiments/github-pages-for-static-sites/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/github-pages-for-static-sites/</guid><description>&lt;h1 id="intro">Intro&lt;/h1>
 &lt;p>Writing a static site has gotten significantly more difficult than &amp;ldquo;upload a .html file to a shared host&amp;rdquo; in the 90s.&lt;/p>
-&lt;p>This post is talking about how I setup &lt;a class="link" href="https://suyogs.com/" target="_blank" rel="noopener"
->this&lt;/a> &lt;a class="link" href="https://github.com/flux159/blog" target="_blank" rel="noopener"
->blog&lt;/a> to be hosted on Github Pages and used a Github Action to update on every push to master. It uses &lt;a class="link" href="https://www.gatsbyjs.org/" target="_blank" rel="noopener"
->Gatsby&lt;/a> as the static site generator and I started with a &lt;a class="link" href="https://www.gatsbyjs.org/starters/hasura/gatsby-gitbook-starter/" target="_blank" rel="noopener"
->template&lt;/a> that lets me use &lt;a class="link" href="https://github.com/mdx-js/mdx" target="_blank" rel="noopener"
->mdx&lt;/a> in my posts for interactive React content.&lt;/p>
-&lt;p>Some of the nice parts of this setup is that I can update the markdown content via the Github online editor (works on mobile and in any browser). Since the Github Action is setup to continuously deploy a new build on every commit to master, I don&amp;rsquo;t need to clone, build, and redeploy on a local machine.&lt;/p>
+&lt;p>This post is talking about how I setup &lt;a href="https://suyogs.com/">this&lt;/a> &lt;a href="https://github.com/flux159/blog">blog&lt;/a> to be hosted on Github Pages and used a Github Action to update on every push to master. It uses &lt;a href="https://www.gatsbyjs.org/">Gatsby&lt;/a> as the static site generator and I started with a &lt;a href="https://www.gatsbyjs.org/starters/hasura/gatsby-gitbook-starter/">template&lt;/a> that lets me use &lt;a href="https://github.com/mdx-js/mdx">mdx&lt;/a> in my posts for interactive React content.&lt;/p></description><content:encoded><![CDATA[<h1 id="intro">Intro</h1>
+<p>Writing a static site has gotten significantly more difficult than &ldquo;upload a .html file to a shared host&rdquo; in the 90s.</p>
+<p>This post is talking about how I setup <a href="https://suyogs.com/">this</a> <a href="https://github.com/flux159/blog">blog</a> to be hosted on Github Pages and used a Github Action to update on every push to master. It uses <a href="https://www.gatsbyjs.org/">Gatsby</a> as the static site generator and I started with a <a href="https://www.gatsbyjs.org/starters/hasura/gatsby-gitbook-starter/">template</a> that lets me use <a href="https://github.com/mdx-js/mdx">mdx</a> in my posts for interactive React content.</p>
+<p>Some of the nice parts of this setup is that I can update the markdown content via the Github online editor (works on mobile and in any browser). Since the Github Action is setup to continuously deploy a new build on every commit to master, I don&rsquo;t need to clone, build, and redeploy on a local machine.</p>
+<h1 id="setup">Setup</h1>
+<p>On a Mac, get <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://yarnpkg.com/lang/en/">Yarn</a> installed. You probably need <a href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">Xcode tools</a> for git and other tools as well.</p>
+<p>Setup global modules for node.js by creating a .npm-global directory as described <a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally">here</a>.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm i -g gatsby-cli
+</span></span><span class="line"><span class="cl">mkdir -p ~/Projects/gatsbysites
+</span></span><span class="line"><span class="cl">gatsby new gatsby-gitbook-starter https://github.com/hasura/gatsby-gitbook-starter
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ./gatsby-gitbook-starter
+</span></span><span class="line"><span class="cl">gatsby develop</span></span></code></pre></div>
+<p>I made a bunch of changes to the config.js file and did some work to change the theme of the site from a purple hue to a blue hue.</p>
+<p>Then I tested out a static build by doing the following:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn build
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ./public <span class="o">&amp;&amp;</span> python -m http.server</span></span></code></pre></div>
+<h1 id="github-pages-and-github-actions">Github Pages and Github Actions</h1>
+<p>Once I knew that a static build would work, I wanted to setup the site so that it could be published to <a href="https://pages.github.com/">Github Pages</a>.</p>
+<p>I created a new public repo on Github, and added my changes:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> git remote add origin &lt;remote repo URL&gt;
+</span></span><span class="line"><span class="cl"> git push -u origin master</span></span></code></pre></div>
+<p>Then I wanted to setup Github Pages to automatically publish to the <a href="https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">gh-pages branch</a>. I saw that there already existed an <a href="https://github.com/enriikke/gatsby-gh-pages-action">action</a> to do that, so I added it to a workflow .yml file in my repo:</p>
+<p><code>&lt;repo&gt;/.github/workflows/main.yml</code></p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Gatsby Publish</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">enriikke/gatsby-gh-pages-action@2.1.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">access-token</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.ACCESS_TOKEN }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">deploy-branch</span><span class="p">:</span><span class="w"> </span><span class="l">gh-pages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">gatsby-args</span><span class="p">:</span><span class="w"> </span>--<span class="l">prefix-paths</span></span></span></code></pre></div>
+<p>The only thing to note here is that there&rsquo;s a secrets.ACCESS_TOKEN that is specified in the file.</p>
+<p>To create this token, you want to create a <a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">personal access token</a> with the <strong>repo</strong> permissions.</p>
+<p>Then in your Repo&rsquo;s Settings, go to <a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets">Secrets</a> and create a secret named &ldquo;ACCESS_TOKEN&rdquo; with the personal access token you just created.</p>
+<p>Now if you make a new change on master and push to the repo, it should automatically publish to the gh-pages branch.</p>
+<p>NOTE: Make sure that your Github repository settings have gh-pages as the branch you want to host pages from.</p>
+<h1 id="setting-up-dns">Setting up DNS</h1>
+<p>Once I had the gh-pages branch setup and autodeploying my changes on commit, I wanted to do one last thing to setup my personal blog - configure my DNS Nameservers to point to Github.</p>
+<p>I use <a href="https://www.namecheap.com/">Namecheap</a> as my Domain Name Provider, so I followed Github&rsquo;s <a href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site">instructions</a> on how to properly setup my A records.</p>
+<p>I also needed to add a <code>CNAME</code> file in my master branch with the name of my site <a href="https://suyogs.com">suyogs.com</a>.</p>
+<p>After the DNS changes propagated, I was able to go to <a href="https://suyogs.com">https://suyogs.com</a> and it showed my Github Pages site!</p>
+<h1 id="additions">Additions</h1>
+<p>I cleaned up some of the CSS and headers that I didn&rsquo;t need from the starter template (and changed the color scheme to use a blue hue).</p>
+<p>I also removed the need for Jquery and Bootstrap js by making the mobile navigation use React instead. Also made sure that the site <strong>mostly</strong> worked without Javascript (obvious things like mobile dropdown and live mode JS code don&rsquo;t work).</p>
+<h1 id="todos">Todos</h1>
+<ul>
+<li>I still need to add commenting and social sharing to the site to allow it to be more interactive and easily shareable. <a href="https://www.gatsbyjs.org/docs/adding-comments/">Gatsby</a> has a number of solutions for adding commenting to the site.</li>
+<li><a href="https://swas.io/blog/social-share-button-for-gatsby-blog-pages/">React Share</a> is an option for adding social sharing.</li>
+<li>Adding an index page with <a href="https://www.gatsbyjs.org/docs/adding-pagination/">pagination</a> along with an <a href="https://www.gatsbyjs.org/docs/adding-an-rss-feed/">RSS feed</a> would make the site more accessible to read from other sources.</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://www.gatsbyjs.org/">https://www.gatsbyjs.org/</a></li>
+<li><a href="https://pages.github.com/">https://pages.github.com/</a></li>
+<li><a href="https://github.com/features/actions">https://github.com/features/actions</a></li>
+<li><a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets">https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets</a></li>
+<li><a href="https://medium.com/@hossainkhan/using-custom-domain-for-github-pages-86b303d3918a">https://medium.com/@hossainkhan/using-custom-domain-for-github-pages-86b303d3918a</a></li>
+<li><a href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site">https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site</a></li>
+</ul>
+]]></content:encoded></item><item><title>QEMU and Tinycore Linux</title><link>https://suyogs.com/p/experiments/qemu-and-tinycore/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/qemu-and-tinycore/</guid><description>&lt;p>Experiment working with QEMU and Tinycore linux on a Mac.&lt;/p>
 &lt;h1 id="setup">Setup&lt;/h1>
-&lt;p>On a Mac, get &lt;a class="link" href="https://nodejs.org/en/" target="_blank" rel="noopener"
->Node.js&lt;/a> and &lt;a class="link" href="https://yarnpkg.com/lang/en/" target="_blank" rel="noopener"
->Yarn&lt;/a> installed. You probably need &lt;a class="link" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/" target="_blank" rel="noopener"
->Xcode tools&lt;/a> for git and other tools as well.&lt;/p>
-&lt;p>Setup global modules for node.js by creating a .npm-global directory as described &lt;a class="link" href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally" target="_blank" rel="noopener"
->here&lt;/a>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">npm i -g gatsby-cli
-mkdir -p ~/Projects/gatsbysites
-gatsby new gatsby-gitbook-starter https://github.com/hasura/gatsby-gitbook-starter
-&lt;span class="nb">cd&lt;/span> ./gatsby-gitbook-starter
-gatsby develop
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>I made a bunch of changes to the config.js file and did some work to change the theme of the site from a purple hue to a blue hue.&lt;/p>
-&lt;p>Then I tested out a static build by doing the following:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">yarn build
-&lt;span class="nb">cd&lt;/span> ./public &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> python -m http.server
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="github-pages-and-github-actions">Github Pages and Github Actions&lt;/h1>
-&lt;p>Once I knew that a static build would work, I wanted to setup the site so that it could be published to &lt;a class="link" href="https://pages.github.com/" target="_blank" rel="noopener"
->Github Pages&lt;/a>.&lt;/p>
-&lt;p>I created a new public repo on Github, and added my changes:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell"> git remote add origin &amp;lt;remote repo URL&amp;gt;
-git push -u origin master
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then I wanted to setup Github Pages to automatically publish to the &lt;a class="link" href="https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" target="_blank" rel="noopener"
->gh-pages branch&lt;/a>. I saw that there already existed an &lt;a class="link" href="https://github.com/enriikke/gatsby-gh-pages-action" target="_blank" rel="noopener"
->action&lt;/a> to do that, so I added it to a workflow .yml file in my repo:&lt;/p>
-&lt;p>&lt;code>&amp;lt;repo&amp;gt;/.github/workflows/main.yml&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Gatsby Publish&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">master&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">build&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-latest&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">enriikke/gatsby-gh-pages-action@2.1.1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">access-token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.ACCESS_TOKEN }}&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy-branch&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">gh-pages&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gatsby-args&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>--&lt;span class="l">prefix-paths&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The only thing to note here is that there&amp;rsquo;s a secrets.ACCESS_TOKEN that is specified in the file.&lt;/p>
-&lt;p>To create this token, you want to create a &lt;a class="link" href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line" target="_blank" rel="noopener"
->personal access token&lt;/a> with the &lt;strong>repo&lt;/strong> permissions.&lt;/p>
-&lt;p>Then in your Repo&amp;rsquo;s Settings, go to &lt;a class="link" href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets" target="_blank" rel="noopener"
->Secrets&lt;/a> and create a secret named &amp;ldquo;ACCESS_TOKEN&amp;rdquo; with the personal access token you just created.&lt;/p>
-&lt;p>Now if you make a new change on master and push to the repo, it should automatically publish to the gh-pages branch.&lt;/p>
-&lt;p>NOTE: Make sure that your Github repository settings have gh-pages as the branch you want to host pages from.&lt;/p>
-&lt;h1 id="setting-up-dns">Setting up DNS&lt;/h1>
-&lt;p>Once I had the gh-pages branch setup and autodeploying my changes on commit, I wanted to do one last thing to setup my personal blog - configure my DNS Nameservers to point to Github.&lt;/p>
-&lt;p>I use &lt;a class="link" href="https://www.namecheap.com/" target="_blank" rel="noopener"
->Namecheap&lt;/a> as my Domain Name Provider, so I followed Github&amp;rsquo;s &lt;a class="link" href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site" target="_blank" rel="noopener"
->instructions&lt;/a> on how to properly setup my A records.&lt;/p>
-&lt;p>I also needed to add a &lt;code>CNAME&lt;/code> file in my master branch with the name of my site &lt;a class="link" href="https://suyogs.com" target="_blank" rel="noopener"
->suyogs.com&lt;/a>.&lt;/p>
-&lt;p>After the DNS changes propagated, I was able to go to &lt;a class="link" href="https://suyogs.com" target="_blank" rel="noopener"
->https://suyogs.com&lt;/a> and it showed my Github Pages site!&lt;/p>
-&lt;h1 id="additions">Additions&lt;/h1>
-&lt;p>I cleaned up some of the CSS and headers that I didn&amp;rsquo;t need from the starter template (and changed the color scheme to use a blue hue).&lt;/p>
-&lt;p>I also removed the need for Jquery and Bootstrap js by making the mobile navigation use React instead. Also made sure that the site &lt;strong>mostly&lt;/strong> worked without Javascript (obvious things like mobile dropdown and live mode JS code don&amp;rsquo;t work).&lt;/p>
-&lt;h1 id="todos">Todos&lt;/h1>
-&lt;ul>
-&lt;li>I still need to add commenting and social sharing to the site to allow it to be more interactive and easily shareable. &lt;a class="link" href="https://www.gatsbyjs.org/docs/adding-comments/" target="_blank" rel="noopener"
->Gatsby&lt;/a> has a number of solutions for adding commenting to the site.&lt;/li>
-&lt;li>&lt;a class="link" href="https://swas.io/blog/social-share-button-for-gatsby-blog-pages/" target="_blank" rel="noopener"
->React Share&lt;/a> is an option for adding social sharing.&lt;/li>
-&lt;li>Adding an index page with &lt;a class="link" href="https://www.gatsbyjs.org/docs/adding-pagination/" target="_blank" rel="noopener"
->pagination&lt;/a> along with an &lt;a class="link" href="https://www.gatsbyjs.org/docs/adding-an-rss-feed/" target="_blank" rel="noopener"
->RSS feed&lt;/a> would make the site more accessible to read from other sources.&lt;/li>
-&lt;/ul>
-&lt;h1 id="references">References&lt;/h1>
-&lt;ul>
-&lt;li>&lt;a class="link" href="https://www.gatsbyjs.org/" target="_blank" rel="noopener"
->https://www.gatsbyjs.org/&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://pages.github.com/" target="_blank" rel="noopener"
->https://pages.github.com/&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://github.com/features/actions" target="_blank" rel="noopener"
->https://github.com/features/actions&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets" target="_blank" rel="noopener"
->https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://medium.com/@hossainkhan/using-custom-domain-for-github-pages-86b303d3918a" target="_blank" rel="noopener"
->https://medium.com/@hossainkhan/using-custom-domain-for-github-pages-86b303d3918a&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site" target="_blank" rel="noopener"
->https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>QEMU and Tinycore Linux</title><link>https://suyogs.com/p/experiments/qemu-and-tinycore/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/qemu-and-tinycore/</guid><description>&lt;img src="https://suyogs.com/images/qemu_and_tinycore_linux/qemu.png" alt="Featured image of post QEMU and Tinycore Linux" />&lt;p>Experiment working with QEMU and Tinycore linux on a Mac.&lt;/p>
-&lt;h1 id="setup">Setup&lt;/h1>
-&lt;p>On a Mac, get &lt;a class="link" href="https://www.qemu.org/" target="_blank" rel="noopener"
->QEMU&lt;/a> by using &lt;a class="link" href="https://brew.sh/" target="_blank" rel="noopener"
->Homebrew&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">brew install qemu
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Download Core-current.iso and TinyCore-current.iso from Tinycore&amp;rsquo;s &lt;a class="link" href="http://tinycorelinux.net/downloads.html" target="_blank" rel="noopener"
->website&lt;/a>. For the experiment below, they are located in my Downloads folder &lt;code>~/Downloads/&lt;/code>.&lt;/p>
+&lt;p>On a Mac, get &lt;a href="https://www.qemu.org/">QEMU&lt;/a> by using &lt;a href="https://brew.sh/">Homebrew&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install qemu&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;p>Download Core-current.iso and TinyCore-current.iso from Tinycore&amp;rsquo;s &lt;a href="http://tinycorelinux.net/downloads.html">website&lt;/a>. For the experiment below, they are located in my Downloads folder &lt;code>~/Downloads/&lt;/code>.&lt;/p>
 &lt;h1 id="experiment">Experiment&lt;/h1>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">mkdir qemutests
-&lt;span class="nb">cd&lt;/span> qemutests
-qemu-img create tinycore.img 512M
-qemu-system-x86_64 -hda tinycore.img -m &lt;span class="m">512&lt;/span> -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd&lt;span class="o">=&lt;/span>tcp:127.0.0.1:8008-:80
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note that you &lt;strong>must&lt;/strong> have that second -net command to download things properly.&lt;/p>
-&lt;p>Qemu will open up a window and booting from the iso should only take 10 seconds.&lt;/p>
-&lt;p>If you logout, there’s a user with the name “tc” that you can login as again.&lt;/p>
-&lt;p>If you sudo reboot right now before following the &amp;ldquo;install&amp;rdquo; instructions below, you will lose all data in the VM since the entire OS is running in memory and is not persisted to the qemu-img disk you created earlier.&lt;/p>
-&lt;h2 id="extensions">Extensions&lt;/h2>
-&lt;p>To download extensions (like packages in Ubuntu or CentOS), you can use &lt;a class="link" href="http://wiki.tinycorelinux.net/wiki:tce-load" target="_blank" rel="noopener"
->tce-load&lt;/a>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">tce-load -iw vim
-tce-load -iw python3.6-dev
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note that I was having multiple issues around md5sum mismatches when installing extensions using tce-load. This happened for both the shell based Core and GUI based TinyCore.&lt;/p>
-&lt;p>You can partially get around the md5 check by using tce-fetch, but this is not recommended for most non-experimental purposes.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">tce-fetch.sh gvim.gcz
-tce-load -i gvim.gcz
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>In my few hours of experimenting, I wasn&amp;rsquo;t able to find out a good fix for the md5sum issues. Feel free to leave an &lt;a class="link" href="https://github.com/Flux159/blog/issues" target="_blank" rel="noopener"
->issue&lt;/a> on my blog&amp;rsquo;s github if you&amp;rsquo;re able to find a fix.&lt;/p>
-&lt;h2 id="installing-to-disk">Installing to Disk&lt;/h2>
-&lt;p>This is mainly following TinyCore&amp;rsquo;s &lt;a class="link" href="http://tinycorelinux.net/install_manual.html" target="_blank" rel="noopener"
->install manual&lt;/a> for making a bootable hard drive w/ tiny core rather than just the iso booting in QEMU.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">tce-load -wi cfdisk
-tce-load -wi grub-0.97-splash
-sudo su
-fdisk -l &lt;span class="o">(&lt;/span>should show /dev/sda - which will be used &lt;span class="k">for&lt;/span> following commands&lt;span class="o">)&lt;/span>
-cfdisk /dev/sda
-&lt;span class="c1"># The following is in the cfdisk terminal interface&lt;/span>
-&lt;span class="o">[&lt;/span>New&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>Primary&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>Enter &lt;span class="k">for&lt;/span> default&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>Beginning&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>Bootable - &lt;span class="k">select&lt;/span> this&lt;span class="o">]&lt;/span>
-&lt;span class="o">[&lt;/span>Write&lt;span class="o">]&lt;/span>
-yes
-&lt;span class="o">[&lt;/span>Quit&lt;span class="o">]&lt;/span>
-mkfs.ext3 /dev/sda1
-rebuildfstab
-mount /mnt/sda1
-mkdir -p /mnt/sda1/boot/grub
-&lt;span class="c1"># Mount the original boot media (the disk) - it was at /dev/sr0 (just did cat /etc/fstab to check):&lt;/span>
-mount /mnt/sr0
-cp -p /mnt/sr0/boot/* /mnt/sda1/boot/
-mkdir -p /mnt/sda1/tce
-touch /mnt/sda1/tce/mydata.tgz
-cp -p /usr/lib/grub/i386-pc/* /mnt/hda1/boot/grub/
-vi /mnt/hda1/boot/grub/menu.lst
-&lt;span class="c1"># Type “i”, insert the following (note that the install_manual is out of date - follow this: http://forum.tinycorelinux.net/index.php?topic=15713.0):&lt;/span>
-default &lt;span class="m">0&lt;/span>
-timeout &lt;span class="m">10&lt;/span>
-title tinycore
-kernel /boot/vmlinuz quiet
-initrd /boot/core.gz
-&lt;span class="c1"># Use Esc + :wq to save the file and quit&lt;/span>
-grub
-root &lt;span class="o">(&lt;/span>hd0,0&lt;span class="o">)&lt;/span>
-setup &lt;span class="o">(&lt;/span>hd0&lt;span class="o">)&lt;/span>
-quit
-umount /mnt/hdc
-eject /dev/hdc
-reboot
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note that cfdisk, etc. have been deleted because they were installed on the temporary iso, but now that you’ve installed to disk, the next time you run qemu, you can just boot from disk:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">qemu-system-x86_64 -hda tinycore.img -m &lt;span class="m">512&lt;/span> -boot d -net nic -net user,hostfwd&lt;span class="o">=&lt;/span>tcp:127.0.0.1:8009-:80
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="references">References&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">mkdir qemutests
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> qemutests
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">qemu-img create tinycore.img 512M
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">qemu-system-x86_64 -hda tinycore.img -m &lt;span class="m">512&lt;/span> -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd&lt;span class="o">=&lt;/span>tcp:127.0.0.1:8008-:80&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;p>Note that you &lt;strong>must&lt;/strong> have that second -net command to download things properly.&lt;/p></description><content:encoded><![CDATA[<p>Experiment working with QEMU and Tinycore linux on a Mac.</p>
+<h1 id="setup">Setup</h1>
+<p>On a Mac, get <a href="https://www.qemu.org/">QEMU</a> by using <a href="https://brew.sh/">Homebrew</a></p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install qemu</span></span></code></pre></div>
+<p>Download Core-current.iso and TinyCore-current.iso from Tinycore&rsquo;s <a href="http://tinycorelinux.net/downloads.html">website</a>. For the experiment below, they are located in my Downloads folder <code>~/Downloads/</code>.</p>
+<h1 id="experiment">Experiment</h1>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir qemutests
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> qemutests 
+</span></span><span class="line"><span class="cl">qemu-img create tinycore.img 512M
+</span></span><span class="line"><span class="cl">qemu-system-x86_64 -hda tinycore.img -m <span class="m">512</span> -cdrom ~/Downloads/Core-current.iso -boot d -net nic -net user,hostfwd<span class="o">=</span>tcp:127.0.0.1:8008-:80</span></span></code></pre></div>
+<p>Note that you <strong>must</strong> have that second -net command to download things properly.</p>
+<p>Qemu will open up a window and booting from the iso should only take 10 seconds.</p>
+<p>If you logout, there’s a user with the name “tc” that you can login as again.</p>
+<p>If you sudo reboot right now before following the &ldquo;install&rdquo; instructions below, you will lose all data in the VM since the entire OS is running in memory and is not persisted to the qemu-img disk you created earlier.</p>
+<h2 id="extensions">Extensions</h2>
+<p>To download extensions (like packages in Ubuntu or CentOS), you can use <a href="http://wiki.tinycorelinux.net/wiki:tce-load">tce-load</a>.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">tce-load -iw vim
+</span></span><span class="line"><span class="cl">tce-load -iw python3.6-dev</span></span></code></pre></div>
+<p>Note that I was having multiple issues around md5sum mismatches when installing extensions using tce-load. This happened for both the shell based Core and GUI based TinyCore.</p>
+<p>You can partially get around the md5 check by using tce-fetch, but this is not recommended for most non-experimental purposes.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">tce-fetch.sh gvim.gcz
+</span></span><span class="line"><span class="cl">tce-load -i gvim.gcz</span></span></code></pre></div>
+<p>In my few hours of experimenting, I wasn&rsquo;t able to find out a good fix for the md5sum issues. Feel free to leave an <a href="https://github.com/Flux159/blog/issues">issue</a> on my blog&rsquo;s github if you&rsquo;re able to find a fix.</p>
+<h2 id="installing-to-disk">Installing to Disk</h2>
+<p>This is mainly following TinyCore&rsquo;s <a href="http://tinycorelinux.net/install_manual.html">install manual</a> for making a bootable hard drive w/ tiny core rather than just the iso booting in QEMU.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">tce-load -wi cfdisk
+</span></span><span class="line"><span class="cl">tce-load -wi grub-0.97-splash
+</span></span><span class="line"><span class="cl">sudo su
+</span></span><span class="line"><span class="cl">fdisk -l <span class="o">(</span>should show /dev/sda - which will be used <span class="k">for</span> following commands<span class="o">)</span>
+</span></span><span class="line"><span class="cl">cfdisk /dev/sda
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># The following is in the cfdisk terminal interface</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>New<span class="o">]</span> <span class="o">[</span>Primary<span class="o">]</span> <span class="o">[</span>Enter <span class="k">for</span> default<span class="o">]</span> <span class="o">[</span>Beginning<span class="o">]</span> <span class="o">[</span>Bootable - <span class="k">select</span> this<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Write<span class="o">]</span>
+</span></span><span class="line"><span class="cl">yes
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Quit<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkfs.ext3 /dev/sda1
+</span></span><span class="line"><span class="cl">rebuildfstab
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mount /mnt/sda1
+</span></span><span class="line"><span class="cl">mkdir -p /mnt/sda1/boot/grub
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Mount the original boot media (the disk) - it was at /dev/sr0 (just did cat /etc/fstab to check):</span>
+</span></span><span class="line"><span class="cl">mount /mnt/sr0
+</span></span><span class="line"><span class="cl">cp -p /mnt/sr0/boot/* /mnt/sda1/boot/
+</span></span><span class="line"><span class="cl">mkdir -p /mnt/sda1/tce
+</span></span><span class="line"><span class="cl">touch /mnt/sda1/tce/mydata.tgz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cp -p /usr/lib/grub/i386-pc/* /mnt/hda1/boot/grub/
+</span></span><span class="line"><span class="cl">vi /mnt/hda1/boot/grub/menu.lst
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Type “i”, insert the following (note that the install_manual is out of date - follow this: http://forum.tinycorelinux.net/index.php?topic=15713.0):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">default <span class="m">0</span>
+</span></span><span class="line"><span class="cl">timeout <span class="m">10</span>
+</span></span><span class="line"><span class="cl">title tinycore
+</span></span><span class="line"><span class="cl">kernel /boot/vmlinuz quiet
+</span></span><span class="line"><span class="cl">initrd /boot/core.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Use Esc + :wq to save the file and quit</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">grub
+</span></span><span class="line"><span class="cl">root <span class="o">(</span>hd0,0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">setup <span class="o">(</span>hd0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">quit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">umount /mnt/hdc
+</span></span><span class="line"><span class="cl">eject /dev/hdc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">reboot</span></span></code></pre></div>
+<p>Note that cfdisk, etc. have been deleted because they were installed on the temporary iso, but now that you’ve installed to disk, the next time you run qemu, you can just boot from disk:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">qemu-system-x86_64 -hda tinycore.img -m <span class="m">512</span> -boot d -net nic -net user,hostfwd<span class="o">=</span>tcp:127.0.0.1:8009-:80 </span></span></code></pre></div>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="http://tinycorelinux.net/faq.html">http://tinycorelinux.net/faq.html</a> - Tinycore&rsquo;s FAQ</li>
+<li><a href="http://tinycorelinux.net/install_manual.html">http://tinycorelinux.net/install_manual.html</a> - Tinycore&rsquo;s Install Manual</li>
+<li><a href="http://forum.tinycorelinux.net/index.php?topic=15713.0">http://forum.tinycorelinux.net/index.php?topic=15713.0</a> - Forum post about changes to grub configuration</li>
+<li><a href="https://jon.sprig.gs/blog/post/53">https://jon.sprig.gs/blog/post/53</a> - useful to start experimenting with Qemu arguments</li>
+</ul>
+]]></content:encoded></item><item><title>Titanic Dataset</title><link>https://suyogs.com/p/experiments/titanic-dataset/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/titanic-dataset/</guid><description>&lt;p>Working with the &lt;a href="https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/problem12.html">Titanic Dataset&lt;/a> in Jupyter.&lt;/p>
+&lt;iframe src="https://suyogs.com/htmlresources/titanicdataset.html" title="dummy" frameborder="0" width="800px" height="600px">&lt;/iframe></description><content:encoded><![CDATA[<p>Working with the <a href="https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/problem12.html">Titanic Dataset</a> in Jupyter.</p>
+<iframe src="/htmlresources/titanicdataset.html" title="dummy" frameborder="0" width="800px" height="600px"></iframe>
+]]></content:encoded></item><item><title>Zero to Web Browser</title><link>https://suyogs.com/p/experiments/zero-to-web-browser/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/zero-to-web-browser/</guid><description>&lt;h1 id="intro">Intro&lt;/h1>
+&lt;p>This is mainly a thought project I&amp;rsquo;ve had for a while now taking inspiration from &lt;a href="https://www.nand2tetris.org/">Nand2Tetris&lt;/a>, &lt;a href="https://wiki.osdev.org/Expanded_Main_Page">OS Development&lt;/a>, &lt;a href="https://pomb.us/build-your-own-react/">Build your own react&lt;/a> and various projects working on making an Operating Sytem from scratch.&lt;/p>
+&lt;p>I want to take the next step from writing an OS (bootloader, kernel, processes &amp;amp; memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web. Ideally this would be taught as a course in college to inform students of the wide variety of different topics in Computer Science and Computer Engineering.&lt;/p></description><content:encoded><![CDATA[<h1 id="intro">Intro</h1>
+<p>This is mainly a thought project I&rsquo;ve had for a while now taking inspiration from <a href="https://www.nand2tetris.org/">Nand2Tetris</a>, <a href="https://wiki.osdev.org/Expanded_Main_Page">OS Development</a>, <a href="https://pomb.us/build-your-own-react/">Build your own react</a> and various projects working on making an Operating Sytem from scratch.</p>
+<p>I want to take the next step from writing an OS (bootloader, kernel, processes &amp; memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web. Ideally this would be taught as a course in college to inform students of the wide variety of different topics in Computer Science and Computer Engineering.</p>
+<h1 id="steps">Steps</h1>
+<p>(Modern) Computers from the ground up to a Web Browser to Machine Learning (along the way need to mention Math, Physics/Mechanics/Chemistry, optimization / businesses that allow people in the next layer to focus on making that better):</p>
+<ul>
+<li>Physics + Electrical circuits (voltage, amps, op amps / transistor circuits, nand gates / boolean logic)</li>
+<li>Hardware circuits - ALU, memory, CPU, assembly instructions for arbitrary computation</li>
+<li>Operating system / Kernel &amp; User space / Process &amp; memory management / Drivers / (Persistent Disk) / Networking (possibly w/ Telephony/Wireless) - C</li>
+<li>Terminal / Shell, font rendering, windowing system, shell utilities built in</li>
+<li>Operating System(s) revisited (apps / spreadsheets (data flow) / docs / presentations - “Office”), Photoshop, Aside: Intro to databases (Filemaker, Access, SQLite, MySQL, Postgres, etc.)</li>
+<li>Windowing system + HTTP / HTML / CSS + Javascript, Images / image utilities, videos &amp; video compression</li>
+<li>Games and Graphics - v1 (could have been before windowing system, but more relevant here - still talk about nethack, ascii games, etc.) - for terminal a “large” project could be getting Tetris (custom code) / Nethack (compile existing code) working in environment</li>
+<li>Search google, view images on FB, browse the web, post data into forms, etc. (communicate)</li>
+<li>“Create” on the web - google docs, web based editors, etc.</li>
+<li>Create a search engine using the networking tools, parse data into structured formats, use databases, indices (writing a search engine) - beginning of “data science”</li>
+<li>Modern apps (desktop, mobile, web); services (Netflix, Youtube, Facebook); ad based revenue models, privacy</li>
+<li>Machine learning - the tools &amp; how to think about it from a high level perspective - simple algorithms to neural networks and systematization of data science tools to support ML</li>
+<li>Optimizations in specific fields helping in other fields</li>
+<li>iOS, Android, KaiOS, mobile computing and the future of computation (trucks vs cars analogy kinda works but only goes so far)</li>
+</ul>
+<h1 id="aside">Aside</h1>
+<p>This is mainly just a thought experiment at the moment, but if I have sufficient time, I&rsquo;d want to work/collaborate on a project like this.</p>
+]]></content:encoded></item><item><title>Projects</title><link>https://suyogs.com/projects/</link><pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/projects/</guid><description>&lt;h1 id="tigerbot">Tigerbot&lt;/h1>
+&lt;p>&lt;a href="https://github.com/Flux159/Tigerbot/wiki">Tigerbot&lt;/a> was a project in &lt;a href="https://www.cmu.edu/">college&lt;/a> for CMU&amp;rsquo;s &lt;a href="http://www.build18.org/">Build18&lt;/a> event. It was a 2 wheeled robot made in 2011 that could be controlled via an iPhone. One PCB was custom developed, the low level microcontroller code was coded by Kevin Li, and the iPhone connected to the bot via a Beagleboard with USB Wifi.&lt;/p>
+&lt;h1 id="newsatlasio">Newsatlas.io&lt;/h1>
+&lt;p>&lt;a href="http://newsatlas.io/">Newsatlas&lt;/a> was a single page app that I used to learn AngularJS with - it is now defunct because Google removed the APIs that I was using to retrieve news data. The logic to map between a news article and the location was done client side based on how many times the articles description text contained a location. A filtered list of every city, country, and state was sent over to the client as a large dictionary to remove the need for a webserver.&lt;/p></description><content:encoded><![CDATA[<h1 id="tigerbot">Tigerbot</h1>
+<p><a href="https://github.com/Flux159/Tigerbot/wiki">Tigerbot</a> was a project in <a href="https://www.cmu.edu/">college</a> for CMU&rsquo;s <a href="http://www.build18.org/">Build18</a> event. It was a 2 wheeled robot made in 2011 that could be controlled via an iPhone. One PCB was custom developed, the low level microcontroller code was coded by Kevin Li, and the iPhone connected to the bot via a Beagleboard with USB Wifi.</p>
+<h1 id="newsatlasio">Newsatlas.io</h1>
+<p><a href="http://newsatlas.io/">Newsatlas</a> was a single page app that I used to learn AngularJS with - it is now defunct because Google removed the APIs that I was using to retrieve news data. The logic to map between a news article and the location was done client side based on how many times the articles description text contained a location. A filtered list of every city, country, and state was sent over to the client as a large dictionary to remove the need for a webserver.</p>
+<h1 id="treehouse-clash">Treehouse Clash</h1>
+<p><a href="http://www.chronotale.com/treehouse-clash.html">Treehouse Clash</a> was a simple 3d game I wrote in Objective-C. It was used to learn about OpenGL, iPhone game development, and computer graphics. I wrote the entire 3d Game Engine from scrach in Objective-C and learned Blender along the way for creating 3d models.</p>
+<h1 id="slicerio">Slicer.io</h1>
+<p><a href="https://www.reddit.com/r/slicer/">Slicer</a> was a reddit-like website where users could create spaces and post content (links, images, audio, videos). I wrote a React-like web framework with a browser + node router that could do serverside rendering for this website.</p>
+<h1 id="scriptflow">ScriptFlow</h1>
+<p><a href="https://scriptflow.io/">Scriptflow</a> is a dataflow tool written in Node.js and React. I designed and wrote the graphical DAG engine, designed the website, wrote the docs, and deployed to AWS.</p>
+]]></content:encoded></item><item><title>Work</title><link>https://suyogs.com/work/</link><pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/work/</guid><description>&lt;h1 id="work">Work&lt;/h1>
+&lt;p>&lt;strong>Chronotale:&lt;/strong> Founder. New York, NY &lt;em>(2021-present)&lt;/em>&lt;/p>
+&lt;p>&lt;strong>&lt;a href="https://www.facebook.com/careers/">Facebook&lt;/a> / &lt;a href="https://about.facebook.com/meta">Meta&lt;/a>:&lt;/strong> Staff Software Engineer. New York, NY &lt;em>(2018-2021)&lt;/em>&lt;/p>
 &lt;ul>
-&lt;li>&lt;a class="link" href="http://tinycorelinux.net/faq.html" target="_blank" rel="noopener"
->http://tinycorelinux.net/faq.html&lt;/a> - Tinycore&amp;rsquo;s FAQ&lt;/li>
-&lt;li>&lt;a class="link" href="http://tinycorelinux.net/install_manual.html" target="_blank" rel="noopener"
->http://tinycorelinux.net/install_manual.html&lt;/a> - Tinycore&amp;rsquo;s Install Manual&lt;/li>
-&lt;li>&lt;a class="link" href="http://forum.tinycorelinux.net/index.php?topic=15713.0" target="_blank" rel="noopener"
->http://forum.tinycorelinux.net/index.php?topic=15713.0&lt;/a> - Forum post about changes to grub configuration&lt;/li>
-&lt;li>&lt;a class="link" href="https://jon.sprig.gs/blog/post/53" target="_blank" rel="noopener"
->https://jon.sprig.gs/blog/post/53&lt;/a> - useful to start experimenting with Qemu arguments&lt;/li>
-&lt;/ul></description></item><item><title>Titanic Dataset</title><link>https://suyogs.com/p/experiments/titanic-dataset/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/titanic-dataset/</guid><description>&lt;img src="https://suyogs.com/images/titanic_dataset/titanic.jpeg" alt="Featured image of post Titanic Dataset" />&lt;p>Working with the &lt;a class="link" href="https://web.stanford.edu/class/archive/cs/cs109/cs109.1166/problem12.html" target="_blank" rel="noopener"
->Titanic Dataset&lt;/a> in Jupyter.&lt;/p>
-&lt;iframe src="https://suyogs.com/htmlresources/titanicdataset.html" title="dummy" frameborder="0" width="800px" height="600px">&lt;/iframe></description></item><item><title>Zero to Web Browser</title><link>https://suyogs.com/p/experiments/zero-to-web-browser/</link><pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/experiments/zero-to-web-browser/</guid><description>&lt;img src="https://suyogs.com/images/zero_to_web_browser/chrome.png" alt="Featured image of post Zero to Web Browser" />&lt;h1 id="intro">Intro&lt;/h1>
-&lt;p>This is mainly a thought project I&amp;rsquo;ve had for a while now taking inspiration from &lt;a class="link" href="https://www.nand2tetris.org/" target="_blank" rel="noopener"
->Nand2Tetris&lt;/a>, &lt;a class="link" href="https://wiki.osdev.org/Expanded_Main_Page" target="_blank" rel="noopener"
->OS Development&lt;/a>, &lt;a class="link" href="https://pomb.us/build-your-own-react/" target="_blank" rel="noopener"
->Build your own react&lt;/a> and various projects working on making an Operating Sytem from scratch.&lt;/p>
-&lt;p>I want to take the next step from writing an OS (bootloader, kernel, processes &amp;amp; memory management, drivers) to writing a full fledged Web Browser. This would involve a lot of additional work (including writing a windowing engine, html/css parser, JS engine), but it should be feasible to have a working system that can connect to the Web. Ideally this would be taught as a course in college to inform students of the wide variety of different topics in Computer Science and Computer Engineering.&lt;/p>
-&lt;h1 id="steps">Steps&lt;/h1>
-&lt;p>(Modern) Computers from the ground up to a Web Browser to Machine Learning (along the way need to mention Math, Physics/Mechanics/Chemistry, optimization / businesses that allow people in the next layer to focus on making that better):&lt;/p>
-&lt;ul>
-&lt;li>Physics + Electrical circuits (voltage, amps, op amps / transistor circuits, nand gates / boolean logic)&lt;/li>
-&lt;li>Hardware circuits - ALU, memory, CPU, assembly instructions for arbitrary computation&lt;/li>
-&lt;li>Operating system / Kernel &amp;amp; User space / Process &amp;amp; memory management / Drivers / (Persistent Disk) / Networking (possibly w/ Telephony/Wireless) - C&lt;/li>
-&lt;li>Terminal / Shell, font rendering, windowing system, shell utilities built in&lt;/li>
-&lt;li>Operating System(s) revisited (apps / spreadsheets (data flow) / docs / presentations - “Office”), Photoshop, Aside: Intro to databases (Filemaker, Access, SQLite, MySQL, Postgres, etc.)&lt;/li>
-&lt;li>Windowing system + HTTP / HTML / CSS + Javascript, Images / image utilities, videos &amp;amp; video compression&lt;/li>
-&lt;li>Games and Graphics - v1 (could have been before windowing system, but more relevant here - still talk about nethack, ascii games, etc.) - for terminal a “large” project could be getting Tetris (custom code) / Nethack (compile existing code) working in environment&lt;/li>
-&lt;li>Search google, view images on FB, browse the web, post data into forms, etc. (communicate)&lt;/li>
-&lt;li>“Create” on the web - google docs, web based editors, etc.&lt;/li>
-&lt;li>Create a search engine using the networking tools, parse data into structured formats, use databases, indices (writing a search engine) - beginning of “data science”&lt;/li>
-&lt;li>Modern apps (desktop, mobile, web); services (Netflix, Youtube, Facebook); ad based revenue models, privacy&lt;/li>
-&lt;li>Machine learning - the tools &amp;amp; how to think about it from a high level perspective - simple algorithms to neural networks and systematization of data science tools to support ML&lt;/li>
-&lt;li>Optimizations in specific fields helping in other fields&lt;/li>
-&lt;li>iOS, Android, KaiOS, mobile computing and the future of computation (trucks vs cars analogy kinda works but only goes so far)&lt;/li>
+&lt;li>&lt;a href="https://developers.facebook.com/blog/post/2021/09/20/eli5-bento-interactive-notebook-empowers-development-collaboration-best-practices/">Bento&lt;/a> - &amp;ldquo;Jupyter Notebooks at Facebook&amp;rdquo;, also 3d web work at Reality Labs (FRL). Javascript, React, and Python.&lt;/li>
 &lt;/ul>
-&lt;h1 id="aside">Aside&lt;/h1>
-&lt;p>This is mainly just a thought experiment at the moment, but if I have sufficient time, I&amp;rsquo;d want to work/collaborate on a project like this.&lt;/p></description></item></channel></rss>
+&lt;p>&lt;strong>&lt;a href="https://www.hioscar.com/careers">Oscar Health&lt;/a>:&lt;/strong> Software Engineer. New York, NY &lt;em>(2015-2016)&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Doctor portal, doctor search, mobile telemedicine with Python Flask, React and React Native.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;a href="https://www.capitalonecareers.com/">Capital One&lt;/a>:&lt;/strong> Web Application Developer. Washington DC &lt;em>(2012-2013)&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Capital One Online Banking Website. Java Spring Framework with Javascript.&lt;/li>
+&lt;/ul>
+&lt;h1 id="education">Education&lt;/h1>
+&lt;p>Masters of Science in Electrical and Computer Engineering; &lt;strong>&lt;a href="https://www.ece.cmu.edu/">Carnegie Mellon University&lt;/a>&lt;/strong> Pittsburgh, PA &lt;em>(2011-2011)&lt;/em>&lt;/p></description><content:encoded><![CDATA[<h1 id="work">Work</h1>
+<p><strong>Chronotale:</strong> Founder. New York, NY <em>(2021-present)</em></p>
+<p><strong><a href="https://www.facebook.com/careers/">Facebook</a> / <a href="https://about.facebook.com/meta">Meta</a>:</strong> Staff Software Engineer. New York, NY <em>(2018-2021)</em></p>
+<ul>
+<li><a href="https://developers.facebook.com/blog/post/2021/09/20/eli5-bento-interactive-notebook-empowers-development-collaboration-best-practices/">Bento</a> - &ldquo;Jupyter Notebooks at Facebook&rdquo;, also 3d web work at Reality Labs (FRL). Javascript, React, and Python.</li>
+</ul>
+<p><strong><a href="https://www.hioscar.com/careers">Oscar Health</a>:</strong> Software Engineer. New York, NY <em>(2015-2016)</em></p>
+<ul>
+<li>Doctor portal, doctor search, mobile telemedicine with Python Flask, React and React Native.</li>
+</ul>
+<p><strong><a href="https://www.capitalonecareers.com/">Capital One</a>:</strong> Web Application Developer. Washington DC <em>(2012-2013)</em></p>
+<ul>
+<li>Capital One Online Banking Website. Java Spring Framework with Javascript.</li>
+</ul>
+<h1 id="education">Education</h1>
+<p>Masters of Science in Electrical and Computer Engineering; <strong><a href="https://www.ece.cmu.edu/">Carnegie Mellon University</a></strong>  Pittsburgh, PA <em>(2011-2011)</em></p>
+<p>Bachelors of Science in Electrical and Computer Engineering; <strong><a href="https://www.ece.cmu.edu/">Carnegie Mellon University</a></strong> Pittsburgh, PA <em>(2007-2011)</em></p>
+<ul>
+<li>Additional Major in <a href="https://www.cmu.edu/bme/">Biomedical Engineering</a></li>
+</ul>
+]]></content:encoded></item><item><title>About</title><link>https://suyogs.com/about/</link><pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate><guid>https://suyogs.com/about/</guid><description>&lt;p>&lt;a href="../work/">Work&lt;/a>&lt;/p>
+&lt;p>&lt;a href="../projects/">Projects&lt;/a>&lt;/p>
+&lt;p>&lt;a href="../categories/experiments/">Experiments and Thoughts&lt;/a>&lt;/p>
+&lt;!-- TODO: Add paginated / searchable index page -->
+&lt;hr>
+&lt;p>Hosted on &lt;a href="https://pages.github.com/">Github Pages&lt;/a>.
+Using &lt;a href="https://gohugo.io/">Hugo&lt;/a> with &lt;a href="https://daringfireball.net/projects/markdown/">Markdown&lt;/a>. Theme by &lt;a href="https://github.com/maolonglong/hugo-simple">Hugo Simple&lt;/a>.&lt;/p>
+&lt;p>Published via &lt;a href="https://github.com/features/actions">Github Actions&lt;/a>.&lt;/p></description><content:encoded><![CDATA[<p><a href="../work/">Work</a></p>
+<p><a href="../projects/">Projects</a></p>
+<p><a href="../categories/experiments/">Experiments and Thoughts</a></p>
+<!-- TODO: Add paginated / searchable index page -->
+<hr>
+<p>Hosted on <a href="https://pages.github.com/">Github Pages</a>.
+Using <a href="https://gohugo.io/">Hugo</a> with <a href="https://daringfireball.net/projects/markdown/">Markdown</a>. Theme by <a href="https://github.com/maolonglong/hugo-simple">Hugo Simple</a>.</p>
+<p>Published via <a href="https://github.com/features/actions">Github Actions</a>.</p>
+]]></content:encoded></item></channel></rss>
