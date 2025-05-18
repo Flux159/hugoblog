@@ -2,6 +2,7 @@
 title: "Work"
 metaTitle: "Work Experience"
 metaDescription: "Professional work experience"
+date: 2019-11-27
 slug: "/work"
 ---
 

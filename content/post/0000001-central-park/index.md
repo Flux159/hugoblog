@@ -13,4 +13,4 @@ image: centralpark.jpg
 
 # Central Park
 
-![Central Park](centralpark.jpg)
+![Central Park](/images/centralpark.jpg)
