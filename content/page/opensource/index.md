@@ -14,6 +14,8 @@ slug: "/opensource"
     <a href="/projects/">Projects</a>
 </div>
 
+### Open Source
+
 * [mcp-server-kubernetes](https://github.com/flux159/mcp-server-kubernetes) - A kubernetes MCP server
 * [mcp-chat](https://github.com/flux159/mcp-chat) - A CLI and web client to test out MCP servers for developers
 * [claude-code-go](https://github.com/flux159/claude-code-go) - An api server and mobile client for [Claude Code](https://github.com/anthropics/claude-code)
