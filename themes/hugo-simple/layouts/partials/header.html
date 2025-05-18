@@ -1,6 +1,9 @@
 <nav>{{- partial "nav.html" . -}}</nav>
 
 <h1>{{ .Title }}</h1>
+{{ if and .IsPage (eq .Section "post") }}
+<p>by {{ .Site.Params.author.name }}</p>
+{{ end }}
 {{ with .Description }}
   <p>{{ . }}</p>
 {{ end }}
