@@ -6,9 +6,15 @@ date: 2019-11-27
 slug: "/work"
 ---
 
+[LinkedIn](https://linkedin.com/in/suyogsonwalkar)
+
 # Work
 
-**Chronotale:** Founder. New York, NY *(2021-present)*
+**[Chronotale](https://chronotale.com):** Founder. New York, NY *(2021-2023)*, *(2024-present)*
+
+**[South Park Commons](https://www.southparkcommons.com/):** Member. San Francisco, CA *(Nov 2024-May 2025)*
+
+**Lastmile AI:** Cofounder & CTO. New York, NY *(2023-2024)*
 
 **[Facebook](https://www.facebook.com/careers/) / [Meta](https://about.facebook.com/meta):** Staff Software Engineer. New York, NY *(2018-2021)*
 - [Bento](https://developers.facebook.com/blog/post/2021/09/20/eli5-bento-interactive-notebook-empowers-development-collaboration-best-practices/) - "Jupyter Notebooks at Facebook", also 3d web work at Reality Labs (FRL). Javascript, React, and Python.
@@ -21,7 +27,7 @@ slug: "/work"
 
 # Education
 
-Masters of Science in Electrical and Computer Engineering; **[Carnegie Mellon University](https://www.ece.cmu.edu/)**  Pittsburgh, PA *(2011-2011)*
+Masters of Science in Electrical and Computer Engineering; **[Carnegie Mellon University](https://www.ece.cmu.edu/)**  Pittsburgh, PA *(May 2011- Dec 2011)*
 
 Bachelors of Science in Electrical and Computer Engineering; **[Carnegie Mellon University](https://www.ece.cmu.edu/)** Pittsburgh, PA *(2007-2011)*  
 - Additional Major in [Biomedical Engineering](https://www.cmu.edu/bme/)

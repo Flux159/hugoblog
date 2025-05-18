@@ -23,8 +23,10 @@ git clone https://github.com/Flux159/hugoblog
 ### Development
 
 ```
-hugo server -D
+bun run dev
 ```
+
+Or do `hugo server -D` if want to run manually w/out bun.
 
 Then go to http://localhost:1313/
 
