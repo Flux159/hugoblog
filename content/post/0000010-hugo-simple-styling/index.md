@@ -1,6 +1,6 @@
 ---
 title: Hugo Simple Styling
-date: 2025-05-16
+date: 2025-05-18
 categories:
   - Experiments
 tags:
