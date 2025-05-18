@@ -5,7 +5,7 @@ theme:
 # paginate: 5
 pagination:
     pagerSize: 50
-title: Suyog's Blog
+title: Suyog Sonwalkar
 
 # Doing this makes some stuff work better if testing out with file:// urls
 # but it still shows directories that way; might as well just use
@@ -31,6 +31,8 @@ permalinks:
     page: /:slug/
 
 params:
+    author:
+        name: Suyog Sonwalkar
     hideMadeWithLine: true
     mainSections:
         - post
