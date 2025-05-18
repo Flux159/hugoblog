@@ -3,12 +3,10 @@ title: "About"
 metaTitle: "Suyogs Website"
 metaDescription: "Suyogs Website"
 description: "Suyogs Website"
-date: 2019-11-28
+date: 2019-11-26
 aliases:
   - about
 ---
-
-A humble beginning for my blog.
 
 [Work](../work/)
 
@@ -21,5 +19,6 @@ A humble beginning for my blog.
 ---
 
 Hosted on [Github Pages](https://pages.github.com/). 
-Using [Hugo](https://gohugo.io/) with [Markdown](https://daringfireball.net/projects/markdown/). 
+Using [Hugo](https://gohugo.io/) with [Markdown](https://daringfireball.net/projects/markdown/). Theme by [Hugo Simple](https://github.com/maolonglong/hugo-simple).
+
 Published via [Github Actions](https://github.com/features/actions).
