@@ -2,6 +2,7 @@
 title: "Projects"
 metaTitle: "Suyogs Projects"
 metaDescription: "Projects that I have worked on"
+date: 2019-11-27
 slug: "/projects"
 ---
 
