@@ -2,19 +2,23 @@
 title: "About"
 metaTitle: "Suyogs Website"
 metaDescription: "Suyogs Website"
-description: "Suyogs Website"
 date: 2019-11-26
 aliases:
   - about
 ---
 
-[Work](../work/)
+<div style="display: flex; justify-content: space-between;">
+  <a href="/about/" style="margin-right: 8px">About</a>
+  <a href="/work/">Work</a>
+  <a href="/opensource/">Open Source</a>
+  <a href="/projects/">Projects</a>
+</div>
 
-[Projects](../projects/)
+Hi, I'm Suyog 👋
 
-[Experiments and Thoughts](../categories/experiments/)
+Former staff software engineer at [Meta](https://www.meta.com/), worked on Facebook's internal jupyter notebook tool called [Bento](https://developers.facebook.com/blog/post/2021/09/20/eli5-bento-interactive-notebook-empowers-development-collaboration-best-practices/) and at Oculus on WebGPU technology. Ex-CTO of Lastmile AI and formerly software engineer at [Oscar Health](https://www.hioscar.com/).
 
-<!-- TODO: Add paginated / searchable index page -->
+Currently building a new AI startup in San Francisco.
 
 ---
 

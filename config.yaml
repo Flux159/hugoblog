@@ -196,6 +196,19 @@ menu:
           weight: -90
           params:
             icon: user
+        # - identifier: work
+        #   name: Work
+        #   url: /work/
+        #   weight: -80
+        # - identifier: opensource
+        #   name: Open Source
+        #   url: /opensource/
+        #   weight: -70
+        # - identifier: projects
+        #   name: Projects
+        #   url: /projects/
+        #   weight: -60
+
         # - identifier: archives
         #   name: Archives
         #   url: /archives/
