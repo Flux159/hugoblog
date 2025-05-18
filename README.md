@@ -3,18 +3,21 @@
 
 Most of this can be found on hugo quickstart page: https://gohugo.io/getting-started/quick-start/
 
-There's also this for the theme: https://docs.stack.jimmycai.com/getting-started.html
-
 Install hugo on mac:
 ```
 brew install hugo
 ```
 
+Currently using:
+```shell
+$ hugo version
+hugo v0.147.3+extended+withdeploy darwin/arm64 BuildDate=2025-05-12T12:25:03Z VendorInfo=brew
+```
+
 ### Cloning
 
-This repo uses submodules, so you should clone like this:
 ```
-git clone --recurse-submodules https://github.com/Flux159/hugoblog.git
+git clone https://github.com/Flux159/hugoblog
 ```
 
 ### Development
