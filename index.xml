@@ -10,6 +10,7 @@
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/flux159/mcp-server-kubernetes" target="_blank">mcp-server-kubernetes&lt;/a> - A kubernetes MCP server&lt;/li>
 &lt;li>&lt;a href="https://github.com/flux159/mcp-chat" target="_blank">mcp-chat&lt;/a> - A CLI and web client to test out MCP servers for developers&lt;/li>
+&lt;li>&lt;a href="https://github.com/flux159/spanner-orm" target="_blank">spanner-orm&lt;/a> - An ORM for Google Spanner &amp;amp; Postgres / Pglite&lt;/li>
 &lt;li>&lt;a href="https://github.com/flux159/claude-code-go" target="_blank">claude-code-go&lt;/a> - An api server and mobile client for &lt;a href="https://github.com/anthropics/claude-code" target="_blank">Claude Code&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/Flux159/agentic-shell" target="_blank">agentic-shell&lt;/a> - experimental shell where commands are generated from english&lt;/li>
 &lt;/ul>
@@ -24,6 +25,7 @@
 <ul>
 <li><a href="https://github.com/flux159/mcp-server-kubernetes" target="_blank">mcp-server-kubernetes</a> - A kubernetes MCP server</li>
 <li><a href="https://github.com/flux159/mcp-chat" target="_blank">mcp-chat</a> - A CLI and web client to test out MCP servers for developers</li>
+<li><a href="https://github.com/flux159/spanner-orm" target="_blank">spanner-orm</a> - An ORM for Google Spanner &amp; Postgres / Pglite</li>
 <li><a href="https://github.com/flux159/claude-code-go" target="_blank">claude-code-go</a> - An api server and mobile client for <a href="https://github.com/anthropics/claude-code" target="_blank">Claude Code</a></li>
 <li><a href="https://github.com/Flux159/agentic-shell" target="_blank">agentic-shell</a> - experimental shell where commands are generated from english</li>
 </ul>
