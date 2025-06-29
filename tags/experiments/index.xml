@@ -4,7 +4,7 @@
 &lt;p>Install Homebrew: &lt;a href="https://brew.sh/" target="_blank">https://brew.sh/&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">/bin/bash -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;p>Get gnupg via Homebrew: &lt;a href="https://formulae.brew.sh/formula/gnupg" target="_blank">https://formulae.brew.sh/formula/gnupg&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">Brew install gnupg&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install gnupg&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;h3 id="installation-ubuntu">Installation (Ubuntu)&lt;/h3>
 &lt;p>On Ubuntu (tested with 24.04):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">apt-get update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> apt-get install -y gpg&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
@@ -27,7 +27,7 @@
 
 
 
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Brew install gnupg</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install gnupg</span></span></code></pre></div>
 <h3 id="installation-ubuntu">Installation (Ubuntu)</h3>
 <p>On Ubuntu (tested with 24.04):</p>
 
