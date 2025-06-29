@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Suyog Sonwalkar</title><link>https://suyogs.com/tags/cryptography/</link><description>Recent content on Suyog Sonwalkar</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2019-2025 Suyog Sonwalkar</copyright><lastBuildDate>Sun, 29 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://suyogs.com/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>GPG Signing Github Commits</title><link>https://suyogs.com/p/gpg-signing-github-commits/</link><pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate><guid>https://suyogs.com/p/gpg-signing-github-commits/</guid><description>&lt;p>Recently I had to get GPG signing of my commits on Github to contribute to a repository. Documenting the process in a single post since Github&amp;rsquo;s docs are pretty verbose on this.&lt;/p>
+&lt;h2 id="gpg-signing-github-commits">GPG Signing Github commits&lt;/h2>
+&lt;h3 id="installation-mac">Installation (Mac)&lt;/h3>
+&lt;p>Install Homebrew: &lt;a href="https://brew.sh/" target="_blank">https://brew.sh/&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">/bin/bash -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;p>Get gnupg via Homebrew: &lt;a href="https://formulae.brew.sh/formula/gnupg" target="_blank">https://formulae.brew.sh/formula/gnupg&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">Brew install gnupg&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;h3 id="installation-ubuntu">Installation (Ubuntu)&lt;/h3>
+&lt;p>On Ubuntu (tested with 24.04):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">apt-get update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> apt-get install -y gpg&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;h3 id="creating-the-key">Creating the key&lt;/h3>
+&lt;p>Creating a key (full docs here):&lt;/p></description><content:encoded><![CDATA[<p>Recently I had to get GPG signing of my commits on Github to contribute to a repository. Documenting the process in a single post since Github&rsquo;s docs are pretty verbose on this.</p>
+<h2 id="gpg-signing-github-commits">GPG Signing Github commits</h2>
+<h3 id="installation-mac">Installation (Mac)</h3>
+<p>Install Homebrew: <a href="https://brew.sh/" target="_blank">https://brew.sh/</a></p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span></span></span></code></pre></div>
+<p>Get gnupg via Homebrew: <a href="https://formulae.brew.sh/formula/gnupg" target="_blank">https://formulae.brew.sh/formula/gnupg</a></p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Brew install gnupg</span></span></code></pre></div>
+<h3 id="installation-ubuntu">Installation (Ubuntu)</h3>
+<p>On Ubuntu (tested with 24.04):</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">apt-get update <span class="o">&amp;&amp;</span> apt-get install -y gpg</span></span></code></pre></div>
+<h3 id="creating-the-key">Creating the key</h3>
+<p>Creating a key (full docs here):</p>
+<p><a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key" target="_blank">https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key</a></p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">gpg --full-generate-key</span></span></code></pre></div>
+<p>Use RSA (3072 or 4096), default for most other things. You may need to pass in exact name &amp; exact email that you used on Github.</p>
+<p>It will get you to type a passphrase as part of this process.</p>
+<p>On Mac OS, the passphrase seemed to already be setup to use keychain so I didn’t need to type it in everytime I signed GitHub commits, but you may need to do this manually (my <code>git config --list</code> shows it’s setup to use keychain).</p>
+<h3 id="listing-your-keys">Listing your keys</h3>
+<p>List keys (full docs here):</p>
+<p><a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys" target="_blank">https://docs.github.com/en/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys</a></p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">gpg --list-secret-keys --keyid-format<span class="o">=</span>long</span></span></code></pre></div>
+<p>Get the public key (key_id is the id AFTER the “sec   rsa3072/“ part from the list keys above):</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">gpg --armor --export &lt;key_id&gt;</span></span></code></pre></div>
+<p>Add key to your Github account (full docs here):</p>
+<p><a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account" target="_blank">https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account</a></p>
+<p>From that export command, go here: <a href="https://github.com/settings/keys" target="_blank">https://github.com/settings/keys</a> and then add a new GPG key adding your public key (including the <code>-----BEGIN PGP PUBLIC KEY BLOCK-----</code> and <code>-----END PGP PUBLIC KEY BLOCK-----</code> parts)</p>
+<h3 id="using-with-git">Using with git</h3>
+<p>When you make a commit, use the <code>-S</code> flag, you will sign the commit. Example:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git commit -S -m <span class="s2">&#34;YOUR_COMMIT_MESSAGE&#34;</span></span></span></code></pre></div>
+<p>Git push to push commit to remote:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git push </span></span></code></pre></div>
+<h3 id="using-with-sapling">Using with sapling</h3>
+<p>Note that I had issues with this with interactive smartlog &amp; trying to get it working via CLI (the passphrase thing didn&rsquo;t work correctly). It&rsquo;s relatively new for sapling so kinda buggy.</p>
+<p>Full docs: <a href="https://sapling-scm.com/docs/git/signing/" target="_blank">https://sapling-scm.com/docs/git/signing/</a></p>
+<p>Check that your sapling username and email are set to the same thing as git:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sl config ui.username</span></span></code></pre></div>
+<p>Configure sapling to sign commits (key_id is the same as above):</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sl config --local gpg.key &lt;key_id&gt;</span></span></code></pre></div>
+<p>You should see: “updated config in <code>&lt;repo_dir&gt;/.sl/config</code>”</p>
+<p>Note that there’s no need to use a -S flag as it’s configured for all sapling commits in a specific repository.</p>
+<p>If you want for all repositories, you want to use:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sl config —user gpg.key &lt;key_id&gt;</span></span></code></pre></div>
+<p>You should see “updated config in <code>~/Library/Preferences/sapling/sapling.conf</code>”</p>
+<p>Disabling for sapling incase it doesn&rsquo;t work correctly:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># User</span>
+</span></span><span class="line"><span class="cl">sl config --user gpg.enabled<span class="o">=</span><span class="nb">false</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Local</span>
+</span></span><span class="line"><span class="cl">sl config --local gpg.enabled<span class="o">=</span>false</span></span></code></pre></div>
+<h3 id="misc">Misc</h3>
+<p>Copying keys to another computer (just copy the entire ~/.gnupg directory over w/ scp, etc.):
+<a href="https://superuser.com/questions/1277421/copying-gnupg-keys-to-a-new-computer" target="_blank">https://superuser.com/questions/1277421/copying-gnupg-keys-to-a-new-computer</a></p>
+]]></content:encoded></item></channel></rss>
