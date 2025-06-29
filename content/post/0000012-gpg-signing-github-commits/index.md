@@ -25,7 +25,7 @@ Install Homebrew: https://brew.sh/
 Get gnupg via Homebrew: https://formulae.brew.sh/formula/gnupg 
 
 ```shell
-Brew install gnupg
+brew install gnupg
 ```
 
 ### Installation (Ubuntu)
